@@ -1,0 +1,131 @@
+/* Asegúrate de que en tu archivo app.css o global también esté: */
+html,
+body {
+  overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+/* DiscoverEsquel styles */
+.discover-container {
+  background-color: #44543c;
+  padding: 5rem;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  display: flex;
+  flex-direction: row;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.7rem;
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.image-grid img {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2rem;
+  gap: 2rem;
+}
+
+.text-content h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.text-content p {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #ccc;
+  text-align: justify;
+}
+
+.services-btn {
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: rgb(201, 124, 0);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+  margin-top: 0.5rem;
+}
+
+.services-btn:hover {
+  background-color: rgb(235, 146, 2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .discover-container {
+    flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+    padding: 3rem 1rem; /* Reduce el padding en pantallas más pequeñas */
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    margin-bottom: 1rem; /* Ajuste del margen inferior */
+  }
+
+  .text-content {
+    padding-left: 0; /* Elimina el padding izquierdo en pantallas pequeñas */
+    padding-top: 1rem; /* Agrega un pequeño espacio arriba */
+  }
+
+  .text-content h2 {
+    font-size: 2rem; /* Reduce el tamaño del título */
+  }
+
+  .text-content p {
+    font-size: 1.2rem; /* Reduce el tamaño del texto */
+  }
+
+  .services-btn {
+    width: 100%; /* Botón ocupa todo el ancho */
+    margin-top: 1rem; /* Aumenta el espacio superior */
+  }
+
+  .image-grid {
+    order: 1; /* Asegura que las imágenes queden al final */
+  }
+
+  .text-content {
+    order: 2; /* Asegura que el texto quede primero */
+  }
+}
+
+/* Para pantallas más pequeñas (menos de 480px) */
+@media (max-width: 480px) {
+  .discover-container {
+    padding: 2rem 0.5rem; /* Ajuste adicional de padding */
+  }
+
+  .image-grid img {
+    height: 200px; /* Ajusta la altura de las imágenes */
+  }
+
+  .text-content h2 {
+    font-size: 1.8rem; /* Reduce aún más el tamaño del título */
+  }
+
+  .text-content p {
+    font-size: 1rem; /* Reduce aún más el tamaño del texto */
+  }
+
+  .services-btn {
+    font-size: 1rem; /* Reduce el tamaño del texto del botón */
+  }
+}

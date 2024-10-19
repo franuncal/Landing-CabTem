@@ -1,0 +1,183 @@
+.cabin-container {
+  max-width: 1200px; /* Limita el ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor */
+  padding: 20px;
+}
+
+.cabin-banner {
+  position: relative;
+  overflow: hidden; /* Oculta desbordes */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-top: 80px;
+  width: 100%; /* Ocupa el ancho completo */
+  height: 70vh; /* Altura del banner */
+}
+
+.cabin-banner img {
+  width: 100%;
+  height: 100%; /* Las imágenes ocupan todo el banner */
+  object-fit: cover; /* Asegura que las imágenes llenen el contenedor sin distorsión */
+  transition: opacity 0.5s ease; /* Suaviza el efecto de transición */
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%); /* Centra verticalmente */
+}
+
+.carousel-controls button {
+  background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente */
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Suaviza el cambio de color */
+}
+
+.carousel-controls button:hover {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    1
+  ); /* Fondo completo al pasar el ratón */
+}
+
+.cabin-info {
+  display: flex; /* Usamos flexbox para alinear horizontalmente */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  margin: 100px 0; /* Espacio alrededor de la información */
+}
+
+.info-item {
+  display: flex; /* Usamos flexbox para alinear el ícono y el texto */
+  flex-direction: column; /* Coloca el ícono arriba del texto */
+  align-items: center; /* Centra el contenido horizontalmente */
+  margin: 0 100px; /* Espacio entre los elementos */
+}
+
+.info-item svg {
+  margin-bottom: 30px; /* Espacio debajo del ícono */
+}
+
+.info-item p {
+  margin: 5px 0 0; /* Espacio arriba del texto */
+  text-align: center; /* Centra el texto */
+  font-size: 1.3rem;
+  color: #777;
+}
+
+.reservation {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 5rem;
+}
+
+.reservation button {
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: rgb(201, 124, 0);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: center;
+  margin-top: 0.5rem;
+}
+
+.reservation button:hover {
+  background-color: rgb(235, 146, 2); /* Color del botón al pasar el ratón */
+}
+
+.cabin-description {
+  margin-top: 20px; /* Espacio superior de la descripción */
+}
+
+.cabin-services-title {
+  font-size: 2rem; /* Tamaño más grande para el título de servicios */
+  margin-bottom: 15px; /* Espacio debajo del título */
+}
+
+.services-list {
+  list-style-type: none; /* Elimina el estilo de lista predeterminado */
+  margin-left: 0; /* Elimina la sangría a la izquierda */
+  margin-bottom: 15px; /* Espacio debajo de la lista */
+  padding: 0; /* Elimina el padding predeterminado */
+}
+
+.services-list li {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.2rem; /* Aumenta el tamaño del texto de la lista */
+  display: flex; /* Usamos flex para alinear el ícono y el texto */
+  align-items: center; /* Centra verticalmente los íconos y el texto */
+  margin-bottom: 10px; /* Espacio entre los elementos de la lista */
+}
+
+.services-list li svg {
+  margin-right: 30px; /* Espacio entre el ícono y el texto */
+  color: rgb(68, 84, 60); /* Cambia el color del ícono, puedes ajustar esto */
+}
+
+.description-title {
+  font-size: 2rem; /* Tamaño del título de descripción igual al de servicios */
+  margin-top: 50px; /* Mayor separación arriba */
+}
+
+.cabin-description p {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .cabin-info {
+    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+    align-items: center; /* Centra horizontalmente */
+  }
+
+  .info-item {
+    margin: 20px 0; /* Ajusta el margen entre elementos */
+  }
+
+  .reservation button {
+    width: 100%; /* Botón ocupa todo el ancho en pantallas pequeñas */
+  }
+
+  .services-list li {
+    justify-content: flex-start; /* Centra íconos y texto en la lista */
+  }
+
+  .cabin-banner {
+    height: 50vh; /* Reduce la altura del banner en pantallas más pequeñas */
+  }
+
+  .cabin-description p {
+    font-size: 1.2rem; /* Ajusta el tamaño de la descripción */
+  }
+}
+
+@media (max-width: 480px) {
+  .reservation {
+    font-size: 1.5rem; /* Reduce el tamaño del texto de reserva */
+  }
+
+  .cabin-services-title,
+  .description-title {
+    font-size: 1.5rem; /* Ajusta el tamaño de los títulos */
+  }
+
+  .cabin-description p {
+    font-size: 1rem; /* Reduce aún más el tamaño de la descripción */
+  }
+}

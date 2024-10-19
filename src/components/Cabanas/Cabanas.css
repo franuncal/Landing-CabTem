@@ -1,0 +1,100 @@
+.cabanas-container {
+  text-align: center;
+  padding: 4rem 2rem; /* Más espacio arriba y abajo */
+}
+
+.cabanas-container h2 {
+  font-size: 2.5rem;
+  color: #44543c;
+  margin-bottom: 1rem;
+}
+
+.cabanas-container p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem; /* Espacio entre descripción y cards */
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  width: 30%;
+  margin: 1rem;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card-img {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card:hover .overlay p {
+  content: "+ información"; /* Cambia el texto del hover */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 80%; /* Reduce el tamaño de la tarjeta en pantallas más pequeñas */
+    margin: 1rem auto; /* Centra las tarjetas en pantallas pequeñas */
+  }
+
+  .cabanas-container h2 {
+    font-size: 2rem; /* Reduce el tamaño del título en pantallas pequeñas */
+  }
+
+  .cabanas-container p {
+    font-size: 1rem; /* Reduce el tamaño del párrafo en pantallas pequeñas */
+  }
+}
+
+@media (max-width: 480px) {
+  .cabanas-container h2 {
+    font-size: 1.8rem; /* Tamaño de fuente más pequeño para pantallas muy pequeñas */
+  }
+
+  .overlay p {
+    font-size: 1.2rem; /* Ajusta el tamaño de fuente en la superposición para pantallas pequeñas */
+  }
+}

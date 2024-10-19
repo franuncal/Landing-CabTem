@@ -1,0 +1,102 @@
+/* Presentation.css */
+.presentation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+}
+
+.text-content-p {
+  flex: 1;
+}
+
+.presentation-title {
+  color: #44543c;
+  text-align: center;
+  font-weight: 400;
+}
+
+.presentation-title,
+h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.presentation-description {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: #555;
+  text-align: justify;
+}
+
+.image-content-p {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 2rem;
+}
+
+.presentation-img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.title-description2 {
+  color: #44543c;
+  font-weight: 300;
+  padding-top: 1.5rem;
+}
+
+/* Responsive */
+/* Responsive */
+@media (max-width: 768px) {
+  .presentation-container {
+    flex-direction: column;
+    text-align: center;
+    margin: 2rem 1rem; /* Añadido margen para mayor separación */
+  }
+
+  .text-content-p {
+    margin-bottom: 2rem; /* Añadido margen para separar el texto de la imagen */
+  }
+
+  .presentation-img {
+    width: 100%;
+    max-width: 300px; /* Ajustado el tamaño de la imagen en pantallas más pequeñas */
+    margin: 0 auto; /* Centrado la imagen */
+  }
+
+  .presentation-description {
+    font-size: 1.2rem; /* Ajustado el tamaño del texto para pantallas más pequeñas */
+  }
+}
+
+/* Pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .presentation-title,
+  h2 {
+    font-size: 1.8rem; /* Reducido el tamaño del título */
+  }
+
+  .presentation-description {
+    font-size: 1rem; /* Reducido el tamaño de la descripción */
+    line-height: 1.5; /* Ajustado el interlineado para mejorar la legibilidad */
+  }
+
+  .presentation-img {
+    max-width: 250px; /* Reducido el tamaño de la imagen para pantallas muy pequeñas */
+  }
+
+  .presentation-container {
+    padding: 1rem; /* Reducido el padding para pantallas muy pequeñas */
+  }
+}

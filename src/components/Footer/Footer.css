@@ -1,0 +1,85 @@
+.footer {
+  background-color: #000; /* Fondo negro */
+  color: #ccc; /* Color de texto */
+  padding: 2rem; /* Espaciado interno */
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin: 1rem;
+  text-align: center;
+}
+
+.footer-section h3 {
+  color: #fff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+}
+
+.social-link {
+  color: #ccc;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+    align-items: center; /* Alinea elementos al centro */
+  }
+
+  .footer-section {
+    min-width: 100%; /* Las secciones ocupan el 100% del ancho */
+    margin: 0.5rem 0; /* Ajusta el margen para separación vertical */
+  }
+
+  .social-links {
+    flex-direction: row; /* Mantiene los íconos en fila en pantallas pequeñas */
+    flex-wrap: wrap; /* Permite que los íconos se envuelvan si no hay suficiente espacio */
+  }
+
+  .social-link {
+    margin: 0 0.5rem; /* Ajusta el margen para separación horizontal */
+  }
+}
+
+/* Para pantallas más pequeñas (menos de 480px) */
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem; /* Reduce el padding para pantallas muy pequeñas */
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem; /* Reduce el tamaño del título */
+  }
+
+  .social-link {
+    font-size: 1.2rem; /* Reduce el tamaño de los enlaces sociales */
+  }
+}

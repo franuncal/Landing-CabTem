@@ -1,0 +1,121 @@
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from "react";
+import { FaUsers, FaBed, FaCheckCircle, FaHouseUser } from "react-icons/fa";
+
+import "./Cabin.css"; // Asegúrate de crear este archivo CSS para estilos compartidos
+import img1 from "../../assets/cabanas/cab3/cab1.jpeg";
+import img2 from "../../assets/cabanas/cab3/cab2.jpeg";
+import img3 from "../../assets/cabanas/cab3/cab3.jpeg";
+import img4 from "../../assets/cabanas/cab3/cab4.jpeg";
+import img5 from "../../assets/cabanas/cab3/cab5.jpeg";
+import img6 from "../../assets/cabanas/cab3/cab6.jpeg";
+import img7 from "../../assets/cabanas/cab3/cab7.jpeg";
+import img8 from "../../assets/cabanas/cab3/cab8.jpeg";
+import img9 from "../../assets/cabanas/cab3/cab9.jpeg";
+import img10 from "../../assets/cabanas/cab3/cab10.jpeg";
+
+const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+
+const Cabin3 = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Maneja la transición automática de imágenes
+  useEffect(() => {
+    const interval = setInterval(nextImage, 5000); // Cambia la imagen cada 5 segundos
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+  }, []);
+
+  return (
+    <div className="cabin-container">
+      <div className="cabin-banner">
+        <img src={images[currentImageIndex]} alt="Cabaña" />
+        <div className="carousel-controls">
+          <button onClick={prevImage}>←</button>
+          <button onClick={nextImage}>→</button>
+        </div>
+      </div>
+      <div className="cabin-info">
+        <div className="info-item">
+          <FaUsers size={40} />
+          <p>Capacidad Max</p>
+          <p>5 personas</p>
+        </div>
+        <div className="info-item">
+          <FaHouseUser size={40} />
+          {/* Icono de metros cuadrados */}
+          <p>50 m2</p>
+          <p>Metros Cuadrados</p>
+        </div>
+        <div className="info-item">
+          <FaBed size={40} /> {/* Icono de metros cuadrados */}
+          <p>Tarifa por noche</p>
+        </div>
+      </div>
+      <div className="reservation">
+        <p>Realiza una reserva para esta cabaña</p>
+        <button>Realizar una Reserva</button>
+      </div>
+      <div className="cabin-description">
+        <h3 className="cabin-services-title">Servicios de la Cabaña</h3>
+        <ul className="services-list">
+          <li>
+            <FaCheckCircle /> Habitación con dos camas con opción a una
+            matrimonial
+          </li>
+          <li>
+            <FaCheckCircle /> 2da. Habitación con dos camas con opción a una
+            matrimonial
+          </li>
+          <li>
+            <FaCheckCircle /> Habitación con una cama simple
+          </li>
+          <li>
+            <FaCheckCircle /> Baño grande completo con hidromasaje
+          </li>
+          <li>
+            <FaCheckCircle /> Baño completo
+          </li>
+          <li>
+            <FaCheckCircle /> Jardín amplio
+          </li>
+          <li>
+            <FaCheckCircle /> Amenites: ropa blanca completa, infusiones (yerba,
+            té, café), servicio de WI-FI, televisor smart con Directv.
+          </li>
+        </ul>
+        <h3 className="description-title">Descripción</h3>
+        <p>
+          Esta cabaña de planta baja, con capacidad para 5 personas, ofrece un
+          espacio cómodo y accesible para todos. Dispone de dos habitaciones con
+          dos camas individuales en cada una, que pueden convertirse en camas
+          matrimoniales a solicitud, además de una tercera habitación con una
+          cama simple. El baño principal es amplio y completo, con un relajante
+          hidromasaje, y también hay un segundo baño totalmente equipado.
+          <br />
+          <br />
+          Entre las amenidades, ofrecemos ropa blanca completa, una selección de
+          infusiones (yerba, té, café), conexión Wi-Fi, y un televisor smart con
+          acceso a Directv. La cabaña cuenta además con un amplio jardín, ideal
+          para disfrutar del aire libre.
+        </p>
+        <p>
+          <b>NO SE ACEPTAN MASCOTAS</b>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Cabin3;
