@@ -18,7 +18,6 @@ export const Footer = () => {
           <p>Rivadavia 2656 – Esquel</p>
           <p>C.P: 9200 – Chubut, Patagonia Argentina.</p>
           <p>📞 +54 2945 405471</p>
-          <p>📲 - Enviar WhatsApp</p>
         </div>
 
         {/* Redes sociales */}

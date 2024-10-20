@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { FaUsers, FaBed, FaCheckCircle, FaHouseUser } from "react-icons/fa";
 
@@ -65,7 +66,9 @@ const Cabin1 = () => {
       </div>
       <div className="reservation">
         <p>Realiza una reserva para esta cabaña</p>
-        <button>Realizar una Reserva</button>
+        <Link to="/reservas" className="reservation-btn">
+          Realizar una reserva
+        </Link>
       </div>
       <div className="cabin-description">
         <h3 className="cabin-services-title">Servicios de la Cabaña</h3>
@@ -118,6 +121,14 @@ const Cabin1 = () => {
         <p>
           <b>NO SE ACEPTAN MASCOTAS</b>
         </p>
+      </div>
+      <div className="cabin-links">
+        <Link to="/cabin2" className="cabin-btn">
+          Ver Cabaña 2
+        </Link>
+        <Link to="/cabin3" className="cabin-btn">
+          Ver Cabaña 3
+        </Link>
       </div>
     </div>
   );

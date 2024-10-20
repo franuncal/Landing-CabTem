@@ -139,6 +139,29 @@
   text-align: justify;
 }
 
+.cabin-links {
+  display: flex;
+  justify-content: center; /* Centrar enlaces */
+  margin-top: 20px;
+}
+
+.cabin-btn {
+  background-color: rgb(201, 124, 0); /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  text-decoration: none; /* Sin subrayado */
+  font-size: 1rem; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor a puntero */
+  margin: 0 10px; /* Espaciado entre botones */
+  transition: background-color 0.3s; /* Efecto de transición */
+}
+
+.cabin-btn:hover {
+  background-color: rgb(235, 146, 2); /* Color al pasar el ratón */
+}
+
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .cabin-info {

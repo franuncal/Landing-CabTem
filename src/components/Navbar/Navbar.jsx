@@ -20,6 +20,14 @@ export const Navbar = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const handleScrollToCabanas = () => {
+    const cabanasSection = document.getElementById("cabanas-section");
+    if (cabanasSection) {
+      cabanasSection.scrollIntoView({ behavior: "smooth" });
+      handleMenuClick(); // Cierra el menú después de hacer clic
+    }
+  };
+
   return (
     <header className="navbar">
       <Link to="/" className="logo" onClick={handleScrollToTop}>
@@ -41,26 +49,29 @@ export const Navbar = () => {
               Inicio
             </Link>
           </li>
-          {["Cabañas", "Reservas", "Ubicación", "Actividades"].map(
-            (item, index) => (
-              <li key={index} className="nav-item">
-                <Link
-                  to={
-                    item === "Reservas"
-                      ? "/reservas"
-                      : item === "Ubicación"
-                      ? "/ubicacion"
-                      : item === "Actividades"
-                      ? "/actividades"
-                      : item
-                  }
-                  onClick={handleMenuClick}
-                >
-                  {item}
-                </Link>
-              </li>
-            )
-          )}
+          <li className="nav-item">
+            <button onClick={handleScrollToCabanas} className="nav-link">
+              Cabañas
+            </button>
+          </li>
+          {["Reservas", "Ubicación", "Actividades"].map((item, index) => (
+            <li key={index} className="nav-item">
+              <Link
+                to={
+                  item === "Reservas"
+                    ? "/reservas"
+                    : item === "Ubicación"
+                    ? "/ubicacion"
+                    : item === "Actividades"
+                    ? "/actividades"
+                    : item
+                }
+                onClick={handleMenuClick}
+              >
+                {item}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>

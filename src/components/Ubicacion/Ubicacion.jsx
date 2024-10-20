@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import img1 from "../../assets/paisaje/p1.jpg";
 import img2 from "../../assets/paisaje/p2.jpg";
 import img3 from "../../assets/paisaje/p3.jpg";
+import { Link } from "react-router-dom";
 
 const Ubicacion = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -43,7 +44,7 @@ const Ubicacion = () => {
           </h3>
           <p>Rivadavia 2656 – Esquel</p>
           <p>C.P: 9200 – Chubut</p>
-          <h3>Cómo llegar:</h3>
+          <h4>Cómo llegar:</h4>
           <p>
             Luego de cruzar el puente, hacemos dos cuadras hasta la calle
             Repetur (cartel). Doblar a la derecha 200 mtrs. y luego a la
@@ -60,6 +61,12 @@ const Ubicacion = () => {
             loading="lazy"
           ></iframe>
         </div>
+      </div>
+      {/* Botón de reserva */}
+      <div className="reservation-info">
+        <Link to="/reservas" className="reservation-btn">
+          REALIZAR UNA RESERVA
+        </Link>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 // src/components/DiscoverEsquel/DiscoverEsquel.jsx
+import { Link } from "react-router-dom";
 import "./DiscoverEsquel.css";
 import imgCabanas0 from "../../assets/img-esquel/alerces.jpg";
 import imgCabanas1 from "../../assets/img-esquel/hoya.jpg";
@@ -17,19 +18,20 @@ const DiscoverEsquel = () => {
       <div className="text-content">
         <h2>DESCUBRI ESQUEL</h2>
         <p>
-          Descubre <b>Esquel</b>, un rincón mágico de la Patagonia Argentina,
-          donde la aventura se encuentra con la naturaleza. Imagina recorrer
-          senderos rodeados de bosques milenarios, perderte en paisajes que
-          parecen de otro mundo y experimentar la calidez de su cultura local.
-          No te pierdas un viaje en <b>La Trochita</b>, un histórico tren de
-          vapor que te llevará a través de paisajes impresionantes, y visita la
-          hermosa
-          <b>Laguna La Zeta</b>, ideal para disfrutar de un día de picnic o
+          Un rincón mágico de la Patagonia Argentina, donde la aventura se
+          encuentra con la naturaleza. Imagina recorrer senderos rodeados de
+          bosques milenarios, perderte en paisajes que parecen de otro mundo y
+          experimentar la calidez de su cultura local. No te pierdas un viaje en{" "}
+          <b>La Trochita</b>, un histórico tren de vapor que te llevará a través
+          de paisajes impresionantes, y visita la hermosa
+          <b> Laguna La Zeta</b>, ideal para disfrutar de un día de picnic o
           senderismo. Desde esquiar en <b>La Hoya</b> hasta explorar el
           <b> Parque Nacional Los Alerces</b>, cada día promete una nueva
           historia.
         </p>
-        <button className="services-btn">Ver Actividades</button>
+        <Link to="/actividades" className="services-btn">
+          Ver Actividades
+        </Link>
       </div>
     </div>
   );

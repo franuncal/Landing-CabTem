@@ -1,7 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "./Banner.css";
-
+import { Link } from "react-router-dom";
 import img from "../../assets/cabanas/cab1/cab1.jpeg";
 import img1 from "../../assets/cabanas/cab2/cab1.jpeg";
 import img3 from "../../assets/cabanas/cab3/cab1.jpeg";
@@ -63,9 +63,9 @@ export const Banner = () => {
 
       {/* Botón de reserva */}
       <div className="reservation-info">
-        <a href="#reservas" className="reservation-btn">
+        <Link to="/reservas" className="reservation-btn">
           REALIZAR UNA RESERVA
-        </a>
+        </Link>
       </div>
     </>
   );

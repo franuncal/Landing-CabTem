@@ -45,15 +45,20 @@
   margin-left: 20px;
 }
 
-.nav-item a {
+.nav-item a,
+.nav-link {
   text-decoration: none;
   color: #fff;
   transition: color 0.3s;
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 300;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-.nav-item a:hover {
+.nav-item a:hover,
+.nav-link:hover {
   color: #ccc; /* Cambia el color al pasar el ratón */
 }
 

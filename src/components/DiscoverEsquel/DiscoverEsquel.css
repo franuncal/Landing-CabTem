@@ -52,6 +52,7 @@ body {
 }
 
 .services-btn {
+  text-decoration: none;
   padding: 1rem 1.5rem;
   font-size: 1.2rem;
   background-color: rgb(201, 124, 0);

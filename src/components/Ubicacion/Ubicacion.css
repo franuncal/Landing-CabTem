@@ -33,15 +33,21 @@
   display: flex;
   justify-content: space-between; /* Espacio entre los dos divs */
   max-width: 1000px;
-  margin: 20px auto; /* Centrado con margen */
+  margin: 4rem auto 4rem auto; /* Centrado con margen */
   padding: 20px;
   flex-wrap: wrap; /* Permitir que el contenido se envuelva en pantallas pequeñas */
   gap: 3rem;
 }
 
 .info-left h3 {
-  font-size: 2em;
+  font-size: 2rem;
   margin-bottom: 20px;
+}
+
+.info-left h4 {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  font-weight: 400;
 }
 
 .info-left {

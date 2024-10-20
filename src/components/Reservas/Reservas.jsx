@@ -175,7 +175,7 @@ const Reservas = () => {
               solicitar la cancelación, por favor contáctanos a través de
               nuestro correo electrónico o número de teléfono.
             </p>
-            <br />
+
             <p>
               <b>
                 Cancelaciones realizadas entre 24 y 48 horas de anticipación:
@@ -183,7 +183,7 @@ const Reservas = () => {
               Si cancelas tu reserva entre 24 y 48 horas antes de la llegada, te
               reembolsaremos el 50% del monto total pagado.
             </p>
-            <br />
+
             <p>
               <b>
                 Cancelaciones realizadas con menos de 24 horas de anticipación:
@@ -191,7 +191,7 @@ const Reservas = () => {
               Las cancelaciones realizadas con menos de 24 horas de anticipación
               no son reembolsables.
             </p>
-            <br />
+
             <p>
               <b>Cambios de fecha:</b> Si deseas cambiar la fecha de tu reserva,
               haremos todo lo posible para acomodar tu solicitud, sujeto a

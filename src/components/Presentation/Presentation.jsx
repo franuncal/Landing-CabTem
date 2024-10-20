@@ -1,4 +1,5 @@
 // Presentation.jsx
+
 import "./Presentation.css";
 import img2 from "../../assets/img-cab/cab4.jpeg";
 
@@ -16,7 +17,7 @@ export const Presentation = () => {
         </p>
         {/* Botón de cabañas */}
         <div className="cabanas-info">
-          <a href="#cabanas" className="cabanas-btn">
+          <a href="#cabanas-section" className="cabanas-btn">
             Las Cabañas
           </a>
         </div>

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import { FaUsers, FaBed, FaCheckCircle, FaHouseUser } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 import "./Cabin.css"; // Asegúrate de crear este archivo CSS para estilos compartidos
 import img1 from "../../assets/cabanas/cab3/cab1.jpeg";
 import img2 from "../../assets/cabanas/cab3/cab2.jpeg";
@@ -65,7 +65,9 @@ const Cabin3 = () => {
       </div>
       <div className="reservation">
         <p>Realiza una reserva para esta cabaña</p>
-        <button>Realizar una Reserva</button>
+        <Link to="/reservas" className="reservation-btn">
+          Realizar una reserva
+        </Link>
       </div>
       <div className="cabin-description">
         <h3 className="cabin-services-title">Servicios de la Cabaña</h3>
@@ -113,6 +115,14 @@ const Cabin3 = () => {
         <p>
           <b>NO SE ACEPTAN MASCOTAS</b>
         </p>
+      </div>
+      <div className="cabin-links">
+        <Link to="/cabin1" className="cabin-btn">
+          Ver Cabaña 1
+        </Link>
+        <Link to="/cabin2" className="cabin-btn">
+          Ver Cabaña 2
+        </Link>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Navbar } from "./components/Navbar/Navbar";
 import { Banner } from "./components/Banner/Banner";
 import { Home } from "./components/Home/Home";
-import { Contacto } from "./components/Contacto/Contacto";
+
 import { Footer } from "./components/Footer/Footer";
 import ScrollToTop from "./components/scrollToTop";
 import Cabin1 from "./components/Cabin/Cabin1";
@@ -28,7 +28,7 @@ function App() {
             </>
           }
         />
-        <Route path="/Contact" element={<Contacto />} />
+
         <Route path="/cabin1" element={<Cabin1 />} />
         <Route path="/cabin2" element={<Cabin2 />} />
         <Route path="/cabin3" element={<Cabin3 />} />
