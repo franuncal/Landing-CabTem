@@ -49,18 +49,18 @@ const Cabin1 = () => {
       </div>
       <div className="cabin-info">
         <div className="info-item">
-          <FaUsers size={40} />
+          <FaUsers size={30} />
           <p>Capacidad Max</p>
           <p>5 personas</p>
         </div>
         <div className="info-item">
-          <FaHouseUser size={40} />
+          <FaHouseUser size={30} />
           {/* Icono de metros cuadrados */}
           <p>50 m2</p>
           <p>Metros Cuadrados</p>
         </div>
         <div className="info-item">
-          <FaBed size={40} /> {/* Icono de metros cuadrados */}
+          <FaBed size={30} /> {/* Icono de metros cuadrados */}
           <p>Tarifa por noche</p>
         </div>
       </div>

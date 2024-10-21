@@ -9,12 +9,7 @@ import img3 from "../../assets/paisaje/p3.jpg";
 const Reservas = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [showPolicies, setShowPolicies] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    comment: "",
-  });
+
   const images = [img1, img2, img3];
 
   const nextImage = useCallback(() => {
@@ -34,19 +29,6 @@ const Reservas = () => {
     return () => clearInterval(interval);
   }, [nextImage]);
 
-  // Manejar el cambio en los campos del formulario
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  // Manejar el envío del formulario (agregado)
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Prevenir el comportamiento por defecto
-    console.log("Datos del formulario:", formData);
-    // Aquí puedes agregar la lógica para enviar los datos
-  };
-
   return (
     <div className="reservas">
       {/* Banner con 3 imágenes */}
@@ -65,56 +47,17 @@ const Reservas = () => {
           <b>Reservas</b>
         </h3>
         <p>
-          Para realizar consultas o reservas de nuestras cabañas, le pedimos que
-          complete el formulario a continuación. Esto nos permitirá atender su
-          solicitud de manera más eficiente. También puede chatear directamente
-          con nosotros a través de WhatsApp, o comunicarse por teléfono o correo
-          electrónico. <br /> Estamos aquí para ayudarle y nos pondremos en
-          contacto con usted a la brevedad.
+          Para consultas o reservas de nuestras cabañas, puede comunicarse
+          directamente con nosotros a través de WhatsApp, por teléfono o correo
+          electrónico. Estamos disponibles para brindarle la mejor atención y
+          responder a todas sus inquietudes. Nos pondremos en contacto con usted
+          a la brevedad para confirmar su solicitud y garantizar que su estadía
+          sea perfecta.
         </p>
       </div>
 
-      {/* Contenedor para el formulario y la información */}
-      <div className="form-info-container">
-        {/* Formulario */}
-        <div className="contact-form">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Nombre"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="text"
-              name="subject"
-              placeholder="Asunto"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-            />
-            <textarea
-              name="comment"
-              placeholder="Comentario"
-              value={formData.comment}
-              onChange={handleChange}
-              required
-            ></textarea>
-            <button type="submit">Enviar</button>
-          </form>
-        </div>
-
-        {/* Información de contacto */}
+      {/* Información de contacto */}
+      <div className="contact-container">
         <div className="contact-info">
           <div className="contact-item">
             <FaStreetView size={30} />

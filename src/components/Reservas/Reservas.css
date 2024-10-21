@@ -47,72 +47,30 @@
   text-align: justify;
 }
 
-/* Contenedor principal del formulario y la información de contacto */
-.form-info-container {
+/* Contenedor general de la sección de contacto */
+.contact-container {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 30px; /* Ajustado para mejorar el padding */
-  gap: 4.5rem;
-  flex-wrap: wrap;
-  margin: 4rem auto 4rem auto;
-  /* margin-bottom: 60px; */
-}
-
-/* Ajustes en el formulario y la información de contacto */
-.contact-form,
-.contact-info {
-  flex: 1;
-  min-width: 300px; /* Asegura que los elementos no se vuelvan demasiado pequeños */
-}
-
-.contact-form {
-  margin-right: 20px; /* Reduce el margen para evitar mucho espacio */
-}
-
-.contact-form input,
-.contact-form textarea {
+  justify-content: center; /* Centra el contenedor general */
+  align-items: center;
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Estilo específico para el textarea */
-.contact-form textarea {
-  height: 120px; /* Altura fija para el textarea */
-}
-
-/* Estilo del botón */
-.contact-form button {
-  background-color: #c89d7e;
-  color: white;
-  padding: 12px 20px; /* Aumentado para mayor tamaño */
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.contact-form button:hover {
-  background-color: #b88a6b;
+  padding: 40px 0;
 }
 
 /* Estilos para la información de contacto */
 .contact-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alineación a la izquierda */
-  gap: 25px; /* Reduce el espacio entre los elementos */
-  text-align: left; /* Alineación a la izquierda */
+  align-items: flex-start; /* Alinea los elementos a la izquierda */
+  gap: 20px;
+  text-align: left;
+  max-width: 600px; /* Limita el ancho del contenedor para mantenerlo centrado */
 }
 
+/* Estilos para los ítems de contacto */
 .contact-item {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 /* Eliminar subrayado de enlaces en la sección de contacto */
@@ -122,10 +80,10 @@
 }
 
 .contact-item a {
-  margin-left: 20px;
+  margin-left: 0;
   font-size: 1.2rem;
   font-weight: 450;
-  white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+  white-space: nowrap;
 }
 
 .contact-item svg {
@@ -141,7 +99,7 @@
 .policies-btn {
   background-color: #c89d7e;
   color: white;
-  padding: 12px 20px; /* Aumentado para mayor tamaño */
+  padding: 12px 20px;
   margin-bottom: 4rem;
   margin-top: 2rem;
   border: none;
@@ -166,39 +124,29 @@
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .banner-r {
-    height: 300px; /* Reduce la altura del banner en pantallas más pequeñas */
+    height: 300px;
   }
 
   .intro-section h3 {
-    font-size: 1.5em; /* Reduce el tamaño del título */
+    font-size: 1.5em;
   }
 
   .intro-section p {
-    font-size: 1.1rem; /* Ajusta el tamaño del texto */
-  }
-
-  .form-info-container {
-    flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
-    padding: 0 10px; /* Reduce el padding */
-  }
-
-  .contact-form {
-    margin-right: 0; /* Elimina el margen en pantallas pequeñas */
-    width: 100%; /* Hace que el formulario ocupe todo el ancho */
+    font-size: 1.1rem;
   }
 
   .contact-info {
-    align-items: flex-start; /* Centra los elementos en pantallas pequeñas */
-    text-align: left; /* Centra el texto */
+    align-items: flex-start; /* Mantiene los elementos alineados a la izquierda */
+    text-align: left;
   }
 
   .policies-content {
-    font-size: 1rem; /* Ajusta el tamaño del texto de las políticas */
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .policies-btn {
-    width: 100%; /* Botón ocupa todo el ancho en pantallas pequeñas */
+    width: 100%;
   }
 }
