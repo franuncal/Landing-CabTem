@@ -51,12 +51,12 @@ export const Banner = () => {
               alt="Cabañas Temistocles 3"
               className="carousel-img"
             />
-            <div className="carousel-overlay">
+            {/* <div className="carousel-overlay">
               <h1>Un refugio en la montaña</h1>
               <p>
                 Vive una experiencia inolvidable en el corazón de la Patagonia.
               </p>
-            </div>
+            </div> */}
           </div>
         </Carousel>
       </div>
