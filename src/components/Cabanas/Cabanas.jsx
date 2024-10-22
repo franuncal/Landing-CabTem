@@ -7,7 +7,7 @@ import imgCabanas3 from "../../assets/cabanas/cab3/cab1.jpeg";
 const Cabanas = () => {
   return (
     <div id="cabanas-section" className="cabanas-container">
-      <h2>Disfruta en Nuestras Cabañas</h2>
+      <h2>Conocé en Nuestras Cabañas</h2>
       {/* <p>Conoce nuestras cabañas</p> */}
       <div className="cards">
         <div className="card">

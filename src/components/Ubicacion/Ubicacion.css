@@ -95,8 +95,7 @@ p {
   }
 
   .info-right {
-    flex-basis: 100%; /* Hace que el div ocupe todo el ancho en pantallas pequeñas */
-    margin-top: 20px; /* Espacio superior para separar del contenido anterior */
+    margin-top: 20px;
   }
 
   .map {

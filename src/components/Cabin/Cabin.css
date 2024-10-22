@@ -75,7 +75,6 @@
 .reservation {
   font-size: 4rem;
   text-align: center;
-  margin-top: 2rem;
   margin-bottom: 5rem;
 }
 
@@ -165,12 +164,20 @@
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .cabin-info {
-    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
     align-items: center; /* Centra horizontalmente */
   }
 
   .info-item {
-    margin: 20px 0; /* Ajusta el margen entre elementos */
+    margin: 0 10px; /* Ajusta el margen entre elementos */
+  }
+
+  .info-item p {
+    font-size: 1rem;
+  }
+
+  .info-item svg {
+    width: 40px; /* Ajusta el tamaño del ícono para pantallas medianas */
+    height: 40px; /* Asegura que el alto sea proporcional */
   }
 
   .reservation button {
@@ -178,7 +185,18 @@
   }
 
   .services-list li {
-    justify-content: flex-start; /* Centra íconos y texto en la lista */
+    justify-content: flex-start;
+    font-size: 1rem;
+  }
+
+  .services-list li svg {
+    width: 20px; /* Ajusta el ancho de los íconos */
+    height: 20px; /* Ajusta la altura de los íconos */
+    margin-right: 10px; /* Ajusta el espacio entre el ícono y el texto */
+  }
+
+  .services-list li {
+    font-size: 1rem; /* Ajusta el tamaño del texto para que coincida */
   }
 
   .cabin-banner {
@@ -195,6 +213,23 @@
     font-size: 1.5rem; /* Reduce el tamaño del texto de reserva */
   }
 
+  .cabin-info {
+    justify-content: space-around;
+  }
+
+  .info-item {
+    margin: 0 5px; /* Reduce aún más el espacio en pantallas más pequeñas */
+  }
+
+  .info-item p {
+    font-size: 1rem;
+  }
+
+  .info-item svg {
+    width: 30px; /* Reduce el tamaño del ícono aún más para pantallas pequeñas */
+    height: 30px;
+  }
+
   .cabin-services-title,
   .description-title {
     font-size: 1.5rem; /* Ajusta el tamaño de los títulos */
@@ -202,5 +237,13 @@
 
   .cabin-description p {
     font-size: 1rem; /* Reduce aún más el tamaño de la descripción */
+  }
+  .services-list li svg {
+    width: 14px; /* Ajusta aún más el tamaño del ícono en pantallas más pequeñas */
+    height: 16px; /* Ajusta la altura también */
+  }
+
+  .services-list li {
+    font-size: 0.9rem; /* Ajusta el tamaño del texto para que no se vea desproporcionado */
   }
 }

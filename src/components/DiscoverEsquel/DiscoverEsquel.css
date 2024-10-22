@@ -77,8 +77,16 @@ body {
   }
 
   .image-grid {
-    grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Dos columnas para pantallas medianas */
     margin-bottom: 1rem; /* Ajuste del margen inferior */
+    gap: 0.5rem; /* Ajusta el espacio entre imágenes */
+  }
+
+  .image-grid img {
+    height: 150px; /* Ajusta la altura de las imágenes */
   }
 
   .text-content {
@@ -95,8 +103,11 @@ body {
   }
 
   .services-btn {
-    width: 100%; /* Botón ocupa todo el ancho */
-    margin-top: 1rem; /* Aumenta el espacio superior */
+    width: auto; /* Cambia el ancho a automático */
+    padding: 0.8rem 1.2rem; /* Ajusta el padding del botón */
+    font-size: 1rem; /* Reduce el tamaño de la fuente */
+    margin-top: 1rem;
+    align-self: flex-start; /* Alinea el botón al inicio en vez de al centro */
   }
 
   .image-grid {
@@ -114,8 +125,16 @@ body {
     padding: 2rem 0.5rem; /* Ajuste adicional de padding */
   }
 
+  .image-grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Mantén dos columnas para pantallas pequeñas */
+    gap: 0.4rem; /* Reduce el espacio entre imágenes */
+  }
+
   .image-grid img {
-    height: 200px; /* Ajusta la altura de las imágenes */
+    height: 120px; /* Ajusta la altura de las imágenes */
   }
 
   .text-content h2 {
@@ -124,9 +143,14 @@ body {
 
   .text-content p {
     font-size: 1rem; /* Reduce aún más el tamaño del texto */
+    margin: 0 auto;
+    padding: 1rem;
   }
 
   .services-btn {
-    font-size: 1rem; /* Reduce el tamaño del texto del botón */
+    padding: 0.6rem 1rem; /* Ajuste adicional del padding */
+    font-size: 0.9rem; /* Reduce aún más el tamaño de la fuente */
+    width: auto; /* Asegura que no ocupe todo el ancho */
+    align-self: center; /* O alinear al centro si lo prefieres */
   }
 }

@@ -65,7 +65,6 @@ const Cabin2 = () => {
         </div>
       </div>
       <div className="reservation">
-        <p>Realiza una reserva para esta cabaña</p>
         <Link to="/reservas" className="reservation-btn">
           Realizar una reserva
         </Link>
@@ -88,10 +87,10 @@ const Cabin2 = () => {
           <li>
             <FaCheckCircle /> Living amplio con sillón y hogar a leña
           </li>
-          <li>
+          {/* <li>
             <FaCheckCircle /> Amenidades: ropa blanca completa, infusiones,
             servicio de WI-FI, televisor smart
-          </li>
+          </li> */}
         </ul>
         <h3 className="description-title">Descripción</h3>
         <p>

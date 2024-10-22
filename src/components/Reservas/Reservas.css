@@ -124,7 +124,7 @@
 /* Estilos responsivos */
 @media (max-width: 768px) {
   .banner-r {
-    height: 300px;
+    height: 400px;
   }
 
   .intro-section h3 {
@@ -140,6 +140,12 @@
     text-align: left;
   }
 
+  .contact-info a {
+    align-items: flex-start; /* Mantiene los elementos alineados a la izquierda */
+    text-align: left;
+    font-size: 0.8rem;
+  }
+
   .policies-content {
     font-size: 1rem;
   }
@@ -147,6 +153,6 @@
 
 @media (max-width: 480px) {
   .policies-btn {
-    width: 100%;
+    width: 90%;
   }
 }

@@ -76,7 +76,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .card {
-    width: 80%; /* Reduce el tamaño de la tarjeta en pantallas más pequeñas */
+    width: 100%; /* Reduce el tamaño de la tarjeta en pantallas más pequeñas */
     margin: 1rem auto; /* Centra las tarjetas en pantallas pequeñas */
   }
 
