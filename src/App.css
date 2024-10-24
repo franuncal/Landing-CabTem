@@ -16,7 +16,6 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
   scroll-behavior: smooth;
-  scrollbar-width: none;
 }
 
 h1,
