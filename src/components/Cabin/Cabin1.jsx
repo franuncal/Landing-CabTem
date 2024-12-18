@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
+// Fotos del baño - Fotos de la habitacion con dos camas.
+
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { FaUsers, FaBed, FaCheckCircle, FaHouseUser } from "react-icons/fa";
-
-import "./Cabin.css"; // Asegúrate de crear este archivo CSS para estilos compartidos
+import "./Cabin.css";
 import img1 from "../../assets/cabanas/cab1/cab1.jpeg";
 import img2 from "../../assets/cabanas/cab1/cab2.jpeg";
 import img3 from "../../assets/cabanas/cab1/cab3.jpeg";
@@ -15,7 +16,7 @@ import img8 from "../../assets/cabanas/cab1/cab8.jpeg";
 import img9 from "../../assets/cabanas/cab1/cab9.jpeg";
 import img10 from "../../assets/cabanas/cab1/cab10.jpeg";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+const images = [img1, img5, img3, img6, img8, img7, img2, img4, img9, img10];
 
 const Cabin1 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -56,7 +57,7 @@ const Cabin1 = () => {
         <div className="info-item">
           <FaHouseUser size={30} />
           {/* Icono de metros cuadrados */}
-          <p>50 m2</p>
+          <p>75 m2</p>
           <p>Metros Cuadrados</p>
         </div>
         <div className="info-item">
@@ -111,7 +112,7 @@ const Cabin1 = () => {
           <br />
           Entre las amenidades, incluimos ropa blanca completa, una selección de
           infusiones (yerba, té, café), conexión Wi-Fi, y un televisor smart
-          para tu entretenimiento.
+          (sin cable) para tu entretenimiento.
         </p>
         <p>
           <b>NO SE ACEPTAN MASCOTAS</b>

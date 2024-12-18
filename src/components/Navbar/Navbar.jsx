@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import img from "../../assets/Img-fotos/1.png";
+import img from "../../assets/Img-fotos/logos3.webp";
 import { FaWindowClose } from "react-icons/fa";
 import { CiMenuBurger } from "react-icons/ci";
 import "./Navbar.css";

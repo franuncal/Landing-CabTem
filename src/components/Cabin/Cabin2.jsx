@@ -1,9 +1,15 @@
 /* eslint-disable no-unused-vars */
+// Foto de Habitacion de abajo.
+
+// Divir por planta baja y planta alta.
+// hab matrimonial - hab con dos camas(opcion para matrimonial) - bano completo con hidromasaje ALTA
+// Bano con ducha - cocina comedor completa
+
 import React, { useState, useEffect } from "react";
 import { FaUsers, FaBed, FaCheckCircle, FaHouseUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-import "./Cabin.css"; // Asegúrate de crear este archivo CSS para estilos compartidos
+import "./Cabin.css";
 import img1 from "../../assets/cabanas/cab2/cab1.jpeg";
 import img2 from "../../assets/cabanas/cab2/cab2.jpeg";
 import img3 from "../../assets/cabanas/cab2/cab3.jpeg";
@@ -51,12 +57,12 @@ const Cabin2 = () => {
         <div className="info-item">
           <FaUsers size={40} />
           <p>Capacidad Max</p>
-          <p>7 personas</p>
+          <p>6 personas</p>
         </div>
         <div className="info-item">
           <FaHouseUser size={40} />
           {/* Icono de metros cuadrados */}
-          <p>50 m2</p>
+          <p>90 m2</p>
           <p>Metros Cuadrados</p>
         </div>
         <div className="info-item">
@@ -94,7 +100,7 @@ const Cabin2 = () => {
         </ul>
         <h3 className="description-title">Descripción</h3>
         <p>
-          La cabaña está diseñada para alojar cómodamente hasta 7 personas,
+          La cabaña está diseñada para alojar cómodamente hasta 6 personas,
           distribuidas en dos niveles. En la planta baja, encontrarás una
           habitación con dos camas individuales que pueden transformarse en una
           cama matrimonial a solicitud, un baño completo, una cocina totalmente
@@ -107,8 +113,8 @@ const Cabin2 = () => {
           <br />
           <br />
           Entre las amenidades, ofrecemos ropa blanca completa, infusiones
-          variadas (yerba, té, café), conexión Wi-Fi, y un televisor smart para
-          tu entretenimiento. <br />
+          variadas (yerba, té, café), conexión Wi-Fi, y un televisor smart (sin
+          cable) para tu entretenimiento. <br />
         </p>
         <p>
           <b>NO SE ACEPTAN MASCOTAS</b>

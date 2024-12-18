@@ -1,4 +1,12 @@
 /* eslint-disable no-unused-vars */
+// Foto de Habitacion con 1 cama simple
+// Mts 100
+// Bano con ducha
+// Cocina comedor completo
+// Living con tv y hogar a lena
+// caban 1 y 2 estacinamiento cubierto dentor del predio
+// cabana 3 estacionaminto cubierto.
+
 import React, { useState, useEffect } from "react";
 import { FaUsers, FaBed, FaCheckCircle, FaHouseUser } from "react-icons/fa";
 import { Link } from "react-router-dom";

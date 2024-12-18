@@ -10,10 +10,15 @@ export const Presentation = () => {
         <h1 className="presentation-title">CABAÑAS TEMISTOCLES</h1>
         <h2>UN LUGAR ÚNICO</h2>
         <p className="presentation-description">
-          Ubicadas en la entrada de Esquel, nuestras cabañas combinan el encanto
-          de la madera de ciprés y la piedra patagónica, ofreciendo un espacio
-          acogedor y cálido. Atendidas por sus dueños, Marcela y Gustavo, aquí
-          disfrutarás de un servicio personalizado en un entorno natural único.
+          Ubicadas estratégicamente en la entrada de Esquel, nuestras cabañas
+          ofrecen el equilibrio perfecto entre confort y naturaleza. Construidas
+          con madera de ciprés y piedra patagónica, cada detalle ha sido pensado
+          para brindarte un ambiente cálido, acogedor y lleno de encanto. Aquí,
+          en un entorno único rodeado de paisajes extraordinarios, disfrutarás
+          de la atención personalizada de Marcela y Gustavo, quienes, como
+          anfitriones apasionados, se asegurarán de que tu estadía sea una
+          experiencia inolvidable. Ven a relajarte y conectar con la esencia de
+          la Patagonia.
         </p>
         {/* Botón de cabañas */}
         <div className="cabanas-info">

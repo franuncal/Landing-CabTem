@@ -13,9 +13,10 @@
 }
 
 .presentation-title {
+  font-size: 2.5rem;
   color: #44543c;
-  text-align: center;
-  font-weight: 400;
+  margin-bottom: 2rem;
+  font-weight: 700;
 }
 
 .presentation-title,
