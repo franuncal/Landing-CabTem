@@ -1,9 +1,14 @@
-/* eslint-disable no-unused-vars */
 // Fotos del baño - Fotos de la habitacion con dos camas.
 
 import { Link } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import { FaUsers, FaBed, FaCheckCircle, FaHouseUser } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import {
+  FaUsers,
+  FaBed,
+  FaCheckCircle,
+  FaHouseUser,
+  FaCar,
+} from "react-icons/fa";
 import "./Cabin.css";
 import img1 from "../../assets/cabanas/cab1/cab1.jpeg";
 import img2 from "../../assets/cabanas/cab1/cab2.jpeg";
@@ -96,6 +101,12 @@ const Cabin1 = () => {
             <FaCheckCircle /> Hogar a leña
           </li>
         </ul>
+
+        {/* Línea informativa sobre estacionamiento */}
+        <div className="parking-info">
+          <FaCar size={25} className="parking-icon" />
+          <p>Estacionamiento cubierto dentro del predio</p>
+        </div>
         <h3 className="description-title">Descripción</h3>
         <p>
           Esta cabaña, con capacidad para 5 personas, está diseñada para

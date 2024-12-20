@@ -1,12 +1,14 @@
-/* eslint-disable no-unused-vars */
 // Foto de Habitacion de abajo.
+// Foto del bano con hidro
 
-// Divir por planta baja y planta alta.
-// hab matrimonial - hab con dos camas(opcion para matrimonial) - bano completo con hidromasaje ALTA
-// Bano con ducha - cocina comedor completa
-
-import React, { useState, useEffect } from "react";
-import { FaUsers, FaBed, FaCheckCircle, FaHouseUser } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import {
+  FaUsers,
+  FaBed,
+  FaCheckCircle,
+  FaHouseUser,
+  FaCar,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 import "./Cabin.css";
@@ -21,7 +23,7 @@ import img8 from "../../assets/cabanas/cab2/cab8.jpeg";
 import img9 from "../../assets/cabanas/cab2/cab9.jpeg";
 import img10 from "../../assets/cabanas/cab2/cab10.jpeg";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+const images = [img1, img5, img2, img6, img8, img3, img7, img4, img9, img10];
 
 const Cabin2 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -77,27 +79,41 @@ const Cabin2 = () => {
       </div>
       <div className="cabin-description">
         <h3 className="cabin-services-title">Servicios de la Cabaña</h3>
+        <h4 className="cabin-servies-title-4">Planta Baja</h4>
         <ul className="services-list">
           <li>
             <FaCheckCircle /> Habitación con dos camas (opción para matrimonial)
           </li>
           <li>
-            <FaCheckCircle /> Baño completo
+            <FaCheckCircle /> Baño con ducha
           </li>
           <li>
-            <FaCheckCircle /> Cocina completa
+            <FaCheckCircle /> Cocina - Comedor completo.
           </li>
-          <li>
-            <FaCheckCircle /> Comedor amplio
-          </li>
+
           <li>
             <FaCheckCircle /> Living amplio con sillón y hogar a leña
           </li>
-          {/* <li>
-            <FaCheckCircle /> Amenidades: ropa blanca completa, infusiones,
-            servicio de WI-FI, televisor smart
-          </li> */}
         </ul>
+        <h4 className="cabin-servies-title-4">Planta Alta (Por escalera)</h4>
+        <ul className="services-list">
+          <li>
+            <FaCheckCircle /> Habitacion matrimonial
+          </li>
+          <li>
+            <FaCheckCircle /> Habitación con dos camas (opción para matrimonial)
+          </li>
+          <li>
+            <FaCheckCircle /> Baño completo con Hidromasaje
+          </li>
+        </ul>
+
+        {/* Línea informativa sobre estacionamiento */}
+        <div className="parking-info">
+          <FaCar size={25} className="parking-icon" />
+          <p>Estacionamiento cubierto dentro del predio</p>
+        </div>
+
         <h3 className="description-title">Descripción</h3>
         <p>
           La cabaña está diseñada para alojar cómodamente hasta 6 personas,

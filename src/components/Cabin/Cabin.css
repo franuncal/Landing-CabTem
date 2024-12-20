@@ -104,6 +104,11 @@
   margin-bottom: 15px; /* Espacio debajo del título */
 }
 
+h4 {
+  font-size: 1.7rem;
+  margin-bottom: 1.7rem;
+}
+
 .services-list {
   list-style-type: none; /* Elimina el estilo de lista predeterminado */
   margin-left: 0; /* Elimina la sangría a la izquierda */
@@ -136,6 +141,19 @@
   margin-bottom: 1rem;
   margin-top: 1rem;
   text-align: justify;
+}
+
+.parking-info {
+  display: flex;
+  align-items: center;
+  margin-top: 20px; /* Espacio superior */
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.parking-icon {
+  margin-right: 10px; /* Espacio entre el ícono y el texto */
+  color: rgb(68, 84, 60); /* Color del ícono */
 }
 
 .cabin-links {

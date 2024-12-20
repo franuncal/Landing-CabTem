@@ -1,16 +1,15 @@
-/* eslint-disable no-unused-vars */
 // Foto de Habitacion con 1 cama simple
-// Mts 100
-// Bano con ducha
-// Cocina comedor completo
-// Living con tv y hogar a lena
-// caban 1 y 2 estacinamiento cubierto dentor del predio
-// cabana 3 estacionaminto cubierto.
 
-import React, { useState, useEffect } from "react";
-import { FaUsers, FaBed, FaCheckCircle, FaHouseUser } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import {
+  FaUsers,
+  FaBed,
+  FaCheckCircle,
+  FaHouseUser,
+  FaCar,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./Cabin.css"; // Asegúrate de crear este archivo CSS para estilos compartidos
+import "./Cabin.css";
 import img1 from "../../assets/cabanas/cab3/cab1.jpeg";
 import img2 from "../../assets/cabanas/cab3/cab2.jpeg";
 import img3 from "../../assets/cabanas/cab3/cab3.jpeg";
@@ -19,10 +18,10 @@ import img5 from "../../assets/cabanas/cab3/cab5.jpeg";
 import img6 from "../../assets/cabanas/cab3/cab6.jpeg";
 import img7 from "../../assets/cabanas/cab3/cab7.jpeg";
 import img8 from "../../assets/cabanas/cab3/cab8.jpeg";
-import img9 from "../../assets/cabanas/cab3/cab9.jpeg";
+// import img9 from "../../assets/cabanas/cab3/cab9.jpeg";
 import img10 from "../../assets/cabanas/cab3/cab10.jpeg";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+const images = [img1, img3, img5, img6, img8, img2, img4, img7, img10];
 
 const Cabin3 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -63,7 +62,7 @@ const Cabin3 = () => {
         <div className="info-item">
           <FaHouseUser size={40} />
           {/* Icono de metros cuadrados */}
-          <p>50 m2</p>
+          <p>100 m2</p>
           <p>Metros Cuadrados</p>
         </div>
         <div className="info-item">
@@ -80,6 +79,9 @@ const Cabin3 = () => {
         <h3 className="cabin-services-title">Servicios de la Cabaña</h3>
         <ul className="services-list">
           <li>
+            <FaCheckCircle /> Living amplio con sillón y hogar a leña
+          </li>
+          <li>
             <FaCheckCircle /> Habitación con dos camas con opción a una
             matrimonial
           </li>
@@ -91,19 +93,23 @@ const Cabin3 = () => {
             <FaCheckCircle /> Habitación con una cama simple
           </li>
           <li>
+            <FaCheckCircle /> Cocina Comedor Completo
+          </li>
+          <li>
             <FaCheckCircle /> Baño grande completo con hidromasaje
           </li>
           <li>
-            <FaCheckCircle /> Baño completo
+            <FaCheckCircle /> Baño con ducha
           </li>
           <li>
             <FaCheckCircle /> Jardín amplio
           </li>
-          {/* <li>
-            <FaCheckCircle /> Amenites: ropa blanca completa, infusiones (yerba,
-            té, café), servicio de WI-FI, televisor smart con Directv.
-          </li> */}
         </ul>
+        {/* Línea informativa sobre estacionamiento */}
+        <div className="parking-info">
+          <FaCar size={25} className="parking-icon" />
+          <p>Estacionamiento cubierto</p>
+        </div>
         <h3 className="description-title">Descripción</h3>
         <p>
           Esta cabaña de planta baja, con capacidad para 5 personas, ofrece un

@@ -55,10 +55,10 @@ export const Footer = () => {
         <div className="footer-section">
           <h3>Medios de Pagos</h3>
           <p>Elige tu mejor forma de pago!</p>
-          {/* No va tarjeta. Agregamos mercado pago */}
+
           <p>
             {" "}
-            <FaRegCreditCard /> Tarjeta de Crédito
+            <FaRegCreditCard /> Mercado Pago
           </p>
           <p>
             {" "}
@@ -72,8 +72,8 @@ export const Footer = () => {
       <div className="footer-bottom">
         {/* Eliminar disposicion. */}
         <p>
-          N° de disposición turística: 255/2024 | © {new Date().getFullYear()}{" "}
-          Cabañas Temistocles. Todos los derechos reservados.
+          © {new Date().getFullYear()} Cabañas Temistocles. | Todos los derechos
+          reservados.
         </p>
       </div>
     </footer>
