@@ -72,7 +72,7 @@ const Reservas = () => {
           <div className="contact-item">
             <FaWhatsapp size={30} />
             <a
-              href="https://wa.me/2945405471?text=Hola! Me comunico desde la pagina web, quiero realizar una Reserva"
+              href="https://wa.me/5492945405471?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web,%20quiero%20realizar%20una%20Reserva"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -81,11 +81,7 @@ const Reservas = () => {
           </div>
           <div className="contact-item">
             <FaPhone size={30} />
-            <a
-              href="tel:+542945450910"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="tel:+542945450910" rel="noopener noreferrer">
               +54 9 2945 450910
             </a>
           </div>
@@ -110,30 +106,27 @@ const Reservas = () => {
         {showPolicies && (
           <div className="policies-content">
             <p>
-              <b>
-                Cancelaciones realizadas con más de 48 horas de anticipación:
-              </b>{" "}
-              Si decides cancelar tu reserva con más de 48 horas de
-              anticipación, te reembolsaremos el 100% del monto pagado. Para
-              solicitar la cancelación, por favor contáctanos a través de
+              <b>Cancelaciones:</b> Si decides cancelar tu reserva con más de 48
+              horas de anticipación, te reembolsaremos el 100% del monto pagado.
+              Para solicitar la cancelación, por favor contáctanos a través de
               nuestro correo electrónico o número de teléfono.
             </p>
 
-            <p>
+            {/* <p>
               <b>
                 Cancelaciones realizadas entre 24 y 48 horas de anticipación:
               </b>{" "}
               Si cancelas tu reserva entre 24 y 48 horas antes de la llegada, te
               reembolsaremos el 50% del monto total pagado.
-            </p>
+            </p> */}
 
-            <p>
+            {/* <p>
               <b>
                 Cancelaciones realizadas con menos de 24 horas de anticipación:
               </b>{" "}
               Las cancelaciones realizadas con menos de 24 horas de anticipación
               no son reembolsables.
-            </p>
+            </p> */}
 
             <p>
               <b>Cambios de fecha:</b> Si deseas cambiar la fecha de tu reserva,

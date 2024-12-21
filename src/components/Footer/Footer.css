@@ -1,5 +1,5 @@
 .footer {
-  background-color: #000; /* Fondo negro */
+  background-color: rgb(68, 84, 60);
   color: #ccc; /* Color de texto */
   padding: 2rem; /* Espaciado interno */
   text-align: center;
@@ -24,6 +24,11 @@
   color: #fff;
   margin-bottom: 1rem;
   text-align: center;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: #ccc;
 }
 
 .social-links {

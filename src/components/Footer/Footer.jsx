@@ -17,7 +17,10 @@ export const Footer = () => {
           <p>Cabañas Temistocles</p>
           <p>Rivadavia 2656 – Esquel</p>
           <p>C.P: 9200 – Chubut, Patagonia Argentina.</p>
-          <p>📞 +54 2945 405471</p>
+          📞{" "}
+          <a href="tel:+542945450910" rel="noopener noreferrer">
+            +54 9 2945 450910
+          </a>
         </div>
 
         {/* Redes sociales */}
@@ -41,7 +44,7 @@ export const Footer = () => {
               <FaFacebook />
             </a>
             <a
-              href="https://wa.me/2945405471"
+              href="https://wa.me/5492945405471?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web,%20quiero%20realizar%20una%20Reserva"
               target="_blank"
               rel="noopener noreferrer"
               className="social-link"

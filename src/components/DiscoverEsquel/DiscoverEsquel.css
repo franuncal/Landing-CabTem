@@ -6,7 +6,7 @@ body {
 
 /* DiscoverEsquel styles */
 .discover-container {
-  background-color: #44543c;
+  /* background-color: #44543c; */
   padding: 5rem;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
@@ -40,14 +40,23 @@ body {
 
 .text-content h2 {
   font-size: 2.5rem;
-  color: #fff;
-  margin-bottom: 0.5rem;
+  color: #44543c;
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
-.text-content p {
+/* .text-content p {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
   color: #ccc;
+  color: #333;
+  text-align: justify;
+} */
+
+.text-content p {
+  font-size: 1.4rem;
+  color: #34495e;
+  margin-bottom: 0.5rem;
   text-align: justify;
 }
 
