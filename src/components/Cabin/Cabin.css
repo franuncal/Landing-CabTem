@@ -16,7 +16,7 @@
 .cabin-banner img {
   width: 100%;
   height: 100%; /* Las imágenes ocupan todo el banner */
-  object-fit: cover; /* Asegura que las imágenes llenen el contenedor sin distorsión */
+  object-fit: contain; /* Asegura que las imágenes llenen el contenedor sin distorsión */
   transition: opacity 0.5s ease; /* Suaviza el efecto de transición */
 }
 

@@ -1,5 +1,4 @@
 // Foto de Habitacion con 1 cama simple
-
 import { useState, useEffect } from "react";
 import {
   FaUsers,
@@ -10,18 +9,63 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Cabin.css";
-import img1 from "../../assets/cabanas/cab3/cab1.jpeg";
-import img2 from "../../assets/cabanas/cab3/cab2.jpeg";
-import img3 from "../../assets/cabanas/cab3/cab3.jpeg";
-import img4 from "../../assets/cabanas/cab3/cab4.jpeg";
-import img5 from "../../assets/cabanas/cab3/cab5.jpeg";
-import img6 from "../../assets/cabanas/cab3/cab6.jpeg";
-import img7 from "../../assets/cabanas/cab3/cab7.jpeg";
-import img8 from "../../assets/cabanas/cab3/cab8.jpeg";
-// import img9 from "../../assets/cabanas/cab3/cab9.jpeg";
-import img10 from "../../assets/cabanas/cab3/cab10.jpeg";
+import img1 from "../../assets/cabanas/cab3/cab3 -1.webp";
+import img2 from "../../assets/cabanas/cab3/cab3 -2.webp";
+import img3 from "../../assets/cabanas/cab3/cab3 -3.webp";
+import img4 from "../../assets/cabanas/cab3/cab3 -4.webp";
+import img5 from "../../assets/cabanas/cab3/cab3 -5.webp";
+import img6 from "../../assets/cabanas/cab3/cab3 -6.webp";
+import img7 from "../../assets/cabanas/cab3/cab3 -7.webp";
+import img8 from "../../assets/cabanas/cab3/cab3 -8.webp";
+import img9 from "../../assets/cabanas/cab3/cab3 -9.webp";
+import img10 from "../../assets/cabanas/cab3/cab3 -10.webp";
+import img11 from "../../assets/cabanas/cab3/cab3 -11.webp";
+import img12 from "../../assets/cabanas/cab3/cab3 -12.webp";
+import img13 from "../../assets/cabanas/cab3/cab3 -13.webp";
+import img14 from "../../assets/cabanas/cab3/cab3 -14.webp";
+import img15 from "../../assets/cabanas/cab3/cab3 -15.webp";
+import img16 from "../../assets/cabanas/cab3/cab3 -16.webp";
+import img17 from "../../assets/cabanas/cab3/cab3 -17.webp";
+import img18 from "../../assets/cabanas/cab3/cab3 -18.webp";
+import img19 from "../../assets/cabanas/cab3/cab3 -19.webp";
+import img20 from "../../assets/cabanas/cab3/cab3 -20.webp";
+import img21 from "../../assets/cabanas/cab3/cab3 -21.webp";
+import img22 from "../../assets/cabanas/cab3/cab3 -22.webp";
+import img23 from "../../assets/cabanas/cab3/cab3 -23.webp";
 
-const images = [img1, img3, img5, img6, img8, img2, img4, img7, img10];
+const images = [
+  // Frente
+  img2,
+  // living
+  img3,
+  img5,
+  // cocina // comedor
+  img18,
+  img4,
+  img19,
+  img17,
+  img20,
+  img21,
+  img22,
+  img23,
+  img16,
+  // matri
+  img6,
+  img7,
+  img8,
+  img9,
+  // hab 2 camas
+  img10,
+  img11,
+  img12,
+  // Hab simple
+  img13,
+  img14,
+  // bano chico
+  img15,
+  // patio
+  img1,
+];
 
 const Cabin3 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

@@ -12,18 +12,45 @@ import {
 import { Link } from "react-router-dom";
 
 import "./Cabin.css";
-import img1 from "../../assets/cabanas/cab2/cab1.jpeg";
-import img2 from "../../assets/cabanas/cab2/cab2.jpeg";
-import img3 from "../../assets/cabanas/cab2/cab3.jpeg";
-import img4 from "../../assets/cabanas/cab2/cab4.jpeg";
-import img5 from "../../assets/cabanas/cab2/cab5.jpeg";
-import img6 from "../../assets/cabanas/cab2/cab6.jpeg";
-import img7 from "../../assets/cabanas/cab2/cab7.jpeg";
-import img8 from "../../assets/cabanas/cab2/cab8.jpeg";
-import img9 from "../../assets/cabanas/cab2/cab9.jpeg";
-import img10 from "../../assets/cabanas/cab2/cab10.jpeg";
+import img1 from "../../assets/cabanas/cab2/cab2 -1.webp";
+import img2 from "../../assets/cabanas/cab2/cab2 -2.webp";
+import img3 from "../../assets/cabanas/cab2/cab2 -3.webp";
+import img4 from "../../assets/cabanas/cab2/cab2 -4.webp";
+import img5 from "../../assets/cabanas/cab2/cab2 -5.webp";
+import img6 from "../../assets/cabanas/cab2/cab2 -6.webp";
+import img7 from "../../assets/cabanas/cab2/cab2 -7.webp";
+import img8 from "../../assets/cabanas/cab2/cab2 -8.webp";
+import img9 from "../../assets/cabanas/cab2/cab2 -9.webp";
+import img10 from "../../assets/cabanas/cab2/cab2 -10.webp";
+import img11 from "../../assets/cabanas/cab2/cab2 -11.webp";
+import img12 from "../../assets/cabanas/cab2/cab2 -12.webp";
+import img13 from "../../assets/cabanas/cab2/cab2 -13.webp";
+import img14 from "../../assets/cabanas/cab2/cab2 -14.webp";
+import img15 from "../../assets/cabanas/cab2/cab2 -15.webp";
 
-const images = [img1, img5, img2, img6, img8, img3, img7, img4, img9, img10];
+const images = [
+  // living
+  img8,
+  img9,
+  img10,
+  img7,
+  // Comedor
+  img5,
+  img2,
+  img3,
+  // Cocina
+  img1,
+  img6,
+  img4,
+  // Matr
+  img13,
+  // Hab
+  img11,
+  img12,
+  img15,
+  // Bano
+  img14,
+];
 
 const Cabin2 = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

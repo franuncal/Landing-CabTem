@@ -13,7 +13,17 @@
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  /* opacity: 0.9; */
+  background-position: center bottom;
+}
+
+/* Ajuste específico para la última imagen del carrusel */
+.last-img {
+  object-position: center;
+}
+
+/* Si necesitas ajustarlo con márgenes */
+.last-slide {
+  margin-top: 60px; /* Ajusta este valor según sea necesario */
 }
 
 .carousel-overlay {

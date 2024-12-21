@@ -1,62 +1,115 @@
-// // import React from "react";
-// import Slider from "react-slick";
+// import {
+//   FaTableTennis,
+//   FaFire,
+//   FaHotTub,
+//   FaDrumstickBite,
+// } from "react-icons/fa";
 // import "./MultipurposeRoom.css";
-// // import imgPool from "../../assets/multipurpose/pool.jpg";
-// // import imgSauna from "../../assets/multipurpose/sauna.jpg";
-// // import imgPingPong from "../../assets/multipurpose/pingpong.jpg";
-// // import imgParrilla from "../../assets/multipurpose/parrilla.jpg";
-// // import imgHorno from "../../assets/multipurpose/horno.jpg";
 
 // const MultipurposeRoom = () => {
-//   const settings = {
-//     dots: true,
-//     infinite: true,
-//     speed: 500,
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//     autoplay: true,
-//     autoplaySpeed: 3000,
-//   };
-
 //   return (
 //     <div id="multipurpose-room-section" className="multipurpose-room-container">
 //       <h2>Salón de Usos Múltiples</h2>
 //       <p>
-//         Nuestro salón de usos múltiples está diseñado para que todos los
-//         huéspedes disfruten al máximo. Cuenta con:
+//         Todos nuestros huéspedes pueden disfrutar de un salón de usos múltiples,
+//         equipado con todo lo necesario para pasar momentos únicos:
 //       </p>
-//       <ul className="amenities-list">
-//         <li>🎱 Mesa de pool</li>
-//         <li>🛁 Sauna seco</li>
-//         <li>🏓 Mesa de ping pong</li>
-//         <li>🍖 Parrilla</li>
-//         <li>🍞 Horno de barro</li>
-//       </ul>
-//       <div className="slider-container">
-//         <Slider {...settings}>
-//           <div>
-//             {/* <img src={imgPool} alt="Mesa de pool" className="slider-img" /> */}
-//           </div>
-//           <div>
-//             {/* <img src={imgSauna} alt="Sauna seco" className="slider-img" /> */}
-//           </div>
-//           <div>
-//             {/* <img
-//               src={imgPingPong}
-//               alt="Mesa de ping pong"
-//               className="slider-img"
-//             /> */}
-//           </div>
-//           <div>
-//             {/* <img src={imgParrilla} alt="Parrilla" className="slider-img" /> */}
-//           </div>
-//           <div>
-//             {/* <img src={imgHorno} alt="Horno de barro" className="slider-img" /> */}
-//           </div>
-//         </Slider>
+//       <div className="amenities-grid">
+//         <div className="amenity-item">
+//           <FaTableTennis className="amenity-icon" />
+//           <p>Mesa de ping pong</p>
+//         </div>
+//         <div className="amenity-item">
+//           <FaHotTub className="amenity-icon" />
+//           <p>Sauna seco</p>
+//         </div>
+//         <div className="amenity-item">
+//           <FaFire className="amenity-icon" />
+//           <p>Parrilla</p>
+//         </div>
+//         <div className="amenity-item">
+//           <FaDrumstickBite className="amenity-icon" />
+//           <p>Horno de barro</p>
+//         </div>
 //       </div>
 //     </div>
 //   );
 // };
 
 // export default MultipurposeRoom;
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import img1 from "../../assets/img-esquel/alerces.jpg";
+import img2 from "../../assets/img-esquel/hoya.jpg";
+import img3 from "../../assets/img-esquel/trochita.jpg";
+import img4 from "../../assets/img-esquel/zera.jpg";
+
+import {
+  FaTableTennis,
+  FaFire,
+  FaHotTub,
+  FaDrumstickBite,
+} from "react-icons/fa";
+import Slider from "react-slick";
+import "./MultipurposeRoom.css";
+
+const MultipurposeRoom = () => {
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+  };
+
+  const sliderImages = [img1, img2, img3, img4];
+
+  return (
+    <div id="multipurpose-room-section" className="multipurpose-room-container">
+      <h2>Salón de Usos Múltiples</h2>
+      <p>
+        Todos nuestros huéspedes pueden disfrutar de un salón de usos múltiples,
+        equipado con todo lo necesario para pasar momentos únicos:
+      </p>
+      <div className="amenities-grid">
+        <div className="amenity-item">
+          <FaTableTennis className="amenity-icon" />
+          <p>Mesa de ping pong</p>
+        </div>
+        <div className="amenity-item">
+          <FaHotTub className="amenity-icon" />
+          <p>Sauna seco</p>
+        </div>
+        <div className="amenity-item">
+          <FaFire className="amenity-icon" />
+          <p>Parrilla</p>
+        </div>
+        <div className="amenity-item">
+          <FaDrumstickBite className="amenity-icon" />
+          <p>Horno de barro</p>
+        </div>
+      </div>
+
+      {/* Slider de Imágenes */}
+      <div className="slider-container">
+        <Slider {...sliderSettings}>
+          {sliderImages.map((image, index) => (
+            <div key={index} className="slider-img-wrapper">
+              <img
+                src={image}
+                alt={`Imagen ${index + 1}`}
+                className="slider-img"
+              />
+            </div>
+          ))}
+        </Slider>
+      </div>
+    </div>
+  );
+};
+
+export default MultipurposeRoom;

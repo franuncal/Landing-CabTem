@@ -2,7 +2,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "./Banner.css";
 import { Link } from "react-router-dom";
-import img from "../../assets/cabanas/cab1/cab1.jpeg";
+import img from "../../assets/cabanas/cab1/cab1 -23.webp";
 import img1 from "../../assets/cabanas/cab2/cab1.jpeg";
 import img3 from "../../assets/cabanas/cab3/cab1.jpeg";
 
@@ -45,11 +45,11 @@ export const Banner = () => {
               <p>Nuestras cabañas te ofrecen un ambiente cálido y acogedor.</p>
             </div>
           </div>
-          <div className="carousel-slide">
+          <div className="carousel-slide last-slide">
             <img
               src={img3}
               alt="Cabañas Temistocles 3"
-              className="carousel-img"
+              className="carousel-img last-img"
             />
             {/* <div className="carousel-overlay">
               <h1>Un refugio en la montaña</h1>
