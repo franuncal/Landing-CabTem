@@ -45,10 +45,7 @@ const Cabanas = () => {
           </div>
           <div className="card-content">
             <h3>Cabaña 3</h3>
-            <p>
-              Ideal para 5 personas, rodeada de naturaleza y tranquilidad, y
-              todas las comodidades.
-            </p>
+            <p>Ideal para 5 personas, rodeada de naturaleza y tranquilidad.</p>
             <Link to="/cabin3" className="card-link">
               Más información
             </Link>
