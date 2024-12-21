@@ -32,12 +32,24 @@ import img20 from "../../assets/cabanas/cab3/cab3 -20.webp";
 import img21 from "../../assets/cabanas/cab3/cab3 -21.webp";
 import img22 from "../../assets/cabanas/cab3/cab3 -22.webp";
 import img23 from "../../assets/cabanas/cab3/cab3 -23.webp";
+import img24 from "../../assets/cabanas/cab3/cab3 -24.webp";
+import img25 from "../../assets/cabanas/cab3/cab3 -25.webp";
+import img26 from "../../assets/cabanas/cab3/cab3 -26.webp";
+import img27 from "../../assets/cabanas/cab3/cab3 -27.webp";
+import img28 from "../../assets/cabanas/cab3/cab3 -28.webp";
+import img29 from "../../assets/cabanas/cab3/cab3 -29.webp";
+import img30 from "../../assets/cabanas/cab3/cab3 -30.webp";
+import img31 from "../../assets/cabanas/cab3/cab3 -31.webp";
 
 const images = [
   // Frente
   img2,
   // living
   img3,
+  img27,
+  img28,
+  img29,
+  img30,
   img5,
   // cocina // comedor
   img18,
@@ -49,6 +61,9 @@ const images = [
   img22,
   img23,
   img16,
+  img24,
+  img25,
+  img26,
   // matri
   img6,
   img7,
@@ -61,6 +76,8 @@ const images = [
   // Hab simple
   img13,
   img14,
+  // Bano grande
+  img31,
   // bano chico
   img15,
   // patio
@@ -126,12 +143,11 @@ const Cabin3 = () => {
             <FaCheckCircle /> Living amplio con sillón y hogar a leña
           </li>
           <li>
-            <FaCheckCircle /> Habitación con dos camas con opción a una
-            matrimonial
+            <FaCheckCircle /> Habitación con dos camas (opción para matrimonial)
           </li>
           <li>
-            <FaCheckCircle /> 2da. Habitación con dos camas con opción a una
-            matrimonial
+            <FaCheckCircle /> 2da. Habitación con dos camas (opción para
+            matrimonial)
           </li>
           <li>
             <FaCheckCircle /> Habitación con una cama simple

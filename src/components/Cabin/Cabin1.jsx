@@ -38,8 +38,6 @@ import img26 from "../../assets/cabanas/cab1/cab1 -26.webp";
 // import img27 from "../../assets/cabanas/cab1/cab1 -27.webp";
 
 const images = [
-  // Agregar: Fotos living, cocina y frente
-  // Exterior
   img23,
   img22,
   img24,
@@ -134,8 +132,7 @@ const Cabin1 = () => {
             <FaCheckCircle /> Habitación matrimonial
           </li>
           <li>
-            <FaCheckCircle /> Habitación con dos camas con opción para una
-            matrimonial
+            <FaCheckCircle /> Habitación con dos camas (opción para matrimonial)
           </li>
           <li>
             <FaCheckCircle /> Cama en la sala de estar (entrepiso)

@@ -1,9 +1,10 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import img1 from "../../assets/img-esquel/alerces.jpg";
-import img2 from "../../assets/img-esquel/hoya.jpg";
-import img3 from "../../assets/img-esquel/trochita.jpg";
-import img4 from "../../assets/img-esquel/zera.jpg";
+import img1 from "../../assets/img-zoom/z1.webp";
+import img2 from "../../assets/img-zoom/z2.webp";
+import img3 from "../../assets/img-zoom/z3.webp";
+import img5 from "../../assets/img-zoom/z5.webp";
+import img6 from "../../assets/img-zoom/z6.webp";
 
 import {
   FaTableTennis,
@@ -26,7 +27,7 @@ const MultipurposeRoom = () => {
     arrows: false,
   };
 
-  const sliderImages = [img1, img2, img3, img4];
+  const sliderImages = [img1, img5, img6, img2, img3];
 
   return (
     <div id="multipurpose-room-section" className="multipurpose-room-container">

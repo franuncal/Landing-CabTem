@@ -1,17 +1,17 @@
 import "./Actividades.css";
 import { useState, useEffect, useCallback } from "react";
-import img1 from "../../assets/paisaje/p1.jpg";
-import img2 from "../../assets/paisaje/p2.jpg";
-import img3 from "../../assets/paisaje/p3.jpg";
+import img1 from "../../assets/paisaje/p1.webp";
+import img2 from "../../assets/paisaje/p2.webp";
+import img3 from "../../assets/paisaje/p3.webp";
 
-import img4 from "../../assets/img-esquel/alerces.jpg";
-import img5 from "../../assets/img-esquel/hoya.jpg";
-import img6 from "../../assets/img-esquel/trochita.jpg";
-import img7 from "../../assets/img-esquel/zera.jpg";
-import img8 from "../../assets/img-esquel/tuneles.jpg";
-import img9 from "../../assets/img-esquel/trevelin.jpg";
-import img10 from "../../assets/img-esquel/piedra.jpg";
-import img11 from "../../assets/img-esquel/rafting.avif";
+import img4 from "../../assets/img-esquel/es1.webp";
+import img5 from "../../assets/img-esquel/es2.webp";
+import img6 from "../../assets/img-esquel/es6.webp";
+import img7 from "../../assets/img-esquel/es8.webp";
+import img8 from "../../assets/img-esquel/es7.webp";
+import img9 from "../../assets/img-esquel/es5.webp";
+import img10 from "../../assets/img-esquel/es3.webp";
+import img11 from "../../assets/img-esquel/es4.webp";
 
 const Actividades = () => {
   const [currentImage, setCurrentImage] = useState(0);

@@ -1,10 +1,10 @@
 // src/components/DiscoverEsquel/DiscoverEsquel.jsx
 import { Link } from "react-router-dom";
 import "./DiscoverEsquel.css";
-import imgCabanas0 from "../../assets/img-esquel/alerces.jpg";
-import imgCabanas1 from "../../assets/img-esquel/hoya.jpg";
-import imgCabanas2 from "../../assets/img-esquel/trochita.jpg";
-import imgCabanas3 from "../../assets/img-esquel/zera.jpg";
+import imgCabanas0 from "../../assets/img-esquel/es1.webp";
+import imgCabanas1 from "../../assets/img-esquel/es2.webp";
+import imgCabanas2 from "../../assets/img-esquel/es6.webp";
+import imgCabanas3 from "../../assets/img-esquel/es8.webp";
 
 const DiscoverEsquel = () => {
   return (

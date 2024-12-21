@@ -2,9 +2,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import "./Banner.css";
 import { Link } from "react-router-dom";
-import img from "../../assets/cabanas/cab1/cab1 -23.webp";
-import img1 from "../../assets/cabanas/cab2/cab1.jpeg";
-import img3 from "../../assets/cabanas/cab3/cab1.jpeg";
+import img1 from "../../assets/cabanas/cab1/cab1 -23.webp";
+import img2 from "../../assets/cabanas/cab2/cab2 -17.webp";
+import img3 from "../../assets/cabanas/cab3/cab3 -2.webp";
 
 export const Banner = () => {
   return (
@@ -22,7 +22,7 @@ export const Banner = () => {
         >
           <div className="carousel-slide">
             <img
-              src={img}
+              src={img1}
               alt="Cabañas Temistocles 1"
               className="carousel-img"
             />
@@ -36,7 +36,7 @@ export const Banner = () => {
           </div>
           <div className="carousel-slide">
             <img
-              src={img1}
+              src={img2}
               alt="Cabañas Temistocles 2"
               className="carousel-img"
             />

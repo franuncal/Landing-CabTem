@@ -27,8 +27,13 @@ import img12 from "../../assets/cabanas/cab2/cab2 -12.webp";
 import img13 from "../../assets/cabanas/cab2/cab2 -13.webp";
 import img14 from "../../assets/cabanas/cab2/cab2 -14.webp";
 import img15 from "../../assets/cabanas/cab2/cab2 -15.webp";
+import img16 from "../../assets/cabanas/cab2/cab2 -16.webp";
+import img17 from "../../assets/cabanas/cab2/cab2 -17.webp";
 
 const images = [
+  // Frente
+  img17,
+  img16,
   // living
   img8,
   img9,

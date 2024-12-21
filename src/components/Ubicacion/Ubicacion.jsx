@@ -1,8 +1,8 @@
 import "./Ubicacion.css";
 import { useState, useEffect, useCallback } from "react";
-import img1 from "../../assets/paisaje/p1.jpg";
-import img2 from "../../assets/paisaje/p2.jpg";
-import img3 from "../../assets/paisaje/p3.jpg";
+import img1 from "../../assets/paisaje/p1.webp";
+import img2 from "../../assets/paisaje/p2.webp";
+import img3 from "../../assets/paisaje/p3.webp";
 import { Link } from "react-router-dom";
 
 const Ubicacion = () => {
