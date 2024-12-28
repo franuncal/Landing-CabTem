@@ -4,7 +4,7 @@ import "./Banner.css";
 import { Link } from "react-router-dom";
 import img1 from "../../assets/cabanas/cab1/cab1 -23.webp";
 import img2 from "../../assets/cabanas/cab2/cab2 -17.webp";
-import img3 from "../../assets/cabanas/cab3/cab3 -2.webp";
+// import img3 from "../../assets/cabanas/cab3/cab3 -2.webp";
 
 export const Banner = () => {
   return (
@@ -44,19 +44,6 @@ export const Banner = () => {
               <h1>Calidez y confort</h1>
               <p>Nuestras cabañas te ofrecen un ambiente cálido y acogedor.</p>
             </div>
-          </div>
-          <div className="carousel-slide last-slide">
-            <img
-              src={img3}
-              alt="Cabañas Temistocles 3"
-              className="carousel-img last-img"
-            />
-            {/* <div className="carousel-overlay">
-              <h1>Un refugio en la montaña</h1>
-              <p>
-                Vive una experiencia inolvidable en el corazón de la Patagonia.
-              </p>
-            </div> */}
           </div>
         </Carousel>
       </div>
