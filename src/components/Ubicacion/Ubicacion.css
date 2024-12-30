@@ -1,13 +1,11 @@
 .ubicacion {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .banner-u {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 400px; /* Asegura una altura adecuada en pantallas grandes */
   overflow: hidden;
   margin-top: 70px;
 }
@@ -31,11 +29,11 @@
 
 .info-container {
   display: flex;
-  justify-content: space-between; /* Espacio entre los dos divs */
-  max-width: 1000px;
-  margin: 4rem auto 4rem auto; /* Centrado con margen */
+  justify-content: space-between;
+  max-width: 1200px; /* Limitar el ancho a 1200px en pantallas grandes */
+  margin: 4rem auto;
   padding: 20px;
-  flex-wrap: wrap; /* Permitir que el contenido se envuelva en pantallas pequeñas */
+  flex-wrap: wrap;
   gap: 3rem;
 }
 
@@ -52,14 +50,14 @@
 
 .info-left {
   flex: 1;
-  min-width: 300px; /* Ancho mínimo para el div izquierdo */
-  text-align: left; /* Alinear el texto a la izquierda */
-  margin-bottom: 20px; /* Espacio inferior para separar del mapa */
+  min-width: 300px;
+  text-align: left;
+  margin-bottom: 20px;
 }
 
 .info-right {
   flex: 1;
-  min-width: 300px; /* Ancho mínimo para el div derecho */
+  min-width: 300px;
 }
 
 h2,
@@ -68,43 +66,75 @@ h3 {
 }
 
 p {
-  margin: 5px 0; /* Espaciado entre párrafos */
+  margin: 5px 0;
   font-size: 1.2rem;
 }
 
 /* Estilos responsivos */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .info-container {
-    flex-direction: column; /* Cambiar a columna en pantallas pequeñas */
-    align-items: flex-start; /* Alinear a la izquierda */
-    padding: 10px; /* Reducir padding para pantallas pequeñas */
-    gap: 1.5rem; /* Reducir el espacio entre elementos */
+    max-width: 100%; /* El contenido puede ocupar todo el ancho en pantallas más pequeñas */
+    padding: 10px;
+    gap: 2rem; /* Ajustamos el espacio entre elementos */
+  }
+
+  .banner-u {
+    height: 350px; /* Reducimos la altura del banner en tabletas y notebooks */
   }
 
   .info-left,
   .info-right {
-    min-width: 100%; /* Asegurarse de que cada sección ocupe todo el ancho */
+    min-width: 100%; /* Aseguramos que cada sección ocupe el 100% en pantallas medianas */
   }
 
-  h3 {
-    font-size: 1.8em; /* Reducir el tamaño de fuente para títulos en pantallas pequeñas */
+  .carousel-image {
+    object-fit: contain; /* Ajustamos el ajuste de la imagen para que no se vea recortada */
+  }
+}
+
+@media (max-width: 768px) {
+  .info-container {
+    flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .info-left,
+  .info-right {
+    min-width: 100%; /* Cada sección ocupará todo el ancho en móviles */
+  }
+
+  .info-left h3 {
+    font-size: 1.8em;
   }
 
   p {
-    font-size: 1rem; /* Ajustar el tamaño del texto de los párrafos */
+    font-size: 1rem;
   }
 
-  .info-right {
-    margin-top: 20px;
+  .banner-u {
+    height: 300px; /* Reducimos la altura del banner para móviles */
+  }
+
+  .carousel-image {
+    object-fit: cover; /* Asegura que la imagen ocupe el 100% del banner sin recortes raros */
   }
 
   .map {
-    height: 200px; /* Reduce la altura del mapa en pantallas más pequeñas */
+    height: 200px;
   }
 }
 
 @media (max-width: 480px) {
   .map {
-    height: 150px; /* Reduce aún más la altura para pantallas muy pequeñas */
+    height: 150px; /* Reducimos aún más la altura del mapa en pantallas muy pequeñas */
+  }
+
+  .banner-u {
+    height: 250px; /* Banner más pequeño para pantallas pequeñas */
+  }
+
+  .carousel-image {
+    object-fit: cover; /* Asegura que la imagen de fondo cubra el banner sin dejar espacio vacío */
   }
 }

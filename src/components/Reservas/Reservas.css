@@ -1,7 +1,6 @@
 .reservas {
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .banner-r {
@@ -29,6 +28,12 @@
   transition: opacity 0.5s ease;
 }
 
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .intro-section {
   text-align: center;
   margin: 40px 0;
@@ -43,40 +48,35 @@
   font-size: 1.3rem;
   line-height: 1.6;
   margin: 0 auto;
-  max-width: 800px;
   text-align: justify;
 }
 
-/* Contenedor general de la sección de contacto */
 .contact-container {
   display: flex;
-  justify-content: center; /* Centra el contenedor general */
+  justify-content: center;
   align-items: center;
   width: 100%;
   padding: 40px 0;
 }
 
-/* Estilos para la información de contacto */
 .contact-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinea los elementos a la izquierda */
+  align-items: flex-start;
   gap: 20px;
   text-align: left;
-  max-width: 600px; /* Limita el ancho del contenedor para mantenerlo centrado */
+  max-width: 600px;
 }
 
-/* Estilos para los ítems de contacto */
 .contact-item {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
-/* Eliminar subrayado de enlaces en la sección de contacto */
 .contact-info a {
   color: #000;
-  text-decoration: none; /* Eliminar subrayado */
+  text-decoration: none;
 }
 
 .contact-item a {
@@ -86,11 +86,21 @@
   white-space: nowrap;
 }
 
-.contact-item svg {
-  font-size: 30px; /* Asegura que los iconos mantengan su tamaño */
+.contact-item a:hover {
+  color: #44543c;
+  transform: scale(1.1);
 }
 
-/* Políticas */
+.contact-item svg {
+  font-size: 30px;
+  margin-right: 1rem;
+}
+
+.contact-item svg:hover {
+  color: #44543c;
+  transform: scale(1.1);
+}
+
 .policies {
   text-align: center;
   margin-top: 40px;
@@ -136,12 +146,12 @@
   }
 
   .contact-info {
-    align-items: flex-start; /* Mantiene los elementos alineados a la izquierda */
+    align-items: flex-start;
     text-align: left;
   }
 
   .contact-info a {
-    align-items: flex-start; /* Mantiene los elementos alineados a la izquierda */
+    align-items: flex-start;
     text-align: left;
     font-size: 0.8rem;
   }

@@ -19,11 +19,11 @@ export const Presentation = () => {
           conectar con la esencia de la Patagonia.
         </p>
         {/* Botón de cabañas */}
-        <div className="cabanas-info">
+        {/* <div className="cabanas-info">
           <a href="#cabanas-section" className="cabanas-btn">
             Las Cabañas
           </a>
-        </div>
+        </div> */}
       </div>
       <div className="image-content-p">
         <img src={img2} alt="Cabañas en Esquel" className="presentation-img" />
