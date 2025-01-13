@@ -13,24 +13,24 @@ import img1 from "../../assets/cabanas/cab1/cab1 -1.webp";
 import img2 from "../../assets/cabanas/cab1/cab1 -2.webp";
 import img3 from "../../assets/cabanas/cab1/cab1 -3.webp";
 import img4 from "../../assets/cabanas/cab1/cab1 -4.webp";
-import img5 from "../../assets/cabanas/cab1/cab1 -5.webp";
+// import img5 from "../../assets/cabanas/cab1/cab1 -5.webp";
 import img6 from "../../assets/cabanas/cab1/cab1 -6.webp";
 import img7 from "../../assets/cabanas/cab1/cab1 -7.webp";
-import img8 from "../../assets/cabanas/cab1/cab1 -8.webp";
+// import img8 from "../../assets/cabanas/cab1/cab1 -8.webp";
 import img9 from "../../assets/cabanas/cab1/cab1 -9.webp";
 import img10 from "../../assets/cabanas/cab1/cab1 -10.webp";
 import img11 from "../../assets/cabanas/cab1/cab1 -11.webp";
 import img12 from "../../assets/cabanas/cab1/cab1 -12.webp";
 import img13 from "../../assets/cabanas/cab1/cab1 -13.webp";
 import img14 from "../../assets/cabanas/cab1/cab1 -14.webp";
-import img15 from "../../assets/cabanas/cab1/cab1 -15.webp";
+// import img15 from "../../assets/cabanas/cab1/cab1 -15.webp";
 import img16 from "../../assets/cabanas/cab1/cab1 -16.webp";
-import img17 from "../../assets/cabanas/cab1/cab1 -17.webp";
+// import img17 from "../../assets/cabanas/cab1/cab1 -17.webp";
 import img18 from "../../assets/cabanas/cab1/cab1 -18.webp";
 import img19 from "../../assets/cabanas/cab1/cab1 -19.webp";
 import img20 from "../../assets/cabanas/cab1/cab1 -20.webp";
 import img21 from "../../assets/cabanas/cab1/cab1 -21.webp";
-import img22 from "../../assets/cabanas/cab1/cab1 -22.webp";
+// import img22 from "../../assets/cabanas/cab1/cab1 -22.webp";
 import img23 from "../../assets/cabanas/cab1/cab1 -23.webp";
 import img24 from "../../assets/cabanas/cab1/cab1 -24.webp";
 import img25 from "../../assets/cabanas/cab1/cab1 -25.webp";
@@ -39,7 +39,7 @@ import img26 from "../../assets/cabanas/cab1/cab1 -26.webp";
 
 const images = [
   img23,
-  img22,
+  // img22,
   img24,
   // comedor
   img7,
@@ -47,25 +47,25 @@ const images = [
   img14,
   // Cocina
   img19,
-  img17,
+  // img17,
   img18,
   img9,
   img10,
-  img8,
+  // img8,
   // Entrepiso
   img16,
   img11,
   img12,
   // Hab. Matr
   img6,
-  img5,
+  // img5,
   img4,
   // Hab dos camas
   img1,
   img2,
   // Bano
   img3,
-  img15,
+  // img15,
   // Exte
   img21,
   img20,

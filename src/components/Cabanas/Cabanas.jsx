@@ -31,7 +31,7 @@ const Cabanas = () => {
           <div className="card-content">
             <h3>Cabaña 2</h3>
             <p>
-              Perfecta para 7 personas, con amplios espacios y todas las
+              Perfecta para 6 personas, con amplios espacios y todas las
               comodidades.
             </p>
             <Link to="/cabin2" className="card-link">

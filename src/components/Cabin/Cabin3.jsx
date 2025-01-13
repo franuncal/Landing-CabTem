@@ -24,18 +24,18 @@ import img12 from "../../assets/cabanas/cab3/cab3 -12.webp";
 import img13 from "../../assets/cabanas/cab3/cab3 -13.webp";
 import img14 from "../../assets/cabanas/cab3/cab3 -14.webp";
 import img15 from "../../assets/cabanas/cab3/cab3 -15.webp";
-import img16 from "../../assets/cabanas/cab3/cab3 -16.webp";
+// import img16 from "../../assets/cabanas/cab3/cab3 -16.webp";
 import img17 from "../../assets/cabanas/cab3/cab3 -17.webp";
 import img18 from "../../assets/cabanas/cab3/cab3 -18.webp";
-import img19 from "../../assets/cabanas/cab3/cab3 -19.webp";
+// import img19 from "../../assets/cabanas/cab3/cab3 -19.webp";
 import img20 from "../../assets/cabanas/cab3/cab3 -20.webp";
 import img21 from "../../assets/cabanas/cab3/cab3 -21.webp";
 import img22 from "../../assets/cabanas/cab3/cab3 -22.webp";
-import img23 from "../../assets/cabanas/cab3/cab3 -23.webp";
-import img24 from "../../assets/cabanas/cab3/cab3 -24.webp";
+// import img23 from "../../assets/cabanas/cab3/cab3 -23.webp";
+// import img24 from "../../assets/cabanas/cab3/cab3 -24.webp";
 import img25 from "../../assets/cabanas/cab3/cab3 -25.webp";
 import img26 from "../../assets/cabanas/cab3/cab3 -26.webp";
-import img27 from "../../assets/cabanas/cab3/cab3 -27.webp";
+// import img27 from "../../assets/cabanas/cab3/cab3 -27.webp";
 import img28 from "../../assets/cabanas/cab3/cab3 -28.webp";
 import img29 from "../../assets/cabanas/cab3/cab3 -29.webp";
 import img30 from "../../assets/cabanas/cab3/cab3 -30.webp";
@@ -46,7 +46,7 @@ const images = [
   img2,
   // living
   img3,
-  img27,
+  // img27,
   img28,
   img29,
   img30,
@@ -54,14 +54,14 @@ const images = [
   // cocina // comedor
   img18,
   img4,
-  img19,
+  // img19,
   img17,
   img20,
   img21,
   img22,
-  img23,
-  img16,
-  img24,
+  // img23,
+  // img16,
+  // img24,
   img25,
   img26,
   // matri

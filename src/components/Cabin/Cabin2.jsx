@@ -15,10 +15,10 @@ import "./Cabin.css";
 import img1 from "../../assets/cabanas/cab2/cab2 -1.webp";
 import img2 from "../../assets/cabanas/cab2/cab2 -2.webp";
 import img3 from "../../assets/cabanas/cab2/cab2 -3.webp";
-import img4 from "../../assets/cabanas/cab2/cab2 -4.webp";
+// import img4 from "../../assets/cabanas/cab2/cab2 -4.webp";
 import img5 from "../../assets/cabanas/cab2/cab2 -5.webp";
 import img6 from "../../assets/cabanas/cab2/cab2 -6.webp";
-import img7 from "../../assets/cabanas/cab2/cab2 -7.webp";
+// import img7 from "../../assets/cabanas/cab2/cab2 -7.webp";
 import img8 from "../../assets/cabanas/cab2/cab2 -8.webp";
 import img9 from "../../assets/cabanas/cab2/cab2 -9.webp";
 import img10 from "../../assets/cabanas/cab2/cab2 -10.webp";
@@ -38,7 +38,7 @@ const images = [
   img8,
   img9,
   img10,
-  img7,
+  // img7,
   // Comedor
   img5,
   img2,
@@ -46,7 +46,7 @@ const images = [
   // Cocina
   img1,
   img6,
-  img4,
+  // img4,
   // Matr
   img13,
   // Hab
