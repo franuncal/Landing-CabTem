@@ -26,7 +26,7 @@ import img14 from "../../assets/cabanas/cab1/cab1 -14.webp";
 // import img15 from "../../assets/cabanas/cab1/cab1 -15.webp";
 import img16 from "../../assets/cabanas/cab1/cab1 -16.webp";
 // import img17 from "../../assets/cabanas/cab1/cab1 -17.webp";
-import img18 from "../../assets/cabanas/cab1/cab1 -18.webp";
+// import img18 from "../../assets/cabanas/cab1/cab1 -18.webp";
 import img19 from "../../assets/cabanas/cab1/cab1 -19.webp";
 import img20 from "../../assets/cabanas/cab1/cab1 -20.webp";
 import img21 from "../../assets/cabanas/cab1/cab1 -21.webp";
@@ -48,7 +48,7 @@ const images = [
   // Cocina
   img19,
   // img17,
-  img18,
+  // img18,
   img9,
   img10,
   // img8,
