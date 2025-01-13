@@ -107,10 +107,11 @@ const Reservas = () => {
           {showPolicies && (
             <div className="policies-content">
               <p>
-                <b>Cancelaciones:</b> Si decides cancelar tu reserva con más de
-                48 horas de anticipación, te reembolsaremos el 100% del monto
-                pagado. Para solicitar la cancelación, por favor contáctanos a
-                través de nuestro correo electrónico o número de teléfono.
+                <b>Cancelaciones:</b> Si decides cancelar tu reserva,
+                lamentablemente, las reservas no podrán ser reembolsadas bajo
+                ningún motivo ajeno a la empresa. Te sugerimos que, en caso de
+                dudas o imprevistos, te pongas en contacto con nosotros para
+                explorar posibles soluciones.
               </p>
               <p>
                 <b>Cambios de fecha:</b> Si deseas cambiar la fecha de tu

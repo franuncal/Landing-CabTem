@@ -12,6 +12,7 @@ import img8 from "../../assets/img-esquel/es7.webp";
 import img9 from "../../assets/img-esquel/es5.webp";
 import img10 from "../../assets/img-esquel/es3.webp";
 import img11 from "../../assets/img-esquel/es4.webp";
+import img12 from "../../assets/img-esquel/es9.webp";
 
 const Actividades = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -79,6 +80,14 @@ const Actividades = () => {
               destino perfecto para disfrutar de la naturaleza en su máxima
               expresión.
             </p>
+            <a
+              href="https://maps.app.goo.gl/zTE1DfSdDXuciCX77"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-maps-button"
+            >
+              Ver en Google Maps
+            </a>
           </div>
         </div>
 
@@ -97,6 +106,14 @@ const Actividades = () => {
               superficie esquiable y 24 pistas, con una extensión total de 22
               km.
             </p>
+            <a
+              href="https://maps.app.goo.gl/dYB3nyRxirNDx5yG8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-maps-button"
+            >
+              Ver en Google Maps
+            </a>
           </div>
         </div>
 
@@ -116,6 +133,14 @@ const Actividades = () => {
               siendo uno de los atractivos turísticos más populares de la
               región.
             </p>
+            <a
+              href="https://maps.app.goo.gl/5MV3YZST667Y8RsP8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-maps-button"
+            >
+              Ver en Google Maps
+            </a>
           </div>
         </div>
 
@@ -132,6 +157,14 @@ const Actividades = () => {
               convierte en un sitio excelente para relajarse y disfrutar de la
               naturaleza.
             </p>
+            <a
+              href="https://maps.app.goo.gl/YaamLRzig2QCLSoj9"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-maps-button"
+            >
+              Ver en Google Maps
+            </a>
           </div>
         </div>
 
@@ -153,6 +186,14 @@ const Actividades = () => {
               disfrutar de vistas impresionantes de la cordillera y el lago
               Futalaufquen.
             </p>
+            <a
+              href="https://maps.app.goo.gl/SnvPMrrbr5Vq92tC7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-maps-button"
+            >
+              Ver en Google Maps
+            </a>
           </div>
         </div>
 
@@ -169,6 +210,14 @@ const Actividades = () => {
               Esquel, Trevelin es un excelente destino para quienes buscan una
               experiencia cultural y paisajística diferente.
             </p>
+            <a
+              href="https://maps.app.goo.gl/8PuRRCgNNnm1PB6GA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-maps-button"
+            >
+              Ver en Google Maps
+            </a>
           </div>
         </div>
 
@@ -185,6 +234,14 @@ const Actividades = () => {
               una experiencia única para explorar senderos en un entorno natural
               salvaje y lleno de historia geológica.
             </p>
+            <a
+              href="https://maps.app.goo.gl/ioKBcfgzhH774p5a7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-maps-button"
+            >
+              Ver en Google Maps
+            </a>
           </div>
         </div>
 
@@ -202,6 +259,43 @@ const Actividades = () => {
               ideal se extiende desde diciembre a marzo, según las condiciones y
               cantidad de agua.
             </p>
+            <a
+              href="https://maps.app.goo.gl/CT9nkcM2FUZgDBLn7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-maps-button"
+            >
+              Ver en Google Maps
+            </a>
+          </div>
+        </div>
+
+        {/* Casa de Té */}
+        <div className="activity-banner">
+          <img
+            src={img12}
+            alt="Paisaje Pueblo Alto"
+            className="activity-image"
+          />
+          <div className="activity-info">
+            <h3 className="activity-title">Pueblo Alto Lodge</h3>
+            <p className="activity-description">
+              Pueblo Alto Lodge es una encantadora casa de té en la montaña,
+              ubicada en el camino al Parque Nacional Los Alerces. Es el lugar
+              ideal para disfrutar de un té de campo acompañado de delicias
+              caseras, rodeado de un paisaje único. Además, ofrece emocionantes
+              actividades como canopy, que combinan aventura y naturaleza. Las
+              visitas pueden realizarse durante todo el año, brindando una
+              experiencia inolvidable en pleno contacto con la montaña.
+            </p>
+            <a
+              href="https://maps.app.goo.gl/9HFmXorDTHxWRtye6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="google-maps-button"
+            >
+              Ver en Google Maps
+            </a>
           </div>
         </div>
       </div>

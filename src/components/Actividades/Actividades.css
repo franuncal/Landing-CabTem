@@ -89,6 +89,23 @@
   color: #555;
 }
 
+.google-maps-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #44543c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.google-maps-button:hover {
+  background-color: #5a6e4f;
+}
+
 /* Adaptaciones para pantallas pequeñas */
 @media (max-width: 768px) {
   .activity-banner {
