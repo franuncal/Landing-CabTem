@@ -1,4 +1,3 @@
-/* Banner general */
 .banner-container {
   position: relative;
   max-width: 100%;
@@ -16,16 +15,6 @@
   background-position: center bottom;
 }
 
-/* Ajuste específico para la última imagen del carrusel */
-.last-img {
-  object-position: center;
-}
-
-/* Si necesitas ajustarlo con márgenes */
-.last-slide {
-  margin-top: 60px; /* Ajusta este valor según sea necesario */
-}
-
 .carousel-overlay {
   position: absolute;
   top: 45%;
@@ -33,7 +22,7 @@
   transform: translate(-50%, -50%);
   text-align: center;
   color: white;
-  background-color: rgb(68, 84, 60, 0.9);
+  background-color: rgba(68, 84, 60, 0.9);
   padding: 1.3rem 2.3rem;
   border-radius: 10px;
 }
@@ -48,7 +37,6 @@
   font-size: 1.3rem;
 }
 
-/* Botón de reserva */
 .reservation-info {
   text-align: center;
   margin-top: 2rem;
@@ -69,56 +57,34 @@
   background-color: rgb(235, 146, 2);
 }
 
-/* Ajustes para pantallas pequeñas */
+/* Responsivo */
 @media (max-width: 768px) {
   .carousel-overlay {
-    width: 90%; /* Ancho más grande en pantallas pequeñas */
-    padding: 1rem; /* Menos padding */
-    min-height: 120px; /* Altura mínima para pantallas pequeñas */
+    width: 90%;
+    padding: 1rem;
+    min-height: 120px;
   }
 
   .carousel-overlay h1 {
-    font-size: 2rem; /* Tamaño de fuente más pequeño */
+    font-size: 2rem;
   }
 
   .carousel-overlay p {
-    font-size: 1.1rem; /* Tamaño de fuente más pequeño */
+    font-size: 1.1rem;
   }
 }
 
-/* Ajustes para pantallas muy pequeñas */
 @media (max-width: 480px) {
   .carousel-overlay {
-    width: 95%; /* Ancho aún más grande en pantallas pequeñas */
-    min-height: 100px; /* Altura mínima para pantallas muy pequeñas */
+    width: 95%;
+    min-height: 100px;
   }
 
   .carousel-overlay h1 {
-    font-size: 1.5rem; /* Tamaño de fuente más pequeño */
+    font-size: 1.5rem;
   }
 
   .carousel-overlay p {
-    font-size: 1rem; /* Tamaño de fuente más pequeño */
+    font-size: 1rem;
   }
-}
-
-/* Botón de reserva */
-.reservation-info {
-  text-align: center;
-  margin-top: 2rem;
-  padding: 2rem 1rem;
-}
-
-.reservation-btn {
-  padding: 1rem 2rem;
-  background-color: rgb(201, 124, 0);
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
-}
-
-.reservation-btn:hover {
-  background-color: rgb(235, 146, 2);
 }

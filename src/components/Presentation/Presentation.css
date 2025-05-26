@@ -1,105 +1,94 @@
-/* Presentation.css */
 .presentation-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  flex-wrap: wrap;
+  padding: 1.5rem 2rem; /* Menos padding vertical */
   max-width: 1200px;
-  margin: 4rem auto;
+  margin: 2rem auto; /* Menos margen arriba y abajo */
+  gap: 2rem;
 }
 
 .text-content-p {
-  flex: 1;
+  flex: 1 1 500px;
 }
 
 .presentation-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: #44543c;
-  margin-bottom: 2rem;
   font-weight: 700;
+  text-align: center;
+  margin: 0 0 0.4rem 0; /* Menos margen inferior */
 }
 
-.presentation-title,
-h2 {
+.presentation-subtitle {
   font-size: 2rem;
+  color: #44543c;
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin: 0 0 1rem 0; /* Un poco menos margen inferior */
 }
 
 .presentation-description {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #555;
   text-align: justify;
+  line-height: 1.6;
+  margin-top: 0;
 }
 
 .image-content-p {
-  flex: 1;
+  flex: 1 1 400px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 2rem;
 }
 
 .presentation-img {
   width: 100%;
-  max-width: 650px;
-  height: auto;
-  aspect-ratio: 1 / 1;
+  max-width: 600px;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.title-description2 {
-  color: #44543c;
-  font-weight: 300;
-  padding-top: 1.5rem;
-}
-
-/* Responsive */
-/* Responsive */
+/* Responsive tablet */
 @media (max-width: 768px) {
   .presentation-container {
     flex-direction: column;
     text-align: center;
-    margin: 2rem 1rem; /* Añadido margen para mayor separación */
+    padding: 1.5rem 1rem;
+    margin: 1.5rem auto;
   }
 
   .text-content-p {
-    margin-bottom: 2rem; /* Añadido margen para separar el texto de la imagen */
-  }
-
-  .presentation-img {
-    width: 100%;
-    max-width: 300px; /* Ajustado el tamaño de la imagen en pantallas más pequeñas */
-    margin: 0 auto; /* Centrado la imagen */
+    flex: 1 1 auto;
   }
 
   .presentation-description {
-    font-size: 1.2rem; /* Ajustado el tamaño del texto para pantallas más pequeñas */
+    font-size: 1.1rem;
+  }
+
+  /* Ocultamos la imagen en tablet y móvil para evitar distracción */
+  .image-content-p {
+    display: none;
   }
 }
 
-/* Pantallas muy pequeñas */
+/* Responsive móvil */
 @media (max-width: 480px) {
-  .presentation-title,
-  h2 {
-    font-size: 1.8rem; /* Reducido el tamaño del título */
+  .presentation-title {
+    font-size: 1.8rem;
+  }
+
+  .presentation-subtitle {
+    font-size: 1.3rem;
   }
 
   .presentation-description {
-    font-size: 1rem; /* Reducido el tamaño de la descripción */
-    line-height: 1.5; /* Ajustado el interlineado para mejorar la legibilidad */
-  }
-
-  .presentation-img {
-    /* max-width: 450px; */
-    width: 450px;
-    height: 250px;
-    margin-right: 2rem;
-  }
-
-  .presentation-container {
-    padding: 1rem; /* Reducido el padding para pantallas muy pequeñas */
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 90%;
   }
 }

@@ -4,7 +4,6 @@ import "./Banner.css";
 import { Link } from "react-router-dom";
 import img1 from "../../assets/cabanas/cab1/cab1 -23.webp";
 import img2 from "../../assets/cabanas/cab2/cab2 -17.webp";
-// import img3 from "../../assets/cabanas/cab3/cab3 -2.webp";
 
 export const Banner = () => {
   return (
@@ -18,11 +17,13 @@ export const Banner = () => {
           showThumbs={false}
           showArrows={false}
           showStatus={false}
+          lazyLoad
           className="carousel"
         >
           <div className="carousel-slide">
             <img
               src={img1}
+              loading="lazy"
               alt="Cabañas Temistocles 1"
               className="carousel-img"
             />
@@ -37,6 +38,7 @@ export const Banner = () => {
           <div className="carousel-slide">
             <img
               src={img2}
+              loading="lazy"
               alt="Cabañas Temistocles 2"
               className="carousel-img"
             />
