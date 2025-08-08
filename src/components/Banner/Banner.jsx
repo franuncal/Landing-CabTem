@@ -13,12 +13,15 @@ export const Banner = () => {
         <Carousel
           autoPlay
           infiniteLoop
-          interval={5000}
+          interval={2800}
+          transitionTime={700}
           showThumbs={false}
-          showArrows={false}
+          showArrows={true}
           showStatus={false}
           lazyLoad
-          className="carousel"
+          swipeable
+          emulateTouch
+          className="carousel modern-carousel"
         >
           <div className="carousel-slide">
             <img
@@ -27,7 +30,7 @@ export const Banner = () => {
               alt="Cabañas Temistocles 1"
               className="carousel-img"
             />
-            <div className="carousel-overlay">
+            <div className="carousel-overlay modern-overlay">
               <h1>Disfruta de la naturaleza</h1>
               <p>
                 Relájate en nuestras cómodas cabañas rodeadas de paisajes
@@ -42,7 +45,7 @@ export const Banner = () => {
               alt="Cabañas Temistocles 2"
               className="carousel-img"
             />
-            <div className="carousel-overlay">
+            <div className="carousel-overlay modern-overlay">
               <h1>Calidez y confort</h1>
               <p>Nuestras cabañas te ofrecen un ambiente cálido y acogedor.</p>
             </div>
@@ -52,8 +55,8 @@ export const Banner = () => {
 
       {/* Botón de reserva */}
       <div className="reservation-info">
-        <Link to="/reservas" className="reservation-btn">
-          REALIZAR UNA RESERVA
+        <Link to="/reservas" className="reservation-btn modern-btn">
+          <span></span> REALIZAR UNA RESERVA
         </Link>
       </div>
     </>

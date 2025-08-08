@@ -1,10 +1,10 @@
-/* Home.css */
+/* Home.css mejorado */
 
 /* Contenedor principal de la sección de inicio */
 .home-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 /* Presentación */
@@ -12,7 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
   gap: 2rem;
   max-width: 1200px;
   margin: 2rem auto;
@@ -20,27 +20,29 @@
 
 .text-content {
   flex: 1;
+  text-align: left;
 }
 
 .presentation-title {
   color: #44543c;
   margin-bottom: 1.5rem;
-  text-align: center;
+  text-align: left;
   font-weight: 400;
 }
 
 .presentation-title,
 h2 {
   font-size: 2rem;
-  margin: 1rem;
+  margin: 1rem 0;
   padding-bottom: 1rem;
-  text-align: center;
+  text-align: left;
 }
 
 .presentation-description {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   line-height: 1.7;
   color: #555;
+  text-align: left;
 }
 
 .image-content {
@@ -57,12 +59,14 @@ h2 {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 .title-description2 {
   color: #44543c;
   font-weight: 300;
   padding-top: 1.5rem;
+  text-align: left;
 }
 
 /* Botón de cabañas */
@@ -77,11 +81,13 @@ h2 {
   background-color: rgb(201, 124, 0);
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border-radius: 0.5rem;
   transition: background-color 0.3s ease;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
 }
 
 .cabanas-btn:hover {
   background-color: rgb(235, 146, 2);
+  transform: scale(1.04);
 }
