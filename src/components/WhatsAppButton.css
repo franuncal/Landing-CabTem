@@ -1,0 +1,72 @@
+.whatsapp-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Botón flotante */
+.whatsapp-float {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
+/* Tooltip */
+.whatsapp-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    right: 70px;
+    /* aparece a la izquierda del botón */
+    top: 50%;
+    transform: translateY(-50%);
+    background: #222;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    /* no bloquea el click */
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Triangulito del tooltip */
+.whatsapp-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent #222;
+}
+
+/* --- Mobile: ocultar tooltip --- */
+@media (max-width: 768px) {
+    .whatsapp-tooltip {
+        display: none;
+    }
+}

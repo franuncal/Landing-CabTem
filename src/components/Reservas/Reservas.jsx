@@ -1,77 +1,51 @@
 import "./Reservas.css";
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { FaStreetView, FaPhone, FaWhatsapp } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
-import img1 from "../../assets/paisaje/p1.webp";
-import img2 from "../../assets/paisaje/p2.webp";
-import img3 from "../../assets/paisaje/p3.webp";
+import img1 from "../../assets/paisaje/p2.webp";
 
 const Reservas = () => {
-  const [currentImage, setCurrentImage] = useState(0);
   const [showPolicies, setShowPolicies] = useState(false);
 
-  const images = [img1, img2, img3];
-
-  const nextImage = useCallback(() => {
-    setCurrentImage((prevIndex) => (prevIndex + 1) % images.length);
-  }, [images.length]);
-
-  const togglePolicies = () => {
-    setShowPolicies((prev) => !prev); // Mejor uso de la función previa para alternar
-  };
-
-  // Cambiar automáticamente la imagen cada 4 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextImage();
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [nextImage]);
+  const togglePolicies = () => setShowPolicies((prev) => !prev);
 
   return (
     <div className="reservas">
-      {/* Banner con 3 imágenes */}
-      <div className="banner-r">
-        <div className="carousel-r">
-          <img
-            src={images[currentImage]}
-            alt="Paisajes Esquel"
-            className="carousel-image"
-          />
+      {/* Hero fijo */}
+      <div className="banner-r" style={{ backgroundImage: `url(${img1})` }}>
+        <div className="overlay-r">
+          <h2>Reservá tu estadía en Cabañas Temístocles</h2>
         </div>
       </div>
 
       <div className="content-wrapper">
+        {/* Intro */}
         <div className="intro-section">
-          <h3>
-            <b>Reservas</b>
-          </h3>
           <p>
             Para consultas o reservas de nuestras cabañas, puede comunicarse
-            directamente con nosotros a través de WhatsApp, por teléfono o
-            correo electrónico. Estamos disponibles para brindarle la mejor
-            atención y responder a todas sus inquietudes. Nos pondremos en
-            contacto con usted a la brevedad para confirmar su solicitud y
-            garantizar que su estadía sea perfecta.
+            directamente con nosotros a través de WhatsApp, teléfono o correo
+            electrónico. Estamos disponibles para brindarle la mejor atención y
+            responder a todas sus inquietudes. Nos pondremos en contacto con
+            usted a la brevedad para confirmar su solicitud y garantizar que su
+            estadía sea perfecta.
           </p>
         </div>
 
-        {/* Información de contacto */}
+        {/* Contacto */}
         <div className="contact-container">
           <div className="contact-info">
             <div className="contact-item">
-              <FaStreetView size={30} />
+              <FaStreetView size={28} />
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Rivadavia+2656,+Esquel,+Chubut,+Argentina"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Rivadavia 2656 – Esquel – Chubut – Argentina
+                Rivadavia 2656 – Esquel, Chubut – Argentina
               </a>
             </div>
             <div className="contact-item">
-              <FaWhatsapp size={30} />
+              <FaWhatsapp size={28} />
               <a
                 href="https://wa.me/5492945405471?text=Hola!%20Me%20comunico%20desde%20la%20pagina%20web,%20quiero%20realizar%20una%20Reserva"
                 target="_blank"
@@ -81,13 +55,13 @@ const Reservas = () => {
               </a>
             </div>
             <div className="contact-item">
-              <FaPhone size={30} />
+              <FaPhone size={28} />
               <a href="tel:+542945450910" rel="noopener noreferrer">
                 +54 9 2945 450910
               </a>
             </div>
             <div className="contact-item">
-              <CiMail size={30} />
+              <CiMail size={28} />
               <a
                 href="mailto:info@temistoclesesquel.com.ar"
                 target="_blank"
@@ -99,7 +73,7 @@ const Reservas = () => {
           </div>
         </div>
 
-        {/* Botón de políticas de privacidad */}
+        {/* Políticas toggle */}
         <div className="policies">
           <button onClick={togglePolicies} className="policies-btn">
             Política de Cancelación

@@ -1,143 +1,143 @@
 .ubicacion {
   margin: 0 auto;
+  padding: 0;
 }
 
+/* --- Hero Banner --- */
 .banner-u {
   position: relative;
   width: 100%;
-  height: 400px;
-  overflow: hidden;
-  margin-top: 70px;
-}
-
-.carousel-u {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100%;
+  justify-content: center;
 }
 
-.carousel-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.overlay-u {
   position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 0.5s ease;
-}
-
-.info-container {
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  /* Overlay oscuro */
   display: flex;
-  justify-content: space-between;
-  max-width: 1200px; /* Limitar el ancho a 1200px en pantallas grandes */
-  margin: 4rem auto;
-  padding: 20px;
-  flex-wrap: wrap;
-  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
-.info-left h3 {
+.overlay-u h2 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+/* --- Texto arriba --- */
+.info-top {
+  max-width: 800px;
+  margin: 3rem auto 2rem auto;
+  text-align: center;
+  color: #333;
+  padding: 0 1rem;
+}
+
+.info-top h3 {
   font-size: 2rem;
-  margin-bottom: 20px;
+  color: #44543c;
+  margin-bottom: 0.5rem;
 }
 
-.info-left h4 {
+.info-top h4 {
   font-size: 1.3rem;
   margin-top: 1rem;
-  font-weight: 400;
-}
-
-.info-left {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.info-right {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-
-h2,
-h3 {
-  margin: 10px 0;
+  font-weight: 500;
   color: #44543c;
-  font-weight: 700;
 }
 
-p {
-  margin: 5px 0;
+.info-top p {
+  margin: 0.3rem 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* --- Mapa --- */
+.map-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Botón reserva --- */
+.reservation-info {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.reservation-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
   font-size: 1.2rem;
+  background-color: rgb(201, 124, 0);
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Estilos responsivos */
-@media (max-width: 1024px) {
-  .info-container {
-    max-width: 100%;
-    padding: 10px;
-    gap: 2rem;
-  }
-
-  .banner-u {
-    height: 350px;
-  }
-
-  .info-left,
-  .info-right {
-    min-width: 100%;
-  }
-
-  .carousel-image {
-    object-fit: contain;
-  }
+.reservation-btn:hover {
+  background-color: rgb(235, 146, 2);
+  transform: translateY(-2px);
 }
 
+/* --- Responsive --- */
 @media (max-width: 768px) {
-  .info-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.5rem;
+  .banner-u {
+    margin-top: 3rem;
+    height: 60vh;
   }
 
-  .info-left,
-  .info-right {
-    min-width: 100%;
+  .overlay-u h2 {
+    font-size: 1.8rem;
   }
 
-  .info-left h3 {
-    font-size: 1.8em;
+  .info-top h3 {
+    font-size: 1.6rem;
   }
 
-  p {
+  .info-top p {
     font-size: 1rem;
   }
 
-  .banner-u {
+  .map-container iframe {
     height: 300px;
-  }
-
-  .carousel-image {
-    object-fit: cover;
-  }
-
-  .map {
-    height: 200px;
   }
 }
 
 @media (max-width: 480px) {
-  .map {
-    height: 150px;
-  }
-
   .banner-u {
-    height: 250px;
+    height: 30vh;
   }
 
-  .carousel-image {
-    object-fit: cover;
+  .overlay-u h2 {
+    font-size: 1.4rem;
+  }
+
+  .info-top h3 {
+    font-size: 1.4rem;
+  }
+
+  .info-top p {
+    font-size: 0.95rem;
+  }
+
+  .map-container iframe {
+    height: 220px;
   }
 }

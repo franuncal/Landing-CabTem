@@ -1,39 +1,23 @@
-// src/components/DiscoverEsquel/DiscoverEsquel.jsx
 import { Link } from "react-router-dom";
 import "./DiscoverEsquel.css";
-import imgCabanas0 from "../../assets/img-esquel/es1.webp";
-import imgCabanas1 from "../../assets/img-esquel/es2.webp";
-import imgCabanas2 from "../../assets/img-esquel/es6.webp";
-import imgCabanas3 from "../../assets/img-esquel/es8.webp";
+import bgEsquel from "../../assets/img-esquel/es8.webp";
 
 const DiscoverEsquel = () => {
   return (
-    <div className="discover-container">
-      <div className="image-grid">
-        <img src={imgCabanas2} alt="La Trochita - Tren" />
-        <img src={imgCabanas3} alt="Laguna Zeta" />
-        <img src={imgCabanas1} alt="Parque Nacional Los Alerces" />
-        <img src={imgCabanas0} alt="Centro de Esqui La Hoya" />
+    <section
+      className="discover-banner"
+      style={{ backgroundImage: `url(${bgEsquel})` }}
+    >
+      <div className="overlay">
+        <div className="banner-text">
+          <h2>DESCUBRÍ ESQUEL</h2>
+          <p>Aventura, naturaleza y cultura en el corazón de la Patagonia.</p>
+          <Link to="/actividades" className="services-btn">
+            Ver Actividades
+          </Link>
+        </div>
       </div>
-      <div className="text-content">
-        <h2>DESCUBRI ESQUEL</h2>
-        <p>
-          Un rincón mágico de la Patagonia Argentina, donde la aventura se
-          encuentra con la naturaleza. Imagina recorrer senderos rodeados de
-          bosques milenarios, perderte en paisajes que parecen de otro mundo y
-          experimentar la calidez de su cultura local. No te pierdas un viaje en{" "}
-          <b>La Trochita</b>, un histórico tren de vapor que te llevará a través
-          de paisajes impresionantes, y visita la hermosa
-          <b> Laguna La Zeta</b>, ideal para disfrutar de un día de picnic o
-          senderismo. Desde esquiar en <b>La Hoya</b> hasta explorar el
-          <b> Parque Nacional Los Alerces</b>, cada día promete una nueva
-          historia.
-        </p>
-        <Link to="/actividades" className="services-btn">
-          Ver Actividades
-        </Link>
-      </div>
-    </div>
+    </section>
   );
 };
 

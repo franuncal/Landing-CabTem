@@ -11,6 +11,7 @@ import Reservas from "./components/Reservas/Reservas";
 import Ubicacion from "./components/Ubicacion/Ubicacion";
 import Actividades from "./components/Actividades/Actividades";
 // import MultipurposeRoom from "./components/MultipurposeRoom/MultipurposeRoom";
+import { WhatsAppButton } from "./components/WhatsAppButton"; // 👈 importamos el botón
 import "./App.css";
 
 function App() {
@@ -36,7 +37,11 @@ function App() {
         <Route path="/ubicacion" element={<Ubicacion />} />
         <Route path="/actividades" element={<Actividades />} />
       </Routes>
+
       <Footer />
+
+      {/* 👇 Botón flotante de WhatsApp siempre visible */}
+      <WhatsAppButton />
     </Router>
   );
 }

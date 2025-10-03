@@ -7,11 +7,15 @@ import MultipurposeRoom from "../MultipurposeRoom/MultipurposeRoom";
 
 export const Home = () => {
   return (
-    <div className="home-container">
-      <Presentation />
-      <Cabanas />
-      <MultipurposeRoom />
+    <>
+      <div className="home-container">
+        <Presentation />
+        <Cabanas />
+        <MultipurposeRoom />
+      </div>
+
+      {/* 👇 Ahora DiscoverEsquel está fuera, para ser full width */}
       <DiscoverEsquel />
-    </div>
+    </>
   );
 };

@@ -1,8 +1,5 @@
 import "./Actividades.css";
-import { useState, useEffect, useCallback } from "react";
 import img1 from "../../assets/paisaje/p1.webp";
-import img2 from "../../assets/paisaje/p2.webp";
-import img3 from "../../assets/paisaje/p3.webp";
 
 import img4 from "../../assets/img-esquel/es1.webp";
 import img5 from "../../assets/img-esquel/es2.webp";
@@ -15,34 +12,13 @@ import img11 from "../../assets/img-esquel/es4.webp";
 import img12 from "../../assets/img-esquel/es9.webp";
 
 const Actividades = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-  const images = [img1, img2, img3];
-
-  const nextImage = useCallback(() => {
-    setCurrentImage((prevIndex) => (prevIndex + 1) % images.length);
-  }, [images.length]);
-
-  // Cambiar automáticamente la imagen cada 4 segundos
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextImage();
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [nextImage]);
-
   return (
     <div className="actividades">
-      {/* Slider ocupa todo el ancho */}
-      <div className="banner-u-wrapper">
-        <div className="banner-u">
-          <div className="carousel-u">
-            <img
-              src={images[currentImage]}
-              alt="Paisajes Esquel"
-              className="carousel-image"
-            />
-          </div>
+      {/* Hero */}
+      <div className="banner-a" style={{ backgroundImage: `url(${img1})` }}>
+        <div className="overlay-a">
+          <h2>Actividades en Esquel</h2>
+          <p>Aventura y naturaleza en el corazón de la Patagonia</p>
         </div>
       </div>
 

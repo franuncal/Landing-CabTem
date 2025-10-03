@@ -1,143 +1,156 @@
 .banner-container {
   position: relative;
-  max-width: 100vw;
-  min-height: 70vh;
+  width: 100%;
   height: 85vh;
   overflow: hidden;
-}
-
-.carousel {
-  height: 100%;
-  border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.13);
-}
-.modern-carousel .carousel-arrow {
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 .carousel-img {
   width: 100%;
   height: 85vh;
   object-fit: cover;
-  background-position: center center;
-  filter: brightness(0.93) contrast(1.08);
-  transition: filter 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Centrado del botón de reservas debajo del banner */
-.reservation-info {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  padding: 2rem 0 0 0;
+.swiper-slide {
+  position: relative;
 }
 
-.carousel-overlay {
+.swiper-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.6) 100%);
+  z-index: 1;
+}
+
+/* --- Textos centrados --- */
+.carousel-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2;
   text-align: center;
   color: #fff;
-  background: rgba(68, 84, 60, 0.93);
-  padding: 2.2rem 3.2rem;
-  border-radius: 18px;
-  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(2px);
+  padding: 0 1rem;
 }
-.modern-overlay h1 {
-  font-size: 3rem;
+
+.carousel-text h1 {
+  font-size: 3.6rem;
   font-weight: 600;
-  letter-spacing: 1.5px;
-  margin-bottom: 0.7rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  margin-bottom: 1.3rem;
+  line-height: 1.2;
 }
-.modern-overlay p {
-  font-size: 1.5rem;
+
+.carousel-text h2 {
+  font-size: 1.6rem;
   font-weight: 400;
-  margin-bottom: 0.2rem;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.13);
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
 }
 
-.carousel-overlay h1 {
-  font-size: 2.5rem;
-  font-weight: 400;
-  margin-bottom: 0.5rem;
+/* --- Paginación Swiper (puntitos) --- */
+.swiper-pagination-bullet {
+  background: rgba(255, 255, 255, 0.6);
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  transition: all 0.3s ease;
 }
 
-.carousel-overlay p {
-  font-size: 1.3rem;
+.swiper-pagination-bullet-active {
+  background: #fff;
+  transform: scale(1.2);
 }
 
-.modern-btn {
-  padding: 1.1rem 2.5rem;
-  background: rgba(68, 84, 60, 0.93);
-  /* background: linear-gradient(
-    90deg,
-    rgb(201, 124, 0) 60%,
-    rgb(235, 146, 2) 100%
-  ); */
+/* --- Flechas Swiper --- */
+.swiper-button-prev,
+.swiper-button-next {
   color: #fff;
-  text-decoration: none;
-  font-size: 1.25rem;
-  /* font-weight: 600; */
-  border-radius: 0.7rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.11);
-  border: none;
-  letter-spacing: 1px;
-  display: inline-flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  /* background: rgba(0, 0, 0, 0.35); */
+  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.7rem;
-  transition: background 0.3s, transform 0.2s;
-}
-.modern-btn:hover {
-  background: linear-gradient(
-    90deg,
-    rgb(235, 146, 2) 60%,
-    rgb(201, 124, 0) 100%
-  );
-  transform: scale(1.05);
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.reservation-btn:hover {
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  /* background: rgba(255, 255, 255, 0.25); */
+  transform: scale(1.1);
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.banner-cta {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.8rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background-color: rgb(201, 124, 0);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.banner-cta:hover {
   background-color: rgb(235, 146, 2);
+  transform: translateY(-2px);
 }
 
-/* Responsivo */
+/* --- Tablet --- */
 @media (max-width: 768px) {
-  .carousel-overlay,
-  .modern-overlay {
-    width: 92%;
-    padding: 1.1rem;
-    min-height: 120px;
+  .carousel-text h1 {
+    font-size: 2.6rem;
   }
-  .modern-overlay h1 {
-    font-size: 2.1rem;
-  }
-  .modern-overlay p {
-    font-size: 1.15rem;
+
+  .carousel-text h2 {
+    font-size: 1.2rem;
   }
 }
 
+/* --- Mobile --- */
 @media (max-width: 480px) {
-  .carousel-overlay,
-  .modern-overlay {
-    width: 98%;
-    min-height: 90px;
+  .carousel-text {
+    width: 100%;
+    max-width: 95%;
+    padding: 0;
   }
-  .modern-overlay h1 {
-    font-size: 1.3rem;
+
+  .carousel-text h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
   }
-  .modern-overlay p {
+
+  .carousel-text h2 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Flechas más chicas en mobile */
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 22px;
+    height: 22px;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 0.8rem;
+  }
+
+  .banner-cta {
+    padding: 0.7rem 1.4rem;
     font-size: 0.95rem;
   }
 }

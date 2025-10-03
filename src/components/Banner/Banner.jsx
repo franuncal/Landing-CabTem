@@ -1,64 +1,83 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from "react-responsive-carousel";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 import "./Banner.css";
-import { Link } from "react-router-dom";
+
 import img1 from "../../assets/cabanas/cab1/cab1 -23.webp";
 import img2 from "../../assets/cabanas/cab2/cab2 -17.webp";
+import img3 from "../../assets/cabanas/cab1/cab1 -7.webp";
 
 export const Banner = () => {
-  return (
-    <>
-      {/* Banner Carousel */}
-      <div className="banner-container">
-        <Carousel
-          autoPlay
-          infiniteLoop
-          interval={2800}
-          transitionTime={700}
-          showThumbs={false}
-          showArrows={true}
-          showStatus={false}
-          lazyLoad
-          swipeable
-          emulateTouch
-          className="carousel modern-carousel"
-        >
-          <div className="carousel-slide">
-            <img
-              src={img1}
-              loading="lazy"
-              alt="Cabañas Temistocles 1"
-              className="carousel-img"
-            />
-            <div className="carousel-overlay modern-overlay">
-              <h1>Disfruta de la naturaleza</h1>
-              <p>
-                Relájate en nuestras cómodas cabañas rodeadas de paisajes
-                únicos.
-              </p>
-            </div>
-          </div>
-          <div className="carousel-slide">
-            <img
-              src={img2}
-              loading="lazy"
-              alt="Cabañas Temistocles 2"
-              className="carousel-img"
-            />
-            <div className="carousel-overlay modern-overlay">
-              <h1>Calidez y confort</h1>
-              <p>Nuestras cabañas te ofrecen un ambiente cálido y acogedor.</p>
-            </div>
-          </div>
-        </Carousel>
-      </div>
+  const scrollToCabanas = () => {
+    const section = document.getElementById("cabanas-section");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
-      {/* Botón de reserva */}
-      <div className="reservation-info">
-        <Link to="/reservas" className="reservation-btn modern-btn">
-          <span></span> REALIZAR UNA RESERVA
-        </Link>
-      </div>
-    </>
+  return (
+    <div className="banner-container">
+      <Swiper
+        modules={[Autoplay, Pagination, EffectFade]}
+        autoplay={{ delay: 6000, disableOnInteraction: false }}
+        loop={true}
+        speed={1200}
+        effect="fade"
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        className="banner-swiper"
+      >
+        <SwiperSlide>
+          <img
+            src={img1}
+            alt="Cabañas Temistocles 1"
+            className="carousel-img"
+          />
+          <div className="carousel-text">
+            <h1>Disfrutá de la naturaleza</h1>
+            <h2>
+              Relájate en nuestras cómodas cabañas rodeadas de paisajes únicos.
+            </h2>
+            <button className="banner-cta" onClick={scrollToCabanas}>
+              Ver Cabañas
+            </button>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <img
+            src={img2}
+            alt="Cabañas Temistocles 2"
+            className="carousel-img"
+          />
+          <div className="carousel-text">
+            <h1>Calidez y confort</h1>
+            <h2>Nuestras cabañas te ofrecen un ambiente cálido y acogedor.</h2>
+            <button className="banner-cta" onClick={scrollToCabanas}>
+              Ver Cabañas
+            </button>
+          </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <img
+            src={img3}
+            alt="Cabañas Temistocles 3"
+            className="carousel-img"
+          />
+          <div className="carousel-text">
+            <h1>Nuestras Cabañas</h1>
+            <h2>
+              Un espacio pensado para tu descanso y conexión con la naturaleza.
+            </h2>
+            <button className="banner-cta" onClick={scrollToCabanas}>
+              Ver Cabañas
+            </button>
+          </div>
+        </SwiperSlide>
+      </Swiper>
+    </div>
   );
 };

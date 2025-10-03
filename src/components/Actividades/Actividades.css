@@ -1,32 +1,44 @@
-/* Ajusta el contenedor del slider para que ocupe el 100% del ancho */
-.banner-u-wrapper {
-  width: 100%;
-}
-
-.banner-u {
+/* --- Hero --- */
+.banner-a {
   position: relative;
-  height: 400px;
-  overflow: hidden;
-}
-
-.carousel-u {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.carousel-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: opacity 0.5s ease;
+  height: 55vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* El contenido tiene un ancho limitado */
+.overlay-a {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.overlay-a h2 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.overlay-a p {
+  color: #eee;
+  font-size: 1.3rem;
+  max-width: 800px;
+  line-height: 1.4;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Contenido general --- */
 .content {
   max-width: 1200px;
   margin: 0 auto;
@@ -41,6 +53,7 @@
 .intro-section h3 {
   font-size: 2em;
   margin-bottom: 20px;
+  color: #333;
 }
 
 .intro-section p {
@@ -48,9 +61,11 @@
   line-height: 1.6;
   margin: 0 auto;
   max-width: 800px;
-  text-align: justify;
+  text-align: center;
+  color: #444;
 }
 
+/* --- Bloques de actividades --- */
 .activity-banner {
   display: flex;
   align-items: center;
@@ -89,6 +104,7 @@
   color: #555;
 }
 
+/* --- Botón de Google Maps --- */
 .google-maps-button {
   display: inline-block;
   margin-top: 10px;
@@ -106,8 +122,21 @@
   background-color: #5a6e4f;
 }
 
-/* Adaptaciones para pantallas pequeñas */
+/* --- Responsive --- */
 @media (max-width: 768px) {
+  .banner-a {
+    margin-top: 3rem;
+    height: 60vh;
+  }
+
+  .overlay-a h2 {
+    font-size: 1.8rem;
+  }
+
+  .overlay-a p {
+    font-size: 1rem;
+  }
+
   .activity-banner {
     flex-direction: column;
   }
@@ -115,10 +144,6 @@
   .activity-image,
   .activity-info {
     width: 100%;
-  }
-
-  .carousel-u {
-    height: 300px;
   }
 
   .intro-section h3 {
@@ -135,5 +160,27 @@
 
   .activity-description {
     font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-a {
+    height: 30vh;
+  }
+
+  .overlay-a h2 {
+    font-size: 1.4rem;
+  }
+
+  .overlay-a p {
+    font-size: 0.9rem;
+  }
+
+  .intro-section h3 {
+    font-size: 1.4em;
+  }
+
+  .intro-section p {
+    font-size: 1rem;
   }
 }

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import img from "../../assets/Img-fotos/logos3.webp";
-import { FaWindowClose } from "react-icons/fa";
 import { CiMenuBurger } from "react-icons/ci";
+import { RxCross2 } from "react-icons/rx"; // ✨ Cross más minimalista
 import "./Navbar.css";
 
 const menuItems = [
@@ -15,6 +15,7 @@ const menuItems = [
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const handleMenuClick = () => setMenuOpen(false);
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -42,15 +43,17 @@ export const Navbar = () => {
     }
   };
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="navbar">
+    <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <Link to="/" className="logo" onClick={handleScrollToTop}>
         <img src={img} alt="Logo" className="logo-img" loading="lazy" />
       </Link>
-
-      <button className="menu-toggle" onClick={toggleMenu}>
-        {menuOpen ? <FaWindowClose /> : <CiMenuBurger />}
-      </button>
 
       <nav className={`nav ${menuOpen ? "open" : ""}`}>
         <ul className="nav-list">
@@ -73,6 +76,11 @@ export const Navbar = () => {
           ))}
         </ul>
       </nav>
+
+      {/* Botón hamburguesa / cerrar */}
+      <button className="menu-toggle" onClick={toggleMenu}>
+        {menuOpen ? <RxCross2 /> : <CiMenuBurger />}
+      </button>
     </header>
   );
 };

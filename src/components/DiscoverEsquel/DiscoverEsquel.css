@@ -1,165 +1,109 @@
-/* Asegúrate de que en tu archivo app.css o global también esté: */
-html,
-body {
-  overflow-x: hidden; /* Evitar scroll horizontal */
-}
-
-/* DiscoverEsquel styles */
-.discover-container {
-  /* background-color: #44543c; */
-  padding: 5rem;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  display: flex;
-  flex-direction: row;
-}
-
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.7rem;
-  flex: 1;
-  margin-bottom: 2rem;
-}
-
-.image-grid img {
+.discover-banner {
+  position: relative;
   width: 100%;
-  height: 250px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.text-content {
-  flex: 1;
+  min-height: 60vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding-left: 2rem;
-  gap: 2rem;
+  margin-bottom: 6rem;
+  /* 👈 espacio antes del footer */
 }
 
-.text-content h2 {
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  /* verde translúcido más sutil */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.banner-text {
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
+  color: #fff;
+  /* 👈 todo texto en blanco */
+}
+
+.banner-text h2 {
   font-size: 2.5rem;
-  color: #44543c;
-  margin-bottom: 1rem;
+  text-align: center;
+  /* 👈 más chico */
   font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  /* mejora contraste */
 }
 
-/* .text-content p {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
-  color: #ccc;
-  color: #333;
-  text-align: justify;
-} */
-
-.text-content p {
-  font-size: 1.4rem;
-  color: #34495e;
-  margin-bottom: 0.5rem;
-  text-align: justify;
+.banner-text p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  color: #fff;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 .services-btn {
   text-decoration: none;
-  padding: 1rem 1.5rem;
-  font-size: 1.2rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
   background-color: rgb(201, 124, 0);
   color: white;
-  border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: center;
-  margin-top: 0.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .services-btn:hover {
   background-color: rgb(235, 146, 2);
+  transform: translateY(-2px);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .discover-container {
-    flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
-    padding: 3rem 1rem; /* Reduce el padding en pantallas más pequeñas */
+/* --- Responsive --- */
+@media (max-width: 992px) {
+  .discover-banner {
+    min-height: 50vh;
   }
 
-  .image-grid {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Dos columnas para pantallas medianas */
-    margin-bottom: 1rem; /* Ajuste del margen inferior */
-    gap: 0.5rem; /* Ajusta el espacio entre imágenes */
+  .banner-text h2 {
+    font-size: 2rem;
+    /* un poco más compacto */
   }
 
-  .image-grid img {
-    height: 150px; /* Ajusta la altura de las imágenes */
-  }
-
-  .text-content {
-    padding-left: 0; /* Elimina el padding izquierdo en pantallas pequeñas */
-    padding-top: 1rem; /* Agrega un pequeño espacio arriba */
-  }
-
-  .text-content h2 {
-    font-size: 2rem; /* Reduce el tamaño del título */
-  }
-
-  .text-content p {
-    font-size: 1.2rem; /* Reduce el tamaño del texto */
+  .banner-text p {
+    font-size: 1.1rem;
   }
 
   .services-btn {
-    width: auto; /* Cambia el ancho a automático */
-    padding: 0.8rem 1.2rem; /* Ajusta el padding del botón */
-    font-size: 1rem; /* Reduce el tamaño de la fuente */
-    margin-top: 1rem;
-    align-self: flex-start; /* Alinea el botón al inicio en vez de al centro */
-  }
-
-  .image-grid {
-    order: 1; /* Asegura que las imágenes queden al final */
-  }
-
-  .text-content {
-    order: 2; /* Asegura que el texto quede primero */
+    font-size: 1rem;
+    padding: 0.8rem 1.4rem;
   }
 }
 
-/* Para pantallas más pequeñas (menos de 480px) */
 @media (max-width: 480px) {
-  .discover-container {
-    padding: 2rem 0.5rem; /* Ajuste adicional de padding */
+  .discover-banner {
+    min-height: 40vh;
+    margin-bottom: 3rem;
+    /* menos espacio pero aún aire */
   }
 
-  .image-grid {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Mantén dos columnas para pantallas pequeñas */
-    gap: 0.4rem; /* Reduce el espacio entre imágenes */
+  .banner-text h2 {
+    font-size: 1.8rem;
   }
 
-  .image-grid img {
-    height: 120px; /* Ajusta la altura de las imágenes */
-  }
-
-  .text-content h2 {
-    font-size: 1.8rem; /* Reduce aún más el tamaño del título */
-  }
-
-  .text-content p {
-    font-size: 1rem; /* Reduce aún más el tamaño del texto */
-    margin: 0 auto;
-    padding: 1rem;
+  .banner-text p {
+    font-size: 1rem;
   }
 
   .services-btn {
-    padding: 0.6rem 1rem; /* Ajuste adicional del padding */
-    font-size: 0.9rem; /* Reduce aún más el tamaño de la fuente */
-    width: auto; /* Asegura que no ocupe todo el ancho */
-    align-self: center; /* O alinear al centro si lo prefieres */
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
   }
 }
