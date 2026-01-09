@@ -1,170 +1,712 @@
-.reservas {
+/* ============================================
+   RESERVAS - SISTEMA COMPLETO
+   ============================================ */
+
+.reservas-page {
   width: 100%;
+  min-height: 100vh;
+  background: rgba(235, 235, 235);
+  padding-top: 80px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Header */
+.reservas-header {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0;
+  padding: 3rem 2rem 2rem;
+  text-align: center;
 }
 
-/* --- Hero --- */
-.banner-r {
-  position: relative;
-  width: 100%;
-  height: 55vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.reservas-back-link {
+  display: inline-block;
+  color: #44543c;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-.overlay-r {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
+.reservas-back-link:hover {
+  color: #2d3625;
 }
 
-.overlay-r h2 {
-  color: #fff;
-  font-size: 2.5rem;
+.reservas-header h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #44543c;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+
+.reservas-header p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Container */
+.reservas-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Paso */
+.reservas-paso {
+  background: #fff;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.reservas-paso h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #44543c;
+  margin-bottom: 2rem;
   font-weight: 700;
   text-align: center;
-  max-width: 900px;
-  line-height: 1.4;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-  z-index: 2;
+  font-family: "Playfair Display", serif;
 }
 
-/* --- Contenido --- */
-.content-wrapper {
-  max-width: 1000px;
-  margin: 3rem auto;
-  padding: 0 1.5rem;
+/* Selección de cabañas */
+.cabanas-seleccion {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
-.intro-section {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.intro-section p {
-  font-size: 1.2rem;
-  line-height: 1.7;
-  color: #444;
-}
-
-/* --- Contacto --- */
-.contact-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 3rem;
-}
-
-.contact-info {
+.cabana-option {
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  text-align: left;
-  width: 100%;
-  max-width: 600px;
-}
-
-.contact-item {
-  display: flex;
-  align-items: center;
   gap: 1rem;
 }
 
-.contact-item a {
-  color: #000;
-  font-size: 1.2rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.2s ease;
+.cabana-option:hover {
+  border-color: #44543c;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(68, 84, 60, 0.15);
 }
 
-.contact-item a:hover {
+.cabana-option.selected {
+  border-color: #44543c;
+  background: rgba(68, 84, 60, 0.05);
+}
+
+.cabana-option-img {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cabana-option-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cabana-option-info h4 {
+  font-size: 1.5rem;
   color: #44543c;
-  transform: translateX(4px);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
-.contact-item svg {
+.cabana-option-info p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.cabana-option-info span {
   color: #44543c;
+  font-weight: 600;
+  font-size: 0.9rem;
 }
 
-/* --- Políticas --- */
-.policies {
+/* Calendario */
+.calendario-wrapper {
+  margin-bottom: 2rem;
+}
+
+.calendario-cargando {
   text-align: center;
-  margin-top: 2rem;
+  padding: 3rem;
+  color: #666;
+  font-size: 1.1rem;
 }
 
-.policies-btn {
-  background-color: #c89d7e;
-  color: white;
-  padding: 12px 24px;
+.calendario-doble {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calendario-mes-nuevo {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendario-mes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.calendario-nav-btn {
+  background: #44543c;
+  color: #fff;
   border: none;
-  border-radius: 6px;
-  font-size: 1.1rem;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.policies-btn:hover {
-  background-color: #b88a6b;
+.calendario-nav-btn:hover {
+  background: #2d3625;
+  transform: scale(1.1);
 }
 
-.policies-content {
-  margin-top: 1.5rem;
-  background-color: #f9f9f9;
-  padding: 2rem;
-  border-radius: 6px;
-  text-align: left;
+.calendario-mes-titulo {
   font-size: 1.1rem;
-  line-height: 1.6;
+  color: #44543c;
+  font-weight: 700;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+}
+
+.calendario-grid-nuevo {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.4rem;
+}
+
+.calendario-dia-header-nuevo {
+  text-align: center;
+  font-weight: 700;
+  color: #44543c;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.calendario-dia-nuevo {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.calendario-dia-nuevo.vacio {
+  cursor: default;
+}
+
+.calendario-dia-nuevo.disponible {
+  background: #f5f5f5;
   color: #333;
 }
 
-/* --- Responsive --- */
+.calendario-dia-nuevo.disponible:hover {
+  background: #e8f5e9;
+  color: #44543c;
+  transform: scale(1.1);
+}
+
+.calendario-dia-nuevo.seleccionado {
+  background: #44543c;
+  color: #fff;
+  font-weight: 700;
+}
+
+.calendario-dia-nuevo.no-disponible {
+  background: #e0e0e0;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.calendario-seleccion-info {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendario-fechas-seleccionadas {
+  margin-bottom: 1rem;
+}
+
+.calendario-fechas-seleccionadas p {
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.calendario-fechas-seleccionadas strong {
+  color: #44543c;
+}
+
+.btn-limpiar-fechas {
+  background: transparent;
+  border: 2px solid #44543c;
+  color: #44543c;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  font-family: "Playfair Display", serif;
+}
+
+.btn-limpiar-fechas:hover {
+  background: #44543c;
+  color: #fff;
+}
+
+/* Formulario */
+.reservas-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.reservas-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #44543c;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: "Playfair Display", serif;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #44543c;
+}
+
+.form-group small {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.asterisk {
+  color: #e74c3c;
+}
+
+/* Resumen */
+.reservas-resumen {
+  background: rgba(68, 84, 60, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.resumen-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(68, 84, 60, 0.1);
+  color: #333;
+}
+
+.resumen-item:last-of-type {
+  border-bottom: none;
+}
+
+.resumen-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  border-top: 2px solid #44543c;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #44543c;
+}
+
+/* Pagos */
+.reservas-pagos {
+  background: rgba(68, 84, 60, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.reservas-pagos h4 {
+  color: #44543c;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.pago-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(68, 84, 60, 0.1);
+  color: #333;
+}
+
+.pago-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+  border-top: 2px solid #44543c;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #44543c;
+}
+
+/* Confirmación */
+.reservas-whatsapp-info {
+  background: rgba(68, 84, 60, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.whatsapp-info-icon {
+  font-size: 2rem;
+}
+
+.whatsapp-info-text strong {
+  display: block;
+  color: #44543c;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.whatsapp-info-text p {
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.reservas-confirmacion {
+  background: rgba(68, 84, 60, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.confirmacion-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(68, 84, 60, 0.1);
+  color: #333;
+}
+
+.confirmacion-item:last-child {
+  border-bottom: none;
+}
+
+.confirmacion-item strong {
+  color: #44543c;
+}
+
+.confirmacion-item.destacado {
+  background: rgba(68, 84, 60, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+}
+
+.confirmacion-item.total {
+  border-top: 2px solid #44543c;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #44543c;
+  margin-top: 0.5rem;
+}
+
+/* Alertas */
+.alerta-error {
+  background: #fee;
+  border: 2px solid #e74c3c;
+  border-radius: 8px;
+  padding: 1rem;
+  color: #c0392b;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+/* Botones */
+.reservas-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 0.75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Playfair Display", serif;
+  border: none;
+}
+
+.btn-primary {
+  background: #44543c;
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #2d3625;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(68, 84, 60, 0.3);
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #44543c;
+  color: #44543c;
+}
+
+.btn-secondary:hover {
+  background: #44543c;
+  color: #fff;
+}
+
+.btn-large {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modal-confirmacion {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.modal-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.modal-icon.error {
+  color: #e74c3c;
+}
+
+.modal-icon.loading {
+  color: #44543c;
+}
+
+.modal-titulo {
+  font-size: 1.5rem;
+  color: #44543c;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+}
+
+.modal-mensaje {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+}
+
+/* Desktop only class */
+.desktop-only {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .calendario-doble {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
-  .banner-r {
-    margin-top: 3rem;
-    height: 60vh;
+  .reservas-page {
+    padding-top: 70px;
   }
 
-  .overlay-r h2 {
-    font-size: 1.8rem;
+  .reservas-header {
+    padding: 2rem 1.5rem 1.5rem;
   }
 
-  .intro-section p {
-    font-size: 1rem;
+  .reservas-container {
+    padding: 1rem;
   }
 
-  .contact-item a {
-    font-size: 1rem;
+  .reservas-paso {
+    padding: 2rem 1.5rem;
   }
 
-  .policies-content {
-    font-size: 1rem;
+  .cabanas-seleccion {
+    grid-template-columns: 1fr;
+  }
+
+  .reservas-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reservas-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+
+  .calendario-doble {
+    max-width: 100%;
+  }
+
+  .calendario-mes-nuevo {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .calendario-grid-nuevo {
+    gap: 0.3rem;
+  }
+
+  .calendario-dia-nuevo {
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 480px) {
-  .banner-r {
-    height: 30vh;
+  .reservas-header h2 {
+    font-size: 1.8rem;
   }
 
-  .overlay-r h2 {
-    font-size: 1.4rem;
+  .reservas-paso h3 {
+    font-size: 1.3rem;
   }
 
-  .policies-btn {
-    width: 100%;
+  .reservas-paso {
+    padding: 1.5rem 1rem;
+  }
+
+  .cabana-option-img {
+    height: 150px;
+  }
+
+  .calendario-nav-btn {
+    width: 35px;
+    height: 35px;
     font-size: 1rem;
   }
 
-  .contact-item a {
-    font-size: 0.95rem;
+  .calendario-mes-titulo {
+    font-size: 1.1rem;
   }
 }

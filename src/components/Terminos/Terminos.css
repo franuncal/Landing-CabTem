@@ -1,0 +1,140 @@
+.terminos-page {
+  min-height: 100vh;
+  background: rgba(235, 235, 235);
+  padding-top: 100px;
+  padding-bottom: 4rem;
+}
+
+.terminos-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.terminos-back-link {
+  display: inline-block;
+  color: #44543c;
+  text-decoration: none;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+  font-family: "Playfair Display", serif;
+}
+
+.terminos-back-link:hover {
+  color: #2d3625;
+}
+
+.terminos-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: #44543c;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+
+.terminos-updated {
+  text-align: center;
+  color: #666;
+  margin-bottom: 3rem;
+  font-size: 0.95rem;
+  font-family: "Playfair Display", serif;
+}
+
+.terminos-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.terminos-section {
+  margin-bottom: 2.5rem;
+}
+
+.terminos-section:last-child {
+  margin-bottom: 0;
+}
+
+.terminos-section h2 {
+  font-size: 1.75rem;
+  color: #44543c;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-family: "Playfair Display", serif;
+}
+
+.terminos-section h3 {
+  font-size: 1.35rem;
+  color: #44543c;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+}
+
+.terminos-section p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1rem;
+  font-family: "Playfair Display", serif;
+}
+
+.terminos-section ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.terminos-section li {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-family: "Playfair Display", serif;
+}
+
+.terminos-section a {
+  color: #44543c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.terminos-section a:hover {
+  color: #2d3625;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .terminos-page {
+    padding-top: 90px;
+    padding-bottom: 3rem;
+  }
+
+  .terminos-container {
+    padding: 1.5rem;
+  }
+
+  .terminos-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .terminos-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .terminos-section h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminos-container {
+    padding: 1rem;
+  }
+
+  .terminos-content {
+    padding: 1.5rem 1rem;
+  }
+}

@@ -1,50 +1,87 @@
+/* ============================================
+   SALÓN DE USOS MÚLTIPLES - DISEÑO SUTIL
+   ============================================ */
+
 .multipurpose-room-container {
-  text-align: center;
   padding: 4rem 2rem;
+  background: rgba(235, 235, 235);
 }
 
-.multipurpose-room-container h2 {
-  font-size: 2.5rem;
+.multipurpose-room-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.multipurpose-room-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.multipurpose-room-title {
+  font-size: clamp(2rem, 4vw, 2.5rem);
   color: #44543c;
-  margin-bottom: 2rem;
+  margin: 0 0 1rem 0;
   font-weight: 700;
+  letter-spacing: -0.01em;
+  font-family: "Playfair Display", serif;
   text-align: center;
 }
 
-.multipurpose-room-container p {
-  font-size: 1.2rem;
-  color: #34495e;
-  margin-bottom: 4rem;
+.multipurpose-room-description {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: #666;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
 }
 
+/* ============================================
+   GRID DE AMENITIES - SUTIL
+   ============================================ */
 .amenities-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
 }
 
 .amenity-item {
   text-align: center;
   flex: 1 1 calc(50% - 2rem);
   max-width: 200px;
+  padding: 1rem;
 }
 
 .amenity-icon {
-  font-size: 3rem;
-  color: rgb(68, 84, 60);
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #44543c;
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
 }
 
-.amenity-item p {
-  font-size: 1.3rem;
-  color: #7f8c8d;
+.amenity-item:hover .amenity-icon {
+  color: #556b4a;
 }
 
+.amenity-title {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ============================================
+   SLIDER - ESTILO ORIGINAL
+   ============================================ */
 .slider-container {
-  margin: 3rem auto;
+  margin: 3rem auto 0;
   max-width: 600px;
 }
 
@@ -59,24 +96,52 @@
   border-radius: 10px;
 }
 
-/* Media Queries para pantallas pequeñas */
+/* Slick Dots personalizados */
+.slider-container :global(.slick-dots) {
+  bottom: -40px;
+}
+
+.slider-container :global(.slick-dots li button:before) {
+  color: #44543c;
+  font-size: 12px;
+  opacity: 0.5;
+}
+
+.slider-container :global(.slick-dots li.slick-active button:before) {
+  color: #44543c;
+  opacity: 1;
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
 @media (max-width: 768px) {
-  .multipurpose-room-container h2 {
-    font-size: 2rem;
+  .multipurpose-room-container {
+    padding: 3rem 1.5rem;
   }
 
-  .multipurpose-room-container p {
-    font-size: 1rem;
-    margin-bottom: 2rem;
+  .multipurpose-room-header {
+    margin-bottom: 2.5rem;
   }
 
   .amenities-grid {
     gap: 1.5rem;
+    margin-bottom: 2.5rem;
   }
 
   .amenity-item {
-    flex: 1 1 100%; /* Cada ítem ocupa toda la fila */
-    max-width: 100%;
+    flex: 1 1 calc(50% - 1.5rem);
+    max-width: 180px;
+    padding: 0.75rem;
+  }
+
+  .amenity-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .amenity-title {
+    font-size: 1rem;
   }
 
   .slider-img {
@@ -84,21 +149,36 @@
   }
 }
 
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
 @media (max-width: 480px) {
   .multipurpose-room-container {
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem;
   }
 
-  .multipurpose-room-container h2 {
-    font-size: 1.8rem;
+  .multipurpose-room-header {
+    margin-bottom: 2rem;
   }
 
-  .multipurpose-room-container p {
-    font-size: 0.9rem;
+  .amenities-grid {
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .amenity-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 0.5rem;
   }
 
   .amenity-icon {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .amenity-title {
+    font-size: 0.95rem;
   }
 
   .slider-img {

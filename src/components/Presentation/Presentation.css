@@ -21,7 +21,7 @@
   font-weight: 700;
   text-align: center;
   margin: 0 0 0.4rem 0;
-  /* Menos margen inferior */
+  font-family: "Playfair Display", serif;
 }
 
 .presentation-subtitle {
@@ -29,15 +29,17 @@
   color: #44543c;
   text-align: center;
   margin: 0 0 1rem 0;
-  /* Un poco menos margen inferior */
+  font-family: "Playfair Display", serif;
 }
 
 .presentation-description {
   font-size: 1.1rem;
   color: #555;
-  text-align: start;
-  line-height: 1.5;
-  margin-top: 0;
+  text-align: center;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 800px;
+  font-family: "Playfair Display", serif;
 }
 
 .image-content-p {

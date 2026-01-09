@@ -8,12 +8,18 @@ const DiscoverEsquel = () => {
       className="discover-banner"
       style={{ backgroundImage: `url(${bgEsquel})` }}
     >
-      <div className="overlay">
-        <div className="banner-text">
-          <h2>DESCUBRÍ ESQUEL</h2>
-          <p>Aventura, naturaleza y cultura en el corazón de la Patagonia.</p>
-          <Link to="/actividades" className="services-btn">
-            Ver Actividades
+      <div className="discover-overlay"></div>
+      <div className="discover-content">
+        <h2 className="discover-title">Esquel te espera</h2>
+        <p className="discover-subtitle">
+          Descubrí nuestras cabañas y reservá tu lugar en la Patagonia
+        </p>
+        <div className="discover-buttons">
+          <Link to="/reservas" className="discover-button discover-button-primary">
+            Reservar ahora
+          </Link>
+          <Link to="/#cabanas-section" className="discover-button discover-button-secondary">
+            Ver cabañas
           </Link>
         </div>
       </div>

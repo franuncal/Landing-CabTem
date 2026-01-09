@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   FaInstagram,
   FaFacebook,
@@ -73,6 +74,15 @@ export const Footer = () => {
       </div>
 
       <div className="footer-bottom">
+        <div className="footer-links">
+          <Link to="/privacidad" className="footer-link">
+            Política de Privacidad
+          </Link>
+          <span className="footer-separator">|</span>
+          <Link to="/terminos" className="footer-link">
+            Términos y Condiciones
+          </Link>
+        </div>
         <p>
           © {new Date().getFullYear()} Cabañas Temistocles | Todos los derechos
           reservados.

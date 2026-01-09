@@ -1,109 +1,171 @@
 .discover-banner {
   position: relative;
   width: 100%;
-  min-height: 60vh;
+  min-height: 45vh;
+  max-height: 500px;
   background-size: cover;
-  background-position: center center;
+  background-position: center top;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 6rem;
-  /* 👈 espacio antes del footer */
+  margin-bottom: 0;
+  overflow: hidden;
 }
 
-.overlay {
+.discover-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  /* verde translúcido más sutil */
+  background: linear-gradient(135deg,
+      rgba(68, 84, 60, 0.75) 0%,
+      rgba(0, 0, 0, 0.6) 100%);
+  z-index: 1;
+}
+
+.discover-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: 3rem 2rem;
+  color: #fff;
+  margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.discover-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin: 0;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.7);
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  width: 100%;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.discover-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  margin: 0;
+  line-height: 1.6;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  width: 100%;
+  max-width: 700px;
+  opacity: 0.95;
+}
+
+.discover-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.discover-button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-}
-
-.banner-text {
-  text-align: center;
-  max-width: 800px;
-  padding: 2rem;
-  color: #fff;
-  /* 👈 todo texto en blanco */
-}
-
-.banner-text h2 {
-  font-size: 2.5rem;
-  text-align: center;
-  /* 👈 más chico */
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #fff;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
-  /* mejora contraste */
-}
-
-.banner-text p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  line-height: 1.5;
-  color: #fff;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
-}
-
-.services-btn {
+  padding: 1rem 2.5rem;
   text-decoration: none;
-  padding: 1rem 2rem;
   font-size: 1.1rem;
-  background-color: rgb(201, 124, 0);
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Playfair Display", serif;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 2px solid transparent;
+  min-width: 180px;
 }
 
-.services-btn:hover {
-  background-color: rgb(235, 146, 2);
-  transform: translateY(-2px);
+.discover-button-primary {
+  background: #fff;
+  color: #44543c;
 }
 
-/* --- Responsive --- */
-@media (max-width: 992px) {
+.discover-button-primary:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+}
+
+.discover-button-secondary {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+.discover-button-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 30px rgba(255, 255, 255, 0.2);
+}
+
+.discover-button:active {
+  transform: translateY(-1px);
+}
+
+.discover-button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 3px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
   .discover-banner {
-    min-height: 50vh;
+    min-height: 40vh;
+    max-height: 450px;
   }
 
-  .banner-text h2 {
-    font-size: 2rem;
-    /* un poco más compacto */
+  .discover-content {
+    padding: 2.5rem 1.5rem;
+    gap: 1.25rem;
   }
 
-  .banner-text p {
-    font-size: 1.1rem;
+  .discover-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
   }
 
-  .services-btn {
+  .discover-button {
+    width: 100%;
     font-size: 1rem;
-    padding: 0.8rem 1.4rem;
+    padding: 0.9rem 2rem;
+    min-width: auto;
   }
 }
 
 @media (max-width: 480px) {
   .discover-banner {
-    min-height: 40vh;
-    margin-bottom: 3rem;
-    /* menos espacio pero aún aire */
+    min-height: 35vh;
+    max-height: 400px;
   }
 
-  .banner-text h2 {
-    font-size: 1.8rem;
+  .discover-content {
+    padding: 2rem 1rem;
+    gap: 1rem;
   }
 
-  .banner-text p {
+  .discover-title {
+    font-size: 1.75rem;
+  }
+
+  .discover-subtitle {
     font-size: 1rem;
   }
 
-  .services-btn {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
+  .discover-button {
+    font-size: 0.95rem;
+    padding: 0.85rem 1.75rem;
   }
 }

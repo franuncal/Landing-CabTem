@@ -1,143 +1,559 @@
+/* ============================================
+   UBICACIÓN - DISEÑO MODERNO E INTERACTIVO
+   ============================================ */
+
 .ubicacion {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
+  background: rgba(235, 235, 235);
+  padding-top: 80px;
 }
 
-/* --- Hero Banner --- */
-.banner-u {
+/* ============================================
+   HEADER SIMPLE
+   ============================================ */
+.ubicacion-header {
+  background: rgba(235, 235, 235);
+  padding: 4rem 2rem 3rem;
+  text-align: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ubicacion-title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #44543c;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-family: "Playfair Display", serif;
+}
+
+.ubicacion-subtitle {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+  font-family: "Playfair Display", serif;
+}
+
+/* ============================================
+   MAPA HERO - PRINCIPAL
+   ============================================ */
+.map-hero-section {
+  padding: 0 2rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.map-hero-container {
   position: relative;
   width: 100%;
-  height: 60vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 600px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  background: #e0e0e0;
 }
 
-.overlay-u {
+.map-hero-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.map-hero-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.map-hero-overlay {
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  /* Overlay oscuro */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+  padding: 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.map-hero-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  pointer-events: auto;
+}
+
+.map-hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  color: #44543c;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  font-family: "Playfair Display", serif;
+}
+
+.map-hero-badge svg {
+  font-size: 1.3rem;
+  color: #44543c;
+}
+
+.map-hero-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: #44543c;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(68, 84, 60, 0.4);
+  font-family: "Playfair Display", serif;
+}
+
+.map-hero-button:hover {
+  background: #556b4a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(68, 84, 60, 0.5);
+}
+
+.map-hero-button:active {
+  transform: translateY(0);
+}
+
+.map-hero-button svg {
+  font-size: 1rem;
+}
+
+/* ============================================
+   SECCIÓN DE INFORMACIÓN - GRID MODERNO
+   ============================================ */
+.ubicacion-info-section {
+  padding: 2rem 2rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.ubicacion-info-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* ============================================
+   CARDS MODERNAS
+   ============================================ */
+.info-card-modern {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(68, 84, 60, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-card-modern:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  border-color: rgba(68, 84, 60, 0.2);
+}
+
+.info-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.info-card-icon-modern {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #44543c 0%, #556b4a 100%);
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-}
-
-.overlay-u h2 {
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 15px rgba(68, 84, 60, 0.3);
+  flex-shrink: 0;
+}
+
+.info-card-title-modern {
+  font-size: 1.5rem;
   font-weight: 700;
-  text-align: center;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-  z-index: 2;
-}
-
-/* --- Texto arriba --- */
-.info-top {
-  max-width: 800px;
-  margin: 3rem auto 2rem auto;
-  text-align: center;
-  color: #333;
-  padding: 0 1rem;
-}
-
-.info-top h3 {
-  font-size: 2rem;
   color: #44543c;
+  margin: 0;
+  line-height: 1.3;
+  font-family: "Playfair Display", serif;
+}
+
+.info-card-body {
+  flex: 1;
+}
+
+.info-card-address-modern {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin: 0;
+  font-family: "Playfair Display", serif;
+}
+
+.info-card-address-modern strong {
+  color: #44543c;
+  font-size: 1.2rem;
+  display: block;
   margin-bottom: 0.5rem;
 }
 
-.info-top h4 {
-  font-size: 1.3rem;
-  margin-top: 1rem;
-  font-weight: 500;
+/* ============================================
+   PASOS DE DIRECCIÓN
+   ============================================ */
+.directions-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.direction-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(68, 84, 60, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.direction-step:hover {
+  background: rgba(68, 84, 60, 0.1);
+  transform: translateX(4px);
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: #44543c;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: "Playfair Display", serif;
+}
+
+.direction-step p {
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-family: "Playfair Display", serif;
+  flex: 1;
+}
+
+/* ============================================
+   LINKS DE CONTACTO
+   ============================================ */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(68, 84, 60, 0.05);
+  border-radius: 12px;
+  text-decoration: none;
   color: #44543c;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: "Playfair Display", serif;
 }
 
-.info-top p {
-  margin: 0.3rem 0;
-  font-size: 1.1rem;
-  line-height: 1.6;
+.contact-link:hover {
+  background: #44543c;
+  color: #fff;
+  transform: translateX(4px);
 }
 
-/* --- Mapa --- */
-.map-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+.contact-link svg {
+  font-size: 1.2rem;
+  flex-shrink: 0;
 }
 
-/* --- Botón reserva --- */
-.reservation-info {
+/* ============================================
+   CALL TO ACTION MODERNO
+   ============================================ */
+.ubicacion-cta-modern {
+  background: linear-gradient(135deg, #44543c 0%, #556b4a 100%);
+  padding: 5rem 2rem;
   text-align: center;
+  color: #fff;
   margin-top: 2rem;
 }
 
-.reservation-btn {
-  display: inline-block;
-  padding: 1rem 2rem;
-  margin-bottom: 2rem;
-  font-size: 1.2rem;
-  background-color: rgb(201, 124, 0);
-  color: white;
-  border-radius: 6px;
+.cta-modern-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-modern-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+}
+
+.cta-modern-text {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  margin: 0 0 2.5rem 0;
+  opacity: 0.95;
+  line-height: 1.6;
+  font-family: "Playfair Display", serif;
+}
+
+.cta-modern-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.25rem 3rem;
+  background: #fff;
+  color: #44543c;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  font-family: "Playfair Display", serif;
 }
 
-.reservation-btn:hover {
-  background-color: rgb(235, 146, 2);
-  transform: translateY(-2px);
+.cta-modern-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.95);
 }
 
-/* --- Responsive --- */
+.cta-modern-button:active {
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
+@media (max-width: 1024px) {
+  .ubicacion-header {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .map-hero-section {
+    padding: 0 1.5rem 3rem;
+  }
+
+  .map-hero-container {
+    height: 500px;
+    border-radius: 20px;
+  }
+
+  .map-hero-overlay {
+    padding: 1.5rem;
+  }
+
+  .map-hero-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .map-hero-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .ubicacion-info-section {
+    padding: 2rem 1.5rem 3rem;
+  }
+
+  .ubicacion-info-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
 @media (max-width: 768px) {
-  .banner-u {
-    margin-top: 3rem;
-    height: 60vh;
+  .ubicacion {
+    padding-top: 70px;
   }
 
-  .overlay-u h2 {
-    font-size: 1.8rem;
+  .ubicacion-header {
+    padding: 2.5rem 1.5rem 1.5rem;
   }
 
-  .info-top h3 {
-    font-size: 1.6rem;
+  .map-hero-section {
+    padding: 0 1rem 2.5rem;
   }
 
-  .info-top p {
+  .map-hero-container {
+    height: 400px;
+    border-radius: 16px;
+  }
+
+  .map-hero-overlay {
+    padding: 1rem;
+  }
+
+  .map-hero-badge {
+    padding: 0.75rem 1.25rem;
     font-size: 1rem;
   }
 
-  .map-container iframe {
-    height: 300px;
+  .map-hero-button {
+    padding: 0.9rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  .ubicacion-info-section {
+    padding: 1.5rem 1rem 2.5rem;
+  }
+
+  .ubicacion-info-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .info-card-modern {
+    padding: 2rem;
+  }
+
+  .info-card-icon-modern {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+
+  .info-card-title-modern {
+    font-size: 1.3rem;
+  }
+
+  .ubicacion-cta-modern {
+    padding: 4rem 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .banner-u {
-    height: 30vh;
+  .ubicacion-header {
+    padding: 2rem 1rem 1rem;
   }
 
-  .overlay-u h2 {
-    font-size: 1.4rem;
+  .map-hero-container {
+    height: 350px;
+    border-radius: 12px;
   }
 
-  .info-top h3 {
-    font-size: 1.4rem;
+  .map-hero-badge {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
   }
 
-  .info-top p {
+  .map-hero-badge svg {
+    font-size: 1.1rem;
+  }
+
+  .info-card-modern {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .info-card-address-modern {
+    font-size: 1rem;
+  }
+
+  .direction-step {
+    padding: 0.75rem;
+  }
+
+  .step-number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .direction-step p {
     font-size: 0.95rem;
   }
 
-  .map-container iframe {
-    height: 220px;
+  .contact-link {
+    padding: 0.9rem 1rem;
+    font-size: 0.95rem;
   }
+
+  .ubicacion-cta-modern {
+    padding: 3rem 1rem;
+  }
+
+  .cta-modern-button {
+    padding: 1.1rem 2.5rem;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* ============================================
+   MEJORAS DE ACCESIBILIDAD
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .info-card-modern,
+  .map-hero-button,
+  .cta-modern-button,
+  .contact-link,
+  .direction-step {
+    transition: none;
+  }
+
+  .info-card-modern:hover,
+  .direction-step:hover {
+    transform: none;
+  }
+}
+
+/* Focus states mejorados */
+.map-hero-button:focus-visible,
+.cta-modern-button:focus-visible,
+.contact-link:focus-visible {
+  outline: 3px solid rgba(68, 84, 60, 0.5);
+  outline-offset: 3px;
 }

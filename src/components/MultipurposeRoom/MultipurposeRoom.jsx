@@ -15,6 +15,27 @@ import {
 import Slider from "react-slick";
 import "./MultipurposeRoom.css";
 
+const amenities = [
+  {
+    icon: FaTableTennis,
+    title: "Mesa de ping pong",
+  },
+  {
+    icon: FaHotTub,
+    title: "Sauna seco",
+  },
+  {
+    icon: FaFire,
+    title: "Parrilla",
+  },
+  {
+    icon: FaDrumstickBite,
+    title: "Horno de barro",
+  },
+];
+
+const sliderImages = [img1, img5, img6, img2, img3];
+
 const MultipurposeRoom = () => {
   const sliderSettings = {
     dots: true,
@@ -25,51 +46,56 @@ const MultipurposeRoom = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
-  const sliderImages = [img1, img5, img6, img2, img3];
-
   return (
-    <div id="multipurpose-room-section" className="multipurpose-room-container">
-      <h2>Salón de Usos Múltiples</h2>
-      <p>
-        Todos nuestros huéspedes pueden disfrutar de un salón de usos múltiples,
-        equipado con todo lo necesario para pasar momentos únicos:
-      </p>
-      <div className="amenities-grid">
-        <div className="amenity-item">
-          <FaTableTennis className="amenity-icon" />
-          <p>Mesa de ping pong</p>
+    <section id="multipurpose-room-section" className="multipurpose-room-container">
+      <div className="multipurpose-room-content">
+        <div className="multipurpose-room-header">
+          <h2 className="multipurpose-room-title">Salón de Usos Múltiples</h2>
+          <p className="multipurpose-room-description">
+            Todos nuestros huéspedes pueden disfrutar de un salón de usos múltiples,
+            equipado con todo lo necesario para pasar momentos únicos
+          </p>
         </div>
-        <div className="amenity-item">
-          <FaHotTub className="amenity-icon" />
-          <p>Sauna seco</p>
-        </div>
-        <div className="amenity-item">
-          <FaFire className="amenity-icon" />
-          <p>Parrilla</p>
-        </div>
-        <div className="amenity-item">
-          <FaDrumstickBite className="amenity-icon" />
-          <p>Horno de barro</p>
-        </div>
-      </div>
 
-      {/* Slider de Imágenes */}
-      <div className="slider-container">
-        <Slider {...sliderSettings}>
-          {sliderImages.map((image, index) => (
-            <div key={index} className="slider-img-wrapper">
-              <img
-                src={image}
-                alt={`Imagen ${index + 1}`}
-                className="slider-img"
-              />
-            </div>
-          ))}
-        </Slider>
+        {/* Grid de Amenities */}
+        <div className="amenities-grid">
+          {amenities.map((amenity, index) => {
+            const IconComponent = amenity.icon;
+            return (
+              <div key={index} className="amenity-item">
+                <IconComponent className="amenity-icon" />
+                <p className="amenity-title">{amenity.title}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Slider de Imágenes */}
+        <div className="slider-container">
+          <Slider {...sliderSettings}>
+            {sliderImages.map((image, index) => (
+              <div key={index} className="slider-img-wrapper">
+                <img
+                  src={image}
+                  alt={`Salón de usos múltiples - Imagen ${index + 1}`}
+                  className="slider-img"
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

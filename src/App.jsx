@@ -10,6 +10,8 @@ import Cabin3 from "./components/Cabin/Cabin3";
 import Reservas from "./components/Reservas/Reservas";
 import Ubicacion from "./components/Ubicacion/Ubicacion";
 import Actividades from "./components/Actividades/Actividades";
+import Privacidad from "./components/Privacidad/Privacidad";
+import Terminos from "./components/Terminos/Terminos";
 // import MultipurposeRoom from "./components/MultipurposeRoom/MultipurposeRoom";
 import { WhatsAppButton } from "./components/WhatsAppButton"; // 👈 importamos el botón
 import "./App.css";
@@ -36,6 +38,8 @@ function App() {
         <Route path="/reservas" element={<Reservas />} />
         <Route path="/ubicacion" element={<Ubicacion />} />
         <Route path="/actividades" element={<Actividades />} />
+        <Route path="/privacidad" element={<Privacidad />} />
+        <Route path="/terminos" element={<Terminos />} />
       </Routes>
 
       <Footer />
