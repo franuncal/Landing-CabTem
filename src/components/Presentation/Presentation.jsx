@@ -13,7 +13,7 @@ export const Presentation = () => {
           de ciprés y piedra patagónica, cada detalle está pensado para
           brindarte un ambiente cálido y acogedor. Rodeadas de paisajes únicos,
           disfrutarás de la atención personalizada de Marcela y Gustavo, quienes
-          se asegurarán de que tu estadía sea inolvidable. Ven a relajarte y
+          se asegurarán de que tu estadía sea inolvidable. Vení a relajarte y
           conectar con la esencia de la Patagonia.
         </p>
       </div>

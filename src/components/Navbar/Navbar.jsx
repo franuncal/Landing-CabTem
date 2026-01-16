@@ -1,160 +1,143 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import img from "../../assets/Img-fotos/logos3.webp";
-import { CiMenuBurger } from "react-icons/ci";
-import { RxCross2 } from "react-icons/rx";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import img from "../../assets/Img-fotos/logos3.png";
 
-const menuItems = [
-  { label: "Inicio", to: "/", action: "top" },
-  { label: "Cabañas", to: "/", action: "scrollToCabanas" },
-  { label: "Reservas", to: "/reservas" },
-  { label: "Ubicación", to: "/ubicacion" },
-  { label: "Actividades", to: "/actividades" },
-];
-
-export const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleMenuClick = () => setMenuOpen(false);
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const toggleMenu = () => setOpen((prev) => !prev);
+  const closeMenu = () => setOpen(false);
 
-  const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  const handleScrollToCabanas = (e) => {
-    e.preventDefault();
-    handleMenuClick();
-    
-    // Si estamos en otra página, navegar a home primero
-    if (location.pathname !== "/") {
-      navigate("/");
-      // Esperar a que la página cargue y luego hacer scroll
-      setTimeout(() => {
-        const section = document.getElementById("cabanas-section");
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    } else {
-      // Si ya estamos en home, hacer scroll directamente
-      const section = document.getElementById("cabanas-section");
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  };
-
-  const handleAction = (action) => {
-    if (action === "top") {
-      handleScrollToTop();
-      handleMenuClick();
-    } else if (action === "scrollToCabanas") {
-      handleScrollToCabanas();
-    } else {
-      handleMenuClick();
-    }
-  };
-
-  // Detectar scroll
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevenir scroll del body cuando el menú móvil está abierto
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
+  const handleNavClick = (section) => {
+    closeMenu();
+    if (location.pathname !== "/") {
+      navigate(`/#${section}`);
+      setTimeout(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 300);
     } else {
-      document.body.style.overflow = "unset";
+      setTimeout(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
     }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [menuOpen]);
-
-  // Cerrar menú al cambiar de ruta
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
-
-  // Verificar si el link está activo
-  const isActive = (to) => {
-    if (to === "/") {
-      return location.pathname === "/";
-    }
-    return location.pathname === to;
   };
 
+  const handleUbicacionClick = () => {
+    closeMenu();
+    navigate("/ubicacion");
+  };
+
+  const handleActividadesClick = () => {
+    closeMenu();
+    navigate("/actividades");
+  };
+
+  const handleReservarClick = () => {
+    closeMenu();
+    navigate("/reservas");
+  };
+
+  const headerClass = `navbar ${scrolled ? "navbar--scrolled" : "navbar--top"}`;
+
+  useEffect(() => {
+    if (open) {
+      const handleClickOutside = (e) => {
+        if (
+          !e.target.closest(".navbar-links") &&
+          !e.target.closest(".navbar-toggle")
+        ) {
+          closeMenu();
+        }
+      };
+      document.addEventListener("click", handleClickOutside);
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.removeEventListener("click", handleClickOutside);
+        document.body.style.overflow = "";
+      };
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [open]);
+
   return (
-    <header
-      className={`navbar ${scrolled ? "scrolled" : ""} ${
-        menuOpen ? "menu-open" : ""
-      }`}
-    >
-      <Link
-        to="/"
-        className="logo"
-        onClick={handleScrollToTop}
-        aria-label="Ir al inicio"
-      >
-        <img
-          src={img}
-          alt="Logo Cabañas Temístocles"
-          className="logo-img"
-          loading="lazy"
-        />
-      </Link>
+    <header className={headerClass}>
+      <div className="navbar-inner">
+        <Link to="/" className="navbar-brand" onClick={closeMenu}>
+          <img
+            src={img}
+            alt="Cabañas Temístocles"
+            className="navbar-logo-img"
+          />
+        </Link>
 
-      <nav
-        className={`nav ${menuOpen ? "open" : ""}`}
-        aria-label="Navegación principal"
-      >
-        <ul className="nav-list">
-          {menuItems.map(({ label, to, action }, index) => (
-            <li
-              key={label}
-              className="nav-item"
-              style={{ animationDelay: menuOpen ? `${index * 0.1}s` : "0s" }}
-            >
-              {action === "scrollToCabanas" ? (
-                <Link
-                  to="/"
-                  onClick={handleScrollToCabanas}
-                  className="nav-link"
-                  aria-label={`Ir a ${label}`}
-                >
-                  {label}
-                </Link>
-              ) : (
-                <Link
-                  to={to}
-                  onClick={() => handleAction(action)}
-                  className={`nav-link ${isActive(to) ? "active" : ""}`}
-                  aria-label={`Ir a ${label}`}
-                >
-                  {label}
-                </Link>
-              )}
-            </li>
-          ))}
-        </ul>
-      </nav>
+        <button
+          className={`navbar-toggle ${open ? "is-open" : ""}`}
+          type="button"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          onClick={toggleMenu}
+        >
+          <span className="navbar-toggle-bar" />
+        </button>
 
-      <button
-        className="menu-toggle"
-        onClick={toggleMenu}
-        aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-        aria-expanded={menuOpen}
-      >
-        {menuOpen ? <RxCross2 /> : <CiMenuBurger />}
-      </button>
+        {open && <div className="navbar-overlay" onClick={closeMenu} />}
+
+        <nav
+          className={`navbar-links ${open ? "is-open" : ""}`}
+          aria-label="Navegación principal"
+        >
+          <button
+            onClick={() => handleNavClick("cabanas-section")}
+            className="navbar-link"
+          >
+            Cabañas
+          </button>
+          <button onClick={handleUbicacionClick} className="navbar-link">
+            Ubicación
+          </button>
+          <button onClick={handleActividadesClick} className="navbar-link">
+            Actividades
+          </button>
+          <button
+            onClick={handleReservarClick}
+            className="navbar-reserva btn-primary"
+          >
+            Reservar
+          </button>
+        </nav>
+      </div>
     </header>
   );
-};
+}

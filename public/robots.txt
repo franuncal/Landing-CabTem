@@ -7,10 +7,6 @@ Allow: /
 # Sitemap
 Sitemap: https://www.temistoclesesquel.com.ar/sitemap.xml
 
-# Disallow admin or private areas (si existen)
-# Disallow: /admin/
-# Disallow: /private/
-
 # Allow important pages
 Allow: /
 Allow: /reservas
@@ -19,6 +15,8 @@ Allow: /actividades
 Allow: /cabin1
 Allow: /cabin2
 Allow: /cabin3
+Allow: /privacidad
+Allow: /terminos
 
 # Crawl-delay (opcional, ajustar según necesidad)
 Crawl-delay: 1
@@ -26,6 +24,7 @@ Crawl-delay: 1
 # Specific bots
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 0
 
 User-agent: Googlebot-Image
 Allow: /
@@ -34,4 +33,10 @@ User-agent: Bingbot
 Allow: /
 
 User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
 Allow: /

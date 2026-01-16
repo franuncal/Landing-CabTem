@@ -18,7 +18,7 @@
   font-size: 1rem;
   margin-bottom: 2rem;
   transition: color 0.3s ease;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .terminos-back-link:hover {
@@ -39,7 +39,7 @@
   color: #666;
   margin-bottom: 3rem;
   font-size: 0.95rem;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .terminos-content {
@@ -79,7 +79,7 @@
   line-height: 1.8;
   color: #555;
   margin-bottom: 1rem;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .terminos-section ul {
@@ -92,7 +92,7 @@
   line-height: 1.8;
   color: #555;
   margin-bottom: 0.5rem;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .terminos-section a {

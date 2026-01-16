@@ -22,41 +22,16 @@ export const mediosPago = [
   },
 ];
 
-// Precios por noche según temporada y cabaña
-// Ajustar estos valores según los precios reales
+// Precios por noche fijos (no varían por temporada ni cantidad de huéspedes)
 const preciosPorNoche = {
-  "cabana-1": {
-    temporadaBaja: 25000, // Ajustar según precio real
-    temporadaAlta: 35000, // Ajustar según precio real
-  },
-  "cabana-2": {
-    temporadaBaja: 28000, // Ajustar según precio real
-    temporadaAlta: 38000, // Ajustar según precio real
-  },
-  "cabana-3": {
-    temporadaBaja: 25000, // Ajustar según precio real
-    temporadaAlta: 35000, // Ajustar según precio real
-  },
+  "cabana-1": 95000,
+  "cabana-2": 135000,
+  "cabana-3": 135000,
 };
 
-// Precio del desayuno por persona
-const precioDesayuno = 5000; // Ajustar según precio real
-
-// Función para determinar si una fecha está en temporada alta
-// Temporada alta: diciembre, enero, febrero, julio
-function esTemporadaAlta(fechaStr) {
-  const [año, mes] = fechaStr.split("-").map(Number);
-  return mes === 12 || mes === 1 || mes === 2 || mes === 7;
-}
-
-// Función para calcular el precio por noche según la fecha
-function obtenerPrecioPorNoche(cabanaId, fechaStr) {
-  const precios = preciosPorNoche[cabanaId];
-  if (!precios) return 25000; // Precio por defecto
-
-  return esTemporadaAlta(fechaStr)
-    ? precios.temporadaAlta
-    : precios.temporadaBaja;
+// Función para obtener el precio por noche (precio fijo)
+function obtenerPrecioPorNoche(cabanaId) {
+  return preciosPorNoche[cabanaId] || 95000; // Precio por defecto
 }
 
 // Función para calcular el total de la reserva
@@ -75,24 +50,14 @@ export function calcularTotal(
   const diferencia = fechaFinDate - fechaInicioDate;
   const noches = Math.floor(diferencia / (1000 * 60 * 60 * 24));
 
-  // Calcular precio promedio por noche (puede variar según temporada)
-  let subtotal = 0;
-  const fechaActual = new Date(fechaInicioDate);
+  // Calcular subtotal: precio fijo por noche
+  const precioPorNoche = obtenerPrecioPorNoche(cabanaId);
+  let subtotal = precioPorNoche * noches;
 
-  for (let i = 0; i < noches; i++) {
-    const año = fechaActual.getFullYear();
-    const mes = fechaActual.getMonth() + 1;
-    const dia = fechaActual.getDate();
-    const fechaStr = `${año}-${String(mes).padStart(2, "0")}-${String(
-      dia
-    ).padStart(2, "0")}`;
-    subtotal += obtenerPrecioPorNoche(cabanaId, fechaStr);
-    fechaActual.setDate(fechaActual.getDate() + 1);
-  }
+  // Precio del desayuno por persona (si se necesita)
+  const precioDesayuno = 5000;
 
-  const precioPorNoche = Math.round(subtotal / noches);
-
-  // Agregar desayuno si está incluido
+  // Agregar desayuno si está incluido (aunque ya no se usa, mantenemos la lógica por si acaso)
   if (conDesayuno) {
     subtotal += precioDesayuno * huespedes * noches;
   }

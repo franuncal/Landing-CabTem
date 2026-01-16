@@ -10,15 +10,21 @@ const DiscoverEsquel = () => {
     >
       <div className="discover-overlay"></div>
       <div className="discover-content">
-        <h2 className="discover-title">Esquel te espera</h2>
+        <h2 className="discover-title">¡Esquel te espera!</h2>
         <p className="discover-subtitle">
           Descubrí nuestras cabañas y reservá tu lugar en la Patagonia
         </p>
         <div className="discover-buttons">
-          <Link to="/reservas" className="discover-button discover-button-primary">
+          <Link
+            to="/reservas"
+            className="discover-button discover-button-primary"
+          >
             Reservar ahora
           </Link>
-          <Link to="/#cabanas-section" className="discover-button discover-button-secondary">
+          <Link
+            to="/#cabanas-section"
+            className="discover-button discover-button-secondary"
+          >
             Ver cabañas
           </Link>
         </div>

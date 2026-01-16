@@ -4,6 +4,7 @@ import { Presentation } from "../Presentation/Presentation";
 import Cabanas from "../Cabanas/Cabanas";
 import DiscoverEsquel from "../DiscoverEsquel/DiscoverEsquel";
 import MultipurposeRoom from "../MultipurposeRoom/MultipurposeRoom";
+import GoogleReviews from "../GoogleReviews/GoogleReviews";
 
 export const Home = () => {
   return (
@@ -12,9 +13,8 @@ export const Home = () => {
         <Presentation />
         <Cabanas />
         <MultipurposeRoom />
+        <GoogleReviews />
       </div>
-
-      {/* 👇 Ahora DiscoverEsquel está fuera, para ser full width */}
       <DiscoverEsquel />
     </>
   );

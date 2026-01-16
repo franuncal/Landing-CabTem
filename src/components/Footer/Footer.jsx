@@ -3,7 +3,7 @@ import {
   FaInstagram,
   FaFacebook,
   FaRegCreditCard,
-  // FaWhatsapp,
+  FaPhone,
 } from "react-icons/fa";
 import { BsBank, BsCashStack } from "react-icons/bs";
 import "./Footer.css";
@@ -19,9 +19,8 @@ export const Footer = () => {
           <p>Rivadavia 2656 – Esquel</p>
           <p>C.P: 9200 – Chubut, Patagonia Argentina.</p>
           <p>
-            📞{" "}
             <a href="tel:+542945450910" rel="noopener noreferrer">
-              +54 9 2945 450910
+              <FaPhone /> +54 9 2945 450910
             </a>
           </p>
         </div>

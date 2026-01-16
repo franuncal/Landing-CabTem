@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Banner.css";
 
+// import img1 from "../../assets/cabanas/cab1/cab1 -27.webp";
 import img1 from "../../assets/cabanas/cab1/cab1 -23.webp";
 import img2 from "../../assets/cabanas/cab2/cab2 -17.webp";
 import img3 from "../../assets/cabanas/cab1/cab1 -7.webp";
@@ -17,7 +18,7 @@ const slides = [
     img: img1,
     title: "Cabañas Temístocles",
     subtitle:
-      "Tres cabañas equipadas y un entorno de silencio y verde para bajar un cambio y disfrutar de la Patagonia.",
+      "Cabañas equipadas y un entorno de silencio y verde para bajar un cambio y disfrutar de la Patagonia.",
     alt: "Cabañas Temistocles en la naturaleza",
   },
   {

@@ -24,7 +24,7 @@
   font-size: clamp(2rem, 4vw, 2.5rem);
   color: #44543c;
   margin: 0 0 1rem 0;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: -0.01em;
   font-family: "Playfair Display", serif;
   text-align: center;
@@ -37,7 +37,7 @@
   margin: 0 auto;
   max-width: 800px;
   text-align: center;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 /* ============================================

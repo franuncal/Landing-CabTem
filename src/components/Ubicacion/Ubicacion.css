@@ -36,7 +36,7 @@
   color: #666;
   margin: 0;
   line-height: 1.5;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 /* ============================================
@@ -103,7 +103,7 @@
   font-weight: 600;
   font-size: 1.1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .map-hero-badge svg {
@@ -124,7 +124,7 @@
   border-radius: 50px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 20px rgba(68, 84, 60, 0.4);
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .map-hero-button:hover {
@@ -215,7 +215,7 @@
   line-height: 1.8;
   color: #555;
   margin: 0;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .info-card-address-modern strong {
@@ -261,7 +261,7 @@
   justify-content: center;
   font-weight: 700;
   font-size: 0.9rem;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .direction-step p {
@@ -269,7 +269,7 @@
   color: #555;
   font-size: 1rem;
   line-height: 1.5;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
   flex: 1;
 }
 
@@ -294,7 +294,7 @@
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .contact-link:hover {
@@ -339,7 +339,7 @@
   margin: 0 0 2.5rem 0;
   opacity: 0.95;
   line-height: 1.6;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .cta-modern-button {
@@ -355,7 +355,7 @@
   border-radius: 50px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .cta-modern-button:hover {

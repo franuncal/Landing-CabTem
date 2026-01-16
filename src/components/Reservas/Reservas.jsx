@@ -7,6 +7,7 @@ import {
 } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { gapi } from "gapi-script";
+import { FaEye } from "react-icons/fa";
 import { cabanas } from "../../data/cabanas";
 import {
   condiciones,
@@ -17,64 +18,60 @@ import {
 import "./Reservas.css";
 
 function detectarCabanaDesdeNombre(nombreEvento) {
-  const nombreLower = nombreEvento.toLowerCase();
-  const normalizado = nombreLower
-    .replace(/cabaña/g, "cabana")
-    .replace(/ñ/g, "n");
+  if (!nombreEvento || typeof nombreEvento !== "string") {
+    return null;
+  }
 
+  // Normalizar: convertir a minúsculas y reemplazar ñ por n
+  const nombreNormalizado = nombreEvento
+    .toLowerCase()
+    .replace(/ñ/g, "n")
+    .replace(/á/g, "a")
+    .replace(/é/g, "e")
+    .replace(/í/g, "i")
+    .replace(/ó/g, "o")
+    .replace(/ú/g, "u");
+
+  // Patrones para detectar cabaña 1, 2 o 3
+  // Busca: "cabana 1", "cabana1", "cabaña 1", "cabaña1", etc.
+  // También busca números romanos: "cabana i", "cabana ii", "cabana iii"
+
+  // Expresiones regulares más flexibles
+  // Busca "cabana" o "cabaña" seguido de espacio opcional y número
   const patrones = [
     {
-      matches: ["cabana 1", "cabaña 1", "cabana i", "cabaña i"],
-      excludes: [
-        "cabana 2",
-        "cabaña 2",
-        "cabana ii",
-        "cabaña ii",
-        "cabana 3",
-        "cabaña 3",
-        "cabana iii",
-        "cabaña iii",
-      ],
+      // Cabaña 1: busca "cabana 1", "cabana1", "cabana i"
+      regex: /\bcabana\s*[1i]\b/i,
       id: "cabana-1",
     },
     {
-      matches: ["cabana 2", "cabaña 2", "cabana ii", "cabaña ii"],
-      excludes: [
-        "cabana 1",
-        "cabaña 1",
-        "cabana i",
-        "cabaña i",
-        "cabana 3",
-        "cabaña 3",
-        "cabana iii",
-        "cabaña iii",
-      ],
+      // Cabaña 2: busca "cabana 2", "cabana2", "cabana ii"
+      regex: /\bcabana\s*[2ii]+\b/i,
       id: "cabana-2",
     },
     {
-      matches: ["cabana 3", "cabaña 3", "cabana iii", "cabaña iii"],
-      excludes: [
-        "cabana 1",
-        "cabaña 1",
-        "cabana i",
-        "cabaña i",
-        "cabana 2",
-        "cabaña 2",
-        "cabana ii",
-        "cabaña ii",
-      ],
+      // Cabaña 3: busca "cabana 3", "cabana3", "cabana iii"
+      regex: /\bcabana\s*[3iii]+\b/i,
       id: "cabana-3",
     },
   ];
 
-  for (const patron of patrones) {
-    const tieneMatch = patron.matches.some(
-      (m) => nombreLower.includes(m) || normalizado.includes(m)
-    );
-    const tieneExclude = patron.excludes.some((e) => nombreLower.includes(e));
-    if (tieneMatch && !tieneExclude) {
+  // Buscar en orden inverso (3, 2, 1) para priorizar números más específicos
+  // Esto evita que "cabana 3" sea detectado como "cabana 1" si hay un "1" antes
+  for (let i = patrones.length - 1; i >= 0; i--) {
+    const patron = patrones[i];
+    if (patron.regex.test(nombreNormalizado)) {
+      // Log en desarrollo para debugging
+      if (import.meta.env.DEV) {
+        console.log(`✅ Evento detectado: "${nombreEvento}" → ${patron.id}`);
+      }
       return patron.id;
     }
+  }
+
+  // Si no se detecta nada, log en desarrollo
+  if (import.meta.env.DEV) {
+    console.warn(`⚠️ No se pudo detectar cabaña en: "${nombreEvento}"`);
   }
 
   return null;
@@ -105,10 +102,10 @@ function obtenerFechaHoy() {
 export default function Reservas() {
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   // Obtener cabaña preseleccionada desde el estado de navegación
   const cabanaPreSeleccionada = location.state?.cabanaId || null;
-  
+
   const [cabanaSeleccionada, setCabanaSeleccionada] = useState(
     cabanaPreSeleccionada
   );
@@ -135,6 +132,8 @@ export default function Reservas() {
   const [cargandoFechasOcupadas, setCargandoFechasOcupadas] = useState(false);
   const [mesCalendario, setMesCalendario] = useState(new Date().getMonth());
   const [añoCalendario, setAñoCalendario] = useState(new Date().getFullYear());
+  const [personasMirando, setPersonasMirando] = useState(2);
+  const [mostrarAlertaUrgencia, setMostrarAlertaUrgencia] = useState(false);
 
   const capacidadMaxima = useMemo(
     () =>
@@ -708,6 +707,36 @@ export default function Reservas() {
       startTransition(() => {
         cargarFechasOcupadas();
       });
+
+      // Generar número aleatorio de personas mirando (1-3)
+      setPersonasMirando(Math.floor(Math.random() * 3) + 1);
+
+      let intervalo = null;
+      let delayOcultar = null;
+
+      // Mostrar la alerta después de 3-5 segundos
+      const delayMostrar = setTimeout(() => {
+        setMostrarAlertaUrgencia(true);
+
+        // Cambiar el número cada 3-5 segundos mientras está visible
+        intervalo = setInterval(() => {
+          setPersonasMirando(Math.floor(Math.random() * 3) + 1);
+        }, Math.floor(Math.random() * 2000) + 3000);
+
+        // Ocultar la alerta después de 8-10 segundos de mostrarla
+        delayOcultar = setTimeout(() => {
+          setMostrarAlertaUrgencia(false);
+          if (intervalo) clearInterval(intervalo);
+        }, Math.floor(Math.random() * 2000) + 8000); // Entre 8 y 10 segundos
+      }, Math.floor(Math.random() * 2000) + 3000); // Entre 3 y 5 segundos
+
+      return () => {
+        clearTimeout(delayMostrar);
+        if (delayOcultar) clearTimeout(delayOcultar);
+        if (intervalo) clearInterval(intervalo);
+      };
+    } else {
+      setMostrarAlertaUrgencia(false);
     }
   }, [cabanaSeleccionada, paso, cargarFechasOcupadas]);
 
@@ -842,6 +871,25 @@ export default function Reservas() {
               Continuar
             </button>
           </div>
+        )}
+
+        {paso === 2 && mostrarAlertaUrgencia && (
+          <>
+            {/* Alerta de urgencia flotante */}
+            <div className="alerta-urgencia">
+              <div className="alerta-urgencia-icon">
+                <FaEye />
+              </div>
+              <div className="alerta-urgencia-texto">
+                <strong>
+                  Hay {personasMirando}{" "}
+                  {personasMirando === 1 ? "persona más" : "personas más"}{" "}
+                  mirando este alojamiento
+                </strong>
+                <span className="alerta-urgencia-cta">Reserva ahora!</span>
+              </div>
+            </div>
+          </>
         )}
 
         {paso === 2 && (
