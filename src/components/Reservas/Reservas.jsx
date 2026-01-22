@@ -17,9 +17,9 @@ import {
 } from "../../data/precios";
 import "./Reservas.css";
 
-function detectarCabanaDesdeNombre(nombreEvento) {
+function detectarCabanasDesdeNombre(nombreEvento) {
   if (!nombreEvento || typeof nombreEvento !== "string") {
-    return null;
+    return [];
   }
 
   // Normalizar: convertir a minúsculas y reemplazar ñ por n
@@ -35,9 +35,8 @@ function detectarCabanaDesdeNombre(nombreEvento) {
   // Patrones para detectar cabaña 1, 2 o 3
   // Busca: "cabana 1", "cabana1", "cabaña 1", "cabaña1", etc.
   // También busca números romanos: "cabana i", "cabana ii", "cabana iii"
+  // También busca múltiples cabañas: "cabana 2 y 3", "cabana 1 y cabana 3", etc.
 
-  // Expresiones regulares más flexibles
-  // Busca "cabana" o "cabaña" seguido de espacio opcional y número
   const patrones = [
     {
       // Cabaña 1: busca "cabana 1", "cabana1", "cabana i"
@@ -56,25 +55,28 @@ function detectarCabanaDesdeNombre(nombreEvento) {
     },
   ];
 
-  // Buscar en orden inverso (3, 2, 1) para priorizar números más específicos
-  // Esto evita que "cabana 3" sea detectado como "cabana 1" si hay un "1" antes
-  for (let i = patrones.length - 1; i >= 0; i--) {
-    const patron = patrones[i];
+  // Detectar todas las cabañas mencionadas en el evento
+  const cabanasDetectadas = [];
+  for (const patron of patrones) {
     if (patron.regex.test(nombreNormalizado)) {
-      // Log en desarrollo para debugging
-      if (import.meta.env.DEV) {
-        console.log(`✅ Evento detectado: "${nombreEvento}" → ${patron.id}`);
-      }
-      return patron.id;
+      cabanasDetectadas.push(patron.id);
     }
   }
 
-  // Si no se detecta nada, log en desarrollo
-  if (import.meta.env.DEV) {
+  if (import.meta.env.DEV && cabanasDetectadas.length > 0) {
+    console.log(`✅ Evento detectado: "${nombreEvento}" → Cabañas: ${cabanasDetectadas.join(", ")}`);
+  } else if (import.meta.env.DEV) {
     console.warn(`⚠️ No se pudo detectar cabaña en: "${nombreEvento}"`);
   }
 
-  return null;
+  return cabanasDetectadas;
+}
+
+// Función de compatibilidad (mantener para no romper código existente)
+function detectarCabanaDesdeNombre(nombreEvento) {
+  const cabanas = detectarCabanasDesdeNombre(nombreEvento);
+  // Retornar la primera cabaña detectada (o null si no hay ninguna)
+  return cabanas.length > 0 ? cabanas[0] : null;
 }
 
 function formatearFecha(fechaStr) {
@@ -174,9 +176,14 @@ export default function Reservas() {
   const obtenerDiasOcupados = useCallback((eventos) => {
     const diasOcupados = new Set();
 
+    if (import.meta.env.DEV) {
+      console.log("📅 Procesando eventos para días ocupados:", eventos.length, "eventos");
+    }
+
     eventos.forEach((evento) => {
       let inicioStr = evento.inicio;
       let finStr = evento.fin;
+      let esTodoElDia = evento.esTodoElDia || false;
       let horaFin = 10;
 
       if (inicioStr instanceof Date) {
@@ -201,9 +208,34 @@ export default function Reservas() {
       const [añoFin, mesFin, diaFin] = finStr.split("-").map(Number);
       const fechaInicio = new Date(añoInicio, mesInicio - 1, diaInicio);
       const fechaFin = new Date(añoFin, mesFin - 1, diaFin);
+      
+      // Normalizar fechas a medianoche para comparación correcta
+      fechaInicio.setHours(0, 0, 0, 0);
+      fechaFin.setHours(0, 0, 0, 0);
+      
       const fechaActual = new Date(fechaInicio);
 
-      while (fechaActual <= fechaFin) {
+      // Para eventos de todo el día, end.date es exclusivo y representa el día de checkout
+      // Checkout: 10:00 AM, Check-in: 14:00 PM (2:00 PM)
+      // El día de checkout NO debe estar ocupado porque:
+      // - El checkout es a las 10:00
+      // - El nuevo check-in puede ser a las 14:00
+      // - Hay tiempo suficiente para limpieza/preparación
+      // Entonces marcamos desde inicio hasta el día ANTERIOR al checkout (exclusivo)
+      const diasMarcados = [];
+      
+      // Comparar fechas usando timestamps para evitar problemas de zona horaria
+      const timestampInicio = fechaInicio.getTime();
+      const timestampFin = fechaFin.getTime();
+      
+      if (timestampInicio >= timestampFin) {
+        if (import.meta.env.DEV) {
+          console.warn(`⚠️ Fecha de inicio (${inicioStr}) >= fecha de fin (${finStr}), saltando evento`);
+        }
+        return; // Saltar eventos inválidos
+      }
+      
+      while (fechaActual.getTime() < timestampFin) {
         const año = fechaActual.getFullYear();
         const mes = fechaActual.getMonth() + 1;
         const dia = fechaActual.getDate();
@@ -211,14 +243,40 @@ export default function Reservas() {
           dia
         ).padStart(2, "0")}`;
 
-        const esDiaCheckOut = fechaStr === finStr;
-        if (!(esDiaCheckOut && horaFin <= 10)) {
-          diasOcupados.add(fechaStr);
-        }
+        // Para eventos de todo el día, NO marcamos el día de checkout como ocupado
+        // porque el checkout es a las 10:00 y el nuevo check-in puede ser a las 14:00
+        diasOcupados.add(fechaStr);
+        diasMarcados.push(fechaStr);
 
         fechaActual.setDate(fechaActual.getDate() + 1);
       }
+      
+      // Para eventos con hora específica, aplicamos la lógica de hora
+      if (!esTodoElDia) {
+        const año = fechaFin.getFullYear();
+        const mes = fechaFin.getMonth() + 1;
+        const dia = fechaFin.getDate();
+        const fechaStr = `${año}-${String(mes).padStart(2, "0")}-${String(
+          dia
+        ).padStart(2, "0")}`;
+        
+        // Solo marcamos el día de checkout como ocupado si el checkout es después de las 10:00
+        // (porque si es a las 10:00 o antes, el nuevo check-in puede ser a las 14:00)
+        if (horaFin > 10) {
+          diasOcupados.add(fechaStr);
+          diasMarcados.push(fechaStr);
+        }
+      }
+
+      if (import.meta.env.DEV) {
+        console.log(`📅 Reserva: ${inicioStr} → ${finStr} (${esTodoElDia ? "todo el día" : "con hora"})`, 
+          `Días ocupados: ${diasMarcados.join(", ")}`);
+      }
     });
+
+    if (import.meta.env.DEV) {
+      console.log("📅 Total días ocupados:", Array.from(diasOcupados).sort().join(", "));
+    }
 
     return diasOcupados;
   }, []);
@@ -583,72 +641,158 @@ export default function Reservas() {
     const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
     const CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
-    if (!CALENDAR_ID || !API_KEY || !CLIENT_ID) {
+    if (!CALENDAR_ID || !API_KEY) {
       setCargandoFechasOcupadas(false);
       return;
     }
 
     setCargandoFechasOcupadas(true);
 
-    const DISCOVERY_DOCS = [
-      "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
-    ];
-    const SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+    // Función auxiliar para procesar eventos
+    const procesarEventos = (eventos) => {
+      if (import.meta.env.DEV) {
+        console.log(`📅 Total eventos recibidos: ${eventos.length}`);
+        console.log(`📅 Cabaña seleccionada: ${cabanaSeleccionada}`);
+      }
 
-    const initClient = () => {
-      gapi.client
-        .init({
-          apiKey: API_KEY,
-          clientId: CLIENT_ID,
-          discoveryDocs: DISCOVERY_DOCS,
-          scope: SCOPES,
-        })
-        .then(() =>
-          gapi.client.calendar.events.list({
-            calendarId: CALENDAR_ID,
-            timeMin: new Date().toISOString(),
-            timeMax: new Date(
-              new Date().setFullYear(new Date().getFullYear() + 1)
-            ).toISOString(),
-            showDeleted: false,
-            singleEvents: true,
-            orderBy: "startTime",
-          })
-        )
-        .then((response) => {
-          const eventos = response.result.items || [];
-          const eventosEstaCabana = eventos.filter((ev) => {
-            const nombreEvento = ev.summary || "";
-            const cabanaDetectada = detectarCabanaDesdeNombre(nombreEvento);
-            return cabanaDetectada === cabanaSeleccionada;
-          });
+      const eventosEstaCabana = eventos.filter((ev) => {
+        const nombreEvento = ev.summary || "";
+        const cabanasDetectadas = detectarCabanasDesdeNombre(nombreEvento);
+        
+        // Verificar si la cabaña seleccionada está en la lista de cabañas detectadas
+        const incluyeCabanaSeleccionada = cabanasDetectadas.includes(cabanaSeleccionada);
+        
+        if (import.meta.env.DEV) {
+          console.log(`📅 Evento: "${nombreEvento}" → Cabañas detectadas: [${cabanasDetectadas.join(", ")}] (Buscando: ${cabanaSeleccionada}) → ${incluyeCabanaSeleccionada ? "✅ INCLUIDO" : "❌ EXCLUIDO"}`);
+        }
+        
+        return incluyeCabanaSeleccionada;
+      });
 
-          const fechasFormateadas = eventosEstaCabana.map((ev) => {
-            let inicio, fin;
+      if (import.meta.env.DEV) {
+        console.log(`📅 Eventos para ${cabanaSeleccionada}: ${eventosEstaCabana.length}`);
+      }
 
-            if (ev.start.date) {
-              inicio = ev.start.date;
-              const fechaFin = new Date(ev.end.date);
-              fechaFin.setDate(fechaFin.getDate() - 1);
-              fin = fechaFin.toISOString().split("T")[0];
-            } else {
-              inicio = ev.start.dateTime.split("T")[0];
-              fin = ev.end.dateTime.split("T")[0];
-            }
+      const fechasFormateadas = eventosEstaCabana.map((ev) => {
+        let inicio, fin;
+        let esTodoElDia = false;
 
-            return { inicio, fin };
-          });
+        if (ev.start.date) {
+          // Evento de todo el día: Google Calendar usa end.date como exclusivo
+          // Si start.date = "2026-01-01" y end.date = "2026-01-02", significa:
+          // - Check-in: 1 de enero
+          // - Check-out: 2 de enero (a las 10:00 según políticas)
+          // El día de checkout NO debe estar ocupado (disponible para nuevo check-in a las 14:00)
+          inicio = ev.start.date;
+          fin = ev.end.date; // end.date es exclusivo, representa el día de checkout
+          esTodoElDia = true;
+        } else {
+          inicio = ev.start.dateTime.split("T")[0];
+          fin = ev.end.dateTime.split("T")[0];
+        }
 
-          setFechasOcupadas(fechasFormateadas);
-          setCargandoFechasOcupadas(false);
-        })
-        .catch(() => {
-          setFechasOcupadas([]);
-          setCargandoFechasOcupadas(false);
-        });
+        if (import.meta.env.DEV) {
+          console.log(`📅 Reserva procesada: ${inicio} → ${fin} (${esTodoElDia ? "todo el día" : "con hora"}) - "${ev.summary}"`);
+        }
+
+        return { inicio, fin, esTodoElDia };
+      });
+
+      if (import.meta.env.DEV) {
+        console.log(`📅 Total reservas formateadas: ${fechasFormateadas.length}`);
+      }
+
+      setFechasOcupadas(fechasFormateadas);
+      setCargandoFechasOcupadas(false);
     };
 
-    gapi.load("client:auth2", initClient);
+    // Codificar el Calendar ID para la URL
+    const calendarIdEncoded = encodeURIComponent(CALENDAR_ID);
+    const timeMin = new Date().toISOString();
+    const timeMax = new Date(
+      new Date().setFullYear(new Date().getFullYear() + 1)
+    ).toISOString();
+
+    // MÉTODO 1: Intentar primero con fetch directo (solo API_KEY) - funciona para calendarios públicos
+    const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarIdEncoded}/events?key=${API_KEY}&timeMin=${encodeURIComponent(timeMin)}&timeMax=${encodeURIComponent(timeMax)}&singleEvents=true&orderBy=startTime`;
+
+    if (import.meta.env.DEV) {
+      console.log("📅 Intentando cargar calendario con API_KEY (método directo)...");
+    }
+
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          // Si falla (calendario privado o error), lanzar error para intentar con OAuth2
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        const eventos = data.items || [];
+        procesarEventos(eventos);
+        if (import.meta.env.DEV) {
+          console.log("✅ Calendario cargado con API_KEY (calendario público)", eventos.length, "eventos encontrados");
+        }
+      })
+      .catch((error) => {
+        // Si falla el fetch directo, intentar con OAuth2 (para calendarios privados)
+        if (import.meta.env.DEV) {
+          console.log("⚠️ Método directo falló, intentando con OAuth2...", error.message);
+        }
+
+        if (!CLIENT_ID) {
+          // Si no hay CLIENT_ID, no podemos usar OAuth2
+          setFechasOcupadas([]);
+          setCargandoFechasOcupadas(false);
+          if (import.meta.env.DEV) {
+            console.error("❌ No se puede acceder al calendario: requiere CLIENT_ID para OAuth2");
+          }
+          return;
+        }
+
+        // MÉTODO 2: Usar OAuth2 con gapi (para calendarios privados)
+        const DISCOVERY_DOCS = [
+          "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest",
+        ];
+        const SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+
+        const initClient = () => {
+          gapi.client
+            .init({
+              apiKey: API_KEY,
+              clientId: CLIENT_ID,
+              discoveryDocs: DISCOVERY_DOCS,
+              scope: SCOPES,
+            })
+            .then(() =>
+              gapi.client.calendar.events.list({
+                calendarId: CALENDAR_ID,
+                timeMin: timeMin,
+                timeMax: timeMax,
+                showDeleted: false,
+                singleEvents: true,
+                orderBy: "startTime",
+              })
+            )
+            .then((response) => {
+              const eventos = response.result.items || [];
+              procesarEventos(eventos);
+              if (import.meta.env.DEV) {
+                console.log("✅ Calendario cargado con OAuth2 (calendario privado)", eventos.length, "eventos encontrados");
+              }
+            })
+            .catch((oauthError) => {
+              setFechasOcupadas([]);
+              setCargandoFechasOcupadas(false);
+              if (import.meta.env.DEV) {
+                console.error("❌ Error al cargar calendario con OAuth2:", oauthError);
+              }
+            });
+        };
+
+        gapi.load("client:auth2", initClient);
+      });
   }, [cabanaSeleccionada]);
 
   const verificarDisponibilidad = useCallback(() => {
