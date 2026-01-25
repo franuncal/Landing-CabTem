@@ -1,11 +1,12 @@
 # robots.txt para Cabañas Temístocles
-# https://www.temistoclesesquel.com.ar/robots.txt
+# https://temistoclesesquel.com.ar/robots.txt
+# Última actualización: 2026-01-22
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.temistoclesesquel.com.ar/sitemap.xml
+Sitemap: https://temistoclesesquel.com.ar/sitemap.xml
 
 # Allow important pages
 Allow: /
@@ -17,6 +18,13 @@ Allow: /cabin2
 Allow: /cabin3
 Allow: /privacidad
 Allow: /terminos
+
+# Disallow admin and private files
+Disallow: /admin/
+Disallow: /.env
+Disallow: /node_modules/
+Disallow: /*.json$
+Disallow: /src/
 
 # Crawl-delay (opcional, ajustar según necesidad)
 Crawl-delay: 1
