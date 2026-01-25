@@ -18,11 +18,21 @@ export default function CabanaDetail() {
   const cabanaId = routeToIdMap[location.pathname];
   const cabana = cabanas.find((c) => c.id === cabanaId);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [mostrarBotonFlotante, setMostrarBotonFlotante] = useState(false);
 
-  // Al entrar a una cabaña, llevar al inicio de la página
+  // La página cargará desde arriba automáticamente gracias a ScrollToTop
+
+  // Detectar scroll para mostrar/ocultar botón flotante
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "auto" });
-  }, [location.pathname]);
+    const handleScroll = () => {
+      // Mostrar el botón flotante después de hacer scroll 300px
+      const scrollY = window.scrollY || window.pageYOffset;
+      setMostrarBotonFlotante(scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const galleryImages = cabana?.galeria || [];
 
@@ -53,8 +63,21 @@ export default function CabanaDetail() {
     );
   }
 
+  const handleReservar = () => {
+    navigate(`/reservas`, { state: { cabanaId: cabana.id } });
+  };
+
   return (
     <section className="cabana-detail">
+      {/* Botón flotante de reserva (solo visible al hacer scroll) */}
+      {mostrarBotonFlotante && (
+        <div className="cabana-reserva-flotante">
+          <button className="btn-primary" onClick={handleReservar}>
+            Reservar esta cabaña
+          </button>
+        </div>
+      )}
+
       {/* Hero de la cabaña */}
       <div className="cabana-detail-hero">
         <div className="cabana-detail-hero-img">
@@ -209,6 +232,12 @@ export default function CabanaDetail() {
                   </span>
                 </div>
               )}
+              <div className="cabana-info-item">
+                <span className="cabana-info-label">Tarifa</span>
+                <span className="cabana-info-value">
+                  Por noche
+                </span>
+              </div>
             </div>
           </div>
 
@@ -217,7 +246,7 @@ export default function CabanaDetail() {
             <p>Reservá tu estadía directamente desde aquí</p>
             <button
               className="btn-primary"
-              onClick={() => navigate(`/reservas`, { state: { cabanaId: cabana.id } })}
+              onClick={handleReservar}
             >
               Reservar esta cabaña
             </button>

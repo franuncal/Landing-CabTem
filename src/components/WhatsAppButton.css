@@ -2,7 +2,11 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 1000;
+    z-index: 1001; /* Mayor que scroll-to-top (999) y botón de reserva (999) */
+    /* Asegurar que solo haya un botón visible */
+    pointer-events: auto;
+    /* Prevenir duplicados */
+    isolation: isolate;
 }
 
 /* Botón flotante */
@@ -20,6 +24,8 @@
     justify-content: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Asegurar que no haya elementos detrás */
+    isolation: isolate;
 }
 
 .whatsapp-float:hover {

@@ -505,3 +505,61 @@
         padding: 1.8rem 1.5rem;
     }
 }
+
+/* Botón flotante de reserva (siempre visible al hacer scroll) */
+.cabana-reserva-flotante {
+    position: fixed;
+    bottom: 6rem; /* Más arriba para no tapar el botón de WhatsApp (60px + 20px + espacio) */
+    right: 2rem;
+    z-index: 999; /* Un poco menos que WhatsApp (1000) para que WhatsApp quede encima si se superponen */
+    animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cabana-reserva-flotante .btn-primary {
+    background: linear-gradient(135deg, #44543c 0%, #3a4833 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(68, 84, 60, 0.3);
+    font-family: "Nunito", sans-serif;
+    white-space: nowrap;
+}
+
+.cabana-reserva-flotante .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(68, 84, 60, 0.4);
+    background: linear-gradient(135deg, #3a4833 0%, #2f3a28 100%);
+}
+
+.cabana-reserva-flotante .btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Responsive para botón flotante */
+@media (max-width: 768px) {
+    .cabana-reserva-flotante {
+        bottom: 5.5rem; /* Más arriba en mobile también (60px WhatsApp + espacio) */
+        right: 1.5rem;
+    }
+    
+    .cabana-reserva-flotante .btn-primary {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.875rem;
+    }
+}

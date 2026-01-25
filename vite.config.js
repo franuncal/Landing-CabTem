@@ -11,6 +11,18 @@ export default defineConfig({
     minify: 'esbuild',
     cssMinify: true,
     rollupOptions: {
+      // Suprimir advertencia de eval en gapi-script (librería de terceros)
+      onwarn(warning, defaultHandler) {
+        // Suprimir advertencias de eval en gapi-script
+        if (
+          warning.code === 'EVAL' &&
+          warning.id?.includes('gapi-script')
+        ) {
+          return;
+        }
+        // Mostrar otras advertencias normalmente
+        defaultHandler(warning);
+      },
       output: {
         manualChunks: {
           // Separar vendor chunks para mejor caching

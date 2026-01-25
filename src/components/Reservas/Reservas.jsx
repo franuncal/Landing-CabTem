@@ -159,7 +159,7 @@ export default function Reservas() {
   }, [cabanaSeleccionada, capacidadMaxima]);
 
   const fechaMaxima = useMemo(() => {
-    const fecha = new Date(2026, 6, 31); // 31 de julio de 2026
+    const fecha = new Date(2026, 2, 31); // 31 de marzo de 2026
     fecha.setHours(23, 59, 59, 999);
     return fecha.toISOString().split("T")[0];
   }, []);
@@ -1112,8 +1112,8 @@ export default function Reservas() {
               <div className="reservas-resumen">
                 <div className="resumen-item">
                   <span>
-                    {calculo.noches} noches × $
-                    {calculo.precioPorNoche.toLocaleString("es-AR")}
+                    {calculo.noches} {calculo.noches === 1 ? "noche" : "noches"} × $
+                    {calculo.precioPorNoche.toLocaleString("es-AR")} <small>(tarifa por noche)</small>
                   </span>
                   <span>${calculo.subtotal.toLocaleString("es-AR")}</span>
                 </div>

@@ -8,10 +8,11 @@ const Terminos = () => {
         <Link to="/" className="terminos-back-link">
           ← Volver al inicio
         </Link>
-        
+
         <h1 className="terminos-title">Términos y Condiciones</h1>
         <p className="terminos-updated">
-          Última actualización: {new Date().toLocaleDateString("es-AR", {
+          Última actualización:{" "}
+          {new Date().toLocaleDateString("es-AR", {
             year: "numeric",
             month: "long",
             day: "numeric",
@@ -44,11 +45,7 @@ const Terminos = () => {
               del check-in.
             </p>
             <h3>2.3. Métodos de pago</h3>
-            <p>
-              Aceptamos efectivo, transferencias bancarias y tarjetas de
-              crédito/débito a través de Mercado Pago. Los pagos con tarjeta
-              pueden tener un recargo adicional del 10%.
-            </p>
+            <p>Aceptamos efectivo, transferencias bancarias y Mercado Pago.</p>
           </section>
 
           <section className="terminos-section">
@@ -56,8 +53,7 @@ const Terminos = () => {
             <p>
               Las reservas no podrán ser reembolsadas bajo ningún motivo ajeno a
               la empresa. En caso de cancelación, le sugerimos que se ponga en
-              contacto con nosotros para explorar posibles soluciones, como el
-              cambio de fecha (sujeto a disponibilidad).
+              contacto con nosotros.
             </p>
           </section>
 

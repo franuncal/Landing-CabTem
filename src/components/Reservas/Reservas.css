@@ -569,6 +569,8 @@
   letter-spacing: 0.05em;
   display: block;
   margin-top: 0.2rem;
+  pointer-events: none;
+  cursor: default;
 }
 
 /* Responsive para alerta */

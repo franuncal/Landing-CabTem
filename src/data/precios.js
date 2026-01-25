@@ -1,6 +1,6 @@
 // Condiciones de reserva
 export const condiciones = {
-  minimoNoches: 2, // Mínimo de noches requeridas
+  minimoNoches: 1, // Mínimo de noches requeridas (tarifa por noche)
 };
 
 // Medios de pago disponibles
@@ -16,21 +16,21 @@ export const mediosPago = [
     recargo: 0,
   },
   {
-    id: "tarjeta",
-    nombre: "Tarjeta de crédito/débito",
-    recargo: 10,
+    id: "mercadopago",
+    nombre: "Mercado Pago",
+    recargo: 0,
   },
 ];
 
 // Precios por noche fijos (no varían por temporada ni cantidad de huéspedes)
-const preciosPorNoche = {
+export const preciosPorNoche = {
   "cabana-1": 95000,
   "cabana-2": 135000,
   "cabana-3": 135000,
 };
 
 // Función para obtener el precio por noche (precio fijo)
-function obtenerPrecioPorNoche(cabanaId) {
+export function obtenerPrecioPorNoche(cabanaId) {
   return preciosPorNoche[cabanaId] || 95000; // Precio por defecto
 }
 

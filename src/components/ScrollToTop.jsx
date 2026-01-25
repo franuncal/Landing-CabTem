@@ -7,11 +7,11 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   const [isVisible, setIsVisible] = useState(false);
 
-  // Scroll suave al cambiar de ruta
+  // Scroll instantáneo al cambiar de ruta (sin animación)
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
+      behavior: "auto", // Instantáneo, sin animación
     });
   }, [pathname]);
 
