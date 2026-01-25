@@ -69,10 +69,12 @@
 
   .text-content-p {
     flex: 1 1 auto;
+    text-align: center;
   }
 
   .presentation-description {
     font-size: 1.1rem;
+    text-align: center;
   }
 
   /* Ocultamos la imagen en tablet y móvil para evitar distracción */
@@ -99,5 +101,6 @@
     margin: 0 auto;
     max-width: 90%;
     text-align: start;
+    text-align: center;
   }
 }

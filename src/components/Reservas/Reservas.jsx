@@ -64,7 +64,9 @@ function detectarCabanasDesdeNombre(nombreEvento) {
   }
 
   if (import.meta.env.DEV && cabanasDetectadas.length > 0) {
-    console.log(`✅ Evento detectado: "${nombreEvento}" → Cabañas: ${cabanasDetectadas.join(", ")}`);
+    console.log(
+      `✅ Evento detectado: "${nombreEvento}" → Cabañas: ${cabanasDetectadas.join(", ")}`,
+    );
   } else if (import.meta.env.DEV) {
     console.warn(`⚠️ No se pudo detectar cabaña en: "${nombreEvento}"`);
   }
@@ -72,12 +74,12 @@ function detectarCabanasDesdeNombre(nombreEvento) {
   return cabanasDetectadas;
 }
 
-// Función de compatibilidad (mantener para no romper código existente)
-function detectarCabanaDesdeNombre(nombreEvento) {
-  const cabanas = detectarCabanasDesdeNombre(nombreEvento);
-  // Retornar la primera cabaña detectada (o null si no hay ninguna)
-  return cabanas.length > 0 ? cabanas[0] : null;
-}
+// // Función de compatibilidad (mantener para no romper código existente)
+// function detectarCabanaDesdeNombre(nombreEvento) {
+//   const cabanas = detectarCabanasDesdeNombre(nombreEvento);
+//   // Retornar la primera cabaña detectada (o null si no hay ninguna)
+//   return cabanas.length > 0 ? cabanas[0] : null;
+// }
 
 function formatearFecha(fechaStr) {
   const [año, mes, dia] = fechaStr.split("-").map(Number);
@@ -97,7 +99,7 @@ function obtenerFechaHoy() {
   const hoy = new Date();
   return `${hoy.getFullYear()}-${String(hoy.getMonth() + 1).padStart(
     2,
-    "0"
+    "0",
   )}-${String(hoy.getDate()).padStart(2, "0")}`;
 }
 
@@ -109,7 +111,7 @@ export default function Reservas() {
   const cabanaPreSeleccionada = location.state?.cabanaId || null;
 
   const [cabanaSeleccionada, setCabanaSeleccionada] = useState(
-    cabanaPreSeleccionada
+    cabanaPreSeleccionada,
   );
   const [fechaInicio, setFechaInicio] = useState("");
   const [fechaFin, setFechaFin] = useState("");
@@ -142,7 +144,7 @@ export default function Reservas() {
       cabanaSeleccionada
         ? cabanas.find((c) => c.id === cabanaSeleccionada)?.capacidad || 2
         : 2,
-    [cabanaSeleccionada]
+    [cabanaSeleccionada],
   );
 
   useEffect(() => {
@@ -177,7 +179,11 @@ export default function Reservas() {
     const diasOcupados = new Set();
 
     if (import.meta.env.DEV) {
-      console.log("📅 Procesando eventos para días ocupados:", eventos.length, "eventos");
+      console.log(
+        "📅 Procesando eventos para días ocupados:",
+        eventos.length,
+        "eventos",
+      );
     }
 
     eventos.forEach((evento) => {
@@ -208,11 +214,11 @@ export default function Reservas() {
       const [añoFin, mesFin, diaFin] = finStr.split("-").map(Number);
       const fechaInicio = new Date(añoInicio, mesInicio - 1, diaInicio);
       const fechaFin = new Date(añoFin, mesFin - 1, diaFin);
-      
+
       // Normalizar fechas a medianoche para comparación correcta
       fechaInicio.setHours(0, 0, 0, 0);
       fechaFin.setHours(0, 0, 0, 0);
-      
+
       const fechaActual = new Date(fechaInicio);
 
       // Para eventos de todo el día, end.date es exclusivo y representa el día de checkout
@@ -223,24 +229,26 @@ export default function Reservas() {
       // - Hay tiempo suficiente para limpieza/preparación
       // Entonces marcamos desde inicio hasta el día ANTERIOR al checkout (exclusivo)
       const diasMarcados = [];
-      
+
       // Comparar fechas usando timestamps para evitar problemas de zona horaria
       const timestampInicio = fechaInicio.getTime();
       const timestampFin = fechaFin.getTime();
-      
+
       if (timestampInicio >= timestampFin) {
         if (import.meta.env.DEV) {
-          console.warn(`⚠️ Fecha de inicio (${inicioStr}) >= fecha de fin (${finStr}), saltando evento`);
+          console.warn(
+            `⚠️ Fecha de inicio (${inicioStr}) >= fecha de fin (${finStr}), saltando evento`,
+          );
         }
         return; // Saltar eventos inválidos
       }
-      
+
       while (fechaActual.getTime() < timestampFin) {
         const año = fechaActual.getFullYear();
         const mes = fechaActual.getMonth() + 1;
         const dia = fechaActual.getDate();
         const fechaStr = `${año}-${String(mes).padStart(2, "0")}-${String(
-          dia
+          dia,
         ).padStart(2, "0")}`;
 
         // Para eventos de todo el día, NO marcamos el día de checkout como ocupado
@@ -250,16 +258,16 @@ export default function Reservas() {
 
         fechaActual.setDate(fechaActual.getDate() + 1);
       }
-      
+
       // Para eventos con hora específica, aplicamos la lógica de hora
       if (!esTodoElDia) {
         const año = fechaFin.getFullYear();
         const mes = fechaFin.getMonth() + 1;
         const dia = fechaFin.getDate();
         const fechaStr = `${año}-${String(mes).padStart(2, "0")}-${String(
-          dia
+          dia,
         ).padStart(2, "0")}`;
-        
+
         // Solo marcamos el día de checkout como ocupado si el checkout es después de las 10:00
         // (porque si es a las 10:00 o antes, el nuevo check-in puede ser a las 14:00)
         if (horaFin > 10) {
@@ -269,13 +277,18 @@ export default function Reservas() {
       }
 
       if (import.meta.env.DEV) {
-        console.log(`📅 Reserva: ${inicioStr} → ${finStr} (${esTodoElDia ? "todo el día" : "con hora"})`, 
-          `Días ocupados: ${diasMarcados.join(", ")}`);
+        console.log(
+          `📅 Reserva: ${inicioStr} → ${finStr} (${esTodoElDia ? "todo el día" : "con hora"})`,
+          `Días ocupados: ${diasMarcados.join(", ")}`,
+        );
       }
     });
 
     if (import.meta.env.DEV) {
-      console.log("📅 Total días ocupados:", Array.from(diasOcupados).sort().join(", "));
+      console.log(
+        "📅 Total días ocupados:",
+        Array.from(diasOcupados).sort().join(", "),
+      );
     }
 
     return diasOcupados;
@@ -343,7 +356,7 @@ export default function Reservas() {
             const mes = fechaActual.getMonth() + 1;
             const dia = fechaActual.getDate();
             const fechaCheck = `${año}-${String(mes).padStart(2, "0")}-${String(
-              dia
+              dia,
             ).padStart(2, "0")}`;
 
             if (
@@ -391,7 +404,7 @@ export default function Reservas() {
       obtenerDiasOcupados,
       calcularNoches,
       limpiarFechas,
-    ]
+    ],
   );
 
   const obtenerEstadoDia = useCallback(
@@ -420,7 +433,7 @@ export default function Reservas() {
 
       return "disponible";
     },
-    [fechaInicio, fechaFin, fechasOcupadas, fechaMaxima, obtenerDiasOcupados]
+    [fechaInicio, fechaFin, fechasOcupadas, fechaMaxima, obtenerDiasOcupados],
   );
 
   const navegarMes = useCallback(
@@ -448,7 +461,7 @@ export default function Reservas() {
       setMesCalendario(nuevoMes);
       setAñoCalendario(nuevoAño);
     },
-    [añoCalendario, mesCalendario, fechaMaxima]
+    [añoCalendario, mesCalendario, fechaMaxima],
   );
 
   const renderizarCalendarioMes = useCallback(
@@ -484,7 +497,7 @@ export default function Reservas() {
       const hoyStr = obtenerFechaHoy();
       for (let dia = 1; dia <= diasEnMes; dia++) {
         const fechaStr = `${año}-${String(mes + 1).padStart(2, "0")}-${String(
-          dia
+          dia,
         ).padStart(2, "0")}`;
         const estado = obtenerEstadoDia(fechaStr);
         const ocupado = diasOcupados.has(fechaStr);
@@ -555,23 +568,23 @@ export default function Reservas() {
                     esSeleccionado
                       ? "seleccionado"
                       : item.clickeable
-                      ? "disponible"
-                      : "no-disponible"
+                        ? "disponible"
+                        : "no-disponible"
                   } ${item.clickeable ? "clickeable" : ""}`}
                   title={
                     item.ocupado
                       ? "Ocupado"
                       : item.esPasado
-                      ? "Fecha pasada"
-                      : item.excedeMaximo
-                      ? "Fecha no disponible"
-                      : item.estado === "seleccionado-inicio"
-                      ? "Fecha de ingreso"
-                      : item.estado === "seleccionado-fin"
-                      ? "Fecha de salida"
-                      : item.estado === "seleccionado-rango"
-                      ? "Rango seleccionado"
-                      : "Disponible - Click para seleccionar"
+                        ? "Fecha pasada"
+                        : item.excedeMaximo
+                          ? "Fecha no disponible"
+                          : item.estado === "seleccionado-inicio"
+                            ? "Fecha de ingreso"
+                            : item.estado === "seleccionado-fin"
+                              ? "Fecha de salida"
+                              : item.estado === "seleccionado-rango"
+                                ? "Rango seleccionado"
+                                : "Disponible - Click para seleccionar"
                   }
                   onClick={() =>
                     item.clickeable && handleClickDia(item.fechaStr)
@@ -592,7 +605,7 @@ export default function Reservas() {
       obtenerDiasOcupados,
       handleClickDia,
       navegarMes,
-    ]
+    ],
   );
 
   const obtenerMesSiguiente = useCallback(() => {
@@ -605,7 +618,7 @@ export default function Reservas() {
 
   const nochesReales = useMemo(
     () => calcularNoches(fechaInicio, fechaFin),
-    [fechaInicio, fechaFin, calcularNoches]
+    [fechaInicio, fechaFin, calcularNoches],
   );
   const nochesInvalidas =
     nochesReales > 0 && nochesReales < condiciones.minimoNoches;
@@ -619,15 +632,15 @@ export default function Reservas() {
             false,
             medioPago,
             huespedes,
-            cabanaSeleccionada
+            cabanaSeleccionada,
           )
         : null,
-    [fechaInicio, fechaFin, medioPago, huespedes, cabanaSeleccionada]
+    [fechaInicio, fechaFin, medioPago, huespedes, cabanaSeleccionada],
   );
 
   const pagos = useMemo(
     () => (calculo ? calcularPagos(calculo.total) : null),
-    [calculo]
+    [calculo],
   );
 
   const cargarFechasOcupadas = useCallback(() => {
@@ -658,19 +671,24 @@ export default function Reservas() {
       const eventosEstaCabana = eventos.filter((ev) => {
         const nombreEvento = ev.summary || "";
         const cabanasDetectadas = detectarCabanasDesdeNombre(nombreEvento);
-        
+
         // Verificar si la cabaña seleccionada está en la lista de cabañas detectadas
-        const incluyeCabanaSeleccionada = cabanasDetectadas.includes(cabanaSeleccionada);
-        
+        const incluyeCabanaSeleccionada =
+          cabanasDetectadas.includes(cabanaSeleccionada);
+
         if (import.meta.env.DEV) {
-          console.log(`📅 Evento: "${nombreEvento}" → Cabañas detectadas: [${cabanasDetectadas.join(", ")}] (Buscando: ${cabanaSeleccionada}) → ${incluyeCabanaSeleccionada ? "✅ INCLUIDO" : "❌ EXCLUIDO"}`);
+          console.log(
+            `📅 Evento: "${nombreEvento}" → Cabañas detectadas: [${cabanasDetectadas.join(", ")}] (Buscando: ${cabanaSeleccionada}) → ${incluyeCabanaSeleccionada ? "✅ INCLUIDO" : "❌ EXCLUIDO"}`,
+          );
         }
-        
+
         return incluyeCabanaSeleccionada;
       });
 
       if (import.meta.env.DEV) {
-        console.log(`📅 Eventos para ${cabanaSeleccionada}: ${eventosEstaCabana.length}`);
+        console.log(
+          `📅 Eventos para ${cabanaSeleccionada}: ${eventosEstaCabana.length}`,
+        );
       }
 
       const fechasFormateadas = eventosEstaCabana.map((ev) => {
@@ -692,14 +710,18 @@ export default function Reservas() {
         }
 
         if (import.meta.env.DEV) {
-          console.log(`📅 Reserva procesada: ${inicio} → ${fin} (${esTodoElDia ? "todo el día" : "con hora"}) - "${ev.summary}"`);
+          console.log(
+            `📅 Reserva procesada: ${inicio} → ${fin} (${esTodoElDia ? "todo el día" : "con hora"}) - "${ev.summary}"`,
+          );
         }
 
         return { inicio, fin, esTodoElDia };
       });
 
       if (import.meta.env.DEV) {
-        console.log(`📅 Total reservas formateadas: ${fechasFormateadas.length}`);
+        console.log(
+          `📅 Total reservas formateadas: ${fechasFormateadas.length}`,
+        );
       }
 
       setFechasOcupadas(fechasFormateadas);
@@ -710,14 +732,16 @@ export default function Reservas() {
     const calendarIdEncoded = encodeURIComponent(CALENDAR_ID);
     const timeMin = new Date().toISOString();
     const timeMax = new Date(
-      new Date().setFullYear(new Date().getFullYear() + 1)
+      new Date().setFullYear(new Date().getFullYear() + 1),
     ).toISOString();
 
     // MÉTODO 1: Intentar primero con fetch directo (solo API_KEY) - funciona para calendarios públicos
     const url = `https://www.googleapis.com/calendar/v3/calendars/${calendarIdEncoded}/events?key=${API_KEY}&timeMin=${encodeURIComponent(timeMin)}&timeMax=${encodeURIComponent(timeMax)}&singleEvents=true&orderBy=startTime`;
 
     if (import.meta.env.DEV) {
-      console.log("📅 Intentando cargar calendario con API_KEY (método directo)...");
+      console.log(
+        "📅 Intentando cargar calendario con API_KEY (método directo)...",
+      );
     }
 
     fetch(url)
@@ -732,13 +756,20 @@ export default function Reservas() {
         const eventos = data.items || [];
         procesarEventos(eventos);
         if (import.meta.env.DEV) {
-          console.log("✅ Calendario cargado con API_KEY (calendario público)", eventos.length, "eventos encontrados");
+          console.log(
+            "✅ Calendario cargado con API_KEY (calendario público)",
+            eventos.length,
+            "eventos encontrados",
+          );
         }
       })
       .catch((error) => {
         // Si falla el fetch directo, intentar con OAuth2 (para calendarios privados)
         if (import.meta.env.DEV) {
-          console.log("⚠️ Método directo falló, intentando con OAuth2...", error.message);
+          console.log(
+            "⚠️ Método directo falló, intentando con OAuth2...",
+            error.message,
+          );
         }
 
         if (!CLIENT_ID) {
@@ -746,7 +777,9 @@ export default function Reservas() {
           setFechasOcupadas([]);
           setCargandoFechasOcupadas(false);
           if (import.meta.env.DEV) {
-            console.error("❌ No se puede acceder al calendario: requiere CLIENT_ID para OAuth2");
+            console.error(
+              "❌ No se puede acceder al calendario: requiere CLIENT_ID para OAuth2",
+            );
           }
           return;
         }
@@ -773,20 +806,27 @@ export default function Reservas() {
                 showDeleted: false,
                 singleEvents: true,
                 orderBy: "startTime",
-              })
+              }),
             )
             .then((response) => {
               const eventos = response.result.items || [];
               procesarEventos(eventos);
               if (import.meta.env.DEV) {
-                console.log("✅ Calendario cargado con OAuth2 (calendario privado)", eventos.length, "eventos encontrados");
+                console.log(
+                  "✅ Calendario cargado con OAuth2 (calendario privado)",
+                  eventos.length,
+                  "eventos encontrados",
+                );
               }
             })
             .catch((oauthError) => {
               setFechasOcupadas([]);
               setCargandoFechasOcupadas(false);
               if (import.meta.env.DEV) {
-                console.error("❌ Error al cargar calendario con OAuth2:", oauthError);
+                console.error(
+                  "❌ Error al cargar calendario con OAuth2:",
+                  oauthError,
+                );
               }
             });
         };
@@ -817,7 +857,7 @@ export default function Reservas() {
       const mes = fechaActual.getMonth() + 1;
       const dia = fechaActual.getDate();
       const fechaCheck = `${año}-${String(mes).padStart(2, "0")}-${String(
-        dia
+        dia,
       ).padStart(2, "0")}`;
 
       if (diasOcupados.has(fechaCheck)) {
@@ -859,20 +899,29 @@ export default function Reservas() {
       let delayOcultar = null;
 
       // Mostrar la alerta después de 3-5 segundos
-      const delayMostrar = setTimeout(() => {
-        setMostrarAlertaUrgencia(true);
+      const delayMostrar = setTimeout(
+        () => {
+          setMostrarAlertaUrgencia(true);
 
-        // Cambiar el número cada 3-5 segundos mientras está visible
-        intervalo = setInterval(() => {
-          setPersonasMirando(Math.floor(Math.random() * 3) + 1);
-        }, Math.floor(Math.random() * 2000) + 3000);
+          // Cambiar el número cada 3-5 segundos mientras está visible
+          intervalo = setInterval(
+            () => {
+              setPersonasMirando(Math.floor(Math.random() * 3) + 1);
+            },
+            Math.floor(Math.random() * 2000) + 3000,
+          );
 
-        // Ocultar la alerta después de 8-10 segundos de mostrarla
-        delayOcultar = setTimeout(() => {
-          setMostrarAlertaUrgencia(false);
-          if (intervalo) clearInterval(intervalo);
-        }, Math.floor(Math.random() * 2000) + 8000); // Entre 8 y 10 segundos
-      }, Math.floor(Math.random() * 2000) + 3000); // Entre 3 y 5 segundos
+          // Ocultar la alerta después de 8-10 segundos de mostrarla
+          delayOcultar = setTimeout(
+            () => {
+              setMostrarAlertaUrgencia(false);
+              if (intervalo) clearInterval(intervalo);
+            },
+            Math.floor(Math.random() * 2000) + 8000,
+          ); // Entre 8 y 10 segundos
+        },
+        Math.floor(Math.random() * 2000) + 3000,
+      ); // Entre 3 y 5 segundos
 
       return () => {
         clearTimeout(delayMostrar);
@@ -911,7 +960,7 @@ export default function Reservas() {
 
   const generarMensajeWhatsApp = () => {
     const cabanaNombre = cabanas.find(
-      (c) => c.id === cabanaSeleccionada
+      (c) => c.id === cabanaSeleccionada,
     )?.nombre;
     const medioPagoNombre = mediosPago.find((m) => m.id === medioPago)?.nombre;
 
@@ -928,7 +977,7 @@ export default function Reservas() {
     mensaje += `📋 *Datos de la Reserva:*\n`;
     mensaje += `• Cabaña: ${cabanaNombre}\n`;
     mensaje += `• Fechas: ${formatearFecha(fechaInicio)} al ${formatearFecha(
-      fechaFin
+      fechaFin,
     )}\n`;
     mensaje += `• Huéspedes: ${huespedes}\n`;
     mensaje += `• Noches: ${calculo?.noches || 0}\n\n`;
@@ -941,10 +990,10 @@ export default function Reservas() {
       mensaje += `💰 *Montos:*\n`;
       mensaje += `• Total: $${pagos.total.toLocaleString("es-AR")}\n`;
       mensaje += `• Seña (30%): $${pagos.reserva.toLocaleString(
-        "es-AR"
+        "es-AR",
       )} ← *Para confirmar*\n`;
       mensaje += `• Saldo (70%): $${pagos.saldo.toLocaleString(
-        "es-AR"
+        "es-AR",
       )} ← *Al ingresar*\n\n`;
     }
 
@@ -962,7 +1011,7 @@ export default function Reservas() {
     const mensaje = generarMensajeWhatsApp();
     const phoneNumber = "5492945405471";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      mensaje
+      mensaje,
     )}`;
     window.open(whatsappUrl, "_blank");
     setTimeout(() => navigate("/"), 500);
@@ -1052,7 +1101,7 @@ export default function Reservas() {
                     {renderizarCalendarioMes(
                       obtenerMesSiguiente().año,
                       obtenerMesSiguiente().mes,
-                      false
+                      false,
                     )}
                   </div>
                 </div>
@@ -1095,7 +1144,7 @@ export default function Reservas() {
                     const valor = parseInt(e.target.value) || 1;
                     const valorLimitado = Math.min(
                       Math.max(1, valor),
-                      capacidadMaxima
+                      capacidadMaxima,
                     );
                     setHuespedes(valorLimitado);
                   }}
@@ -1112,8 +1161,9 @@ export default function Reservas() {
               <div className="reservas-resumen">
                 <div className="resumen-item">
                   <span>
-                    {calculo.noches} {calculo.noches === 1 ? "noche" : "noches"} × $
-                    {calculo.precioPorNoche.toLocaleString("es-AR")} <small>(tarifa por noche)</small>
+                    {calculo.noches} {calculo.noches === 1 ? "noche" : "noches"}{" "}
+                    × ${calculo.precioPorNoche.toLocaleString("es-AR")}{" "}
+                    <small>(tarifa por noche)</small>
                   </span>
                   <span>${calculo.subtotal.toLocaleString("es-AR")}</span>
                 </div>
@@ -1361,8 +1411,8 @@ export default function Reservas() {
               {mensajeDisponibilidad.tipo === "loading"
                 ? "⏳"
                 : mensajeDisponibilidad.tipo === "error"
-                ? "❌"
-                : "✅"}
+                  ? "❌"
+                  : "✅"}
             </div>
             <h3 className="modal-titulo">{mensajeDisponibilidad.titulo}</h3>
             <p className="modal-mensaje">{mensajeDisponibilidad.mensaje}</p>
